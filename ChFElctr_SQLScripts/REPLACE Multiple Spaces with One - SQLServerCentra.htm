@@ -1,0 +1,991 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:og="http://opengraph.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns="http://www.w3.org/1999/xhtml"><head><script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/count" async="true" type="text/javascript"></script><script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/count" async="true" type="text/javascript"></script><link href="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/buttons3.css" type="text/css" rel="stylesheet">
+
+
+
+
+    
+  
+    <title>REPLACE Multiple Spaces with One - SQLServerCentral</title>
+
+
+<meta name="Keywords" content="Microsoft SQL Server, SQL Server, SQL Server 2000, Yukon, SQL Server 7.0, SQL Server DBA">
+<meta name="Description" content="Free Microsoft SQL Server articles, news, forums, scripts and FAQs.">
+<meta name="Robots" content="NOARCHIVE">
+<meta name="GOOGLEBOT" content="NOARCHIVE">
+<meta name="MS.LOCALE" content="en-US">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/Public.css">
+<!--[if lt IE 6]><link rel="stylesheet" href="/Resources/Public-IE55orbelow.css" /><![endif]-->
+<!--[if lt IE 7]><link rel="stylesheet" href="/Resources/Public-IE6orbelow.css" /><![endif]-->
+<!--[if gt IE 6]><style type="text/css">.code, pre { overflow-x:scroll; overflow-y:visible; }</style><![endif]-->
+	<script type="text/javascript" async="" src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/quant.js"></script><script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/ga.js" async="" type="text/javascript"></script><script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/WideImageHandler.js" language="javascript"></script>
+	<script type="text/javascript" src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/jquery-1.js"></script>
+<script type="text/javascript" src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/jquery_002.js"></script>
+<script type="text/javascript" src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/jquery.js"></script>
+
+<link type="text/css" href="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/prettify.css" rel="stylesheet">
+<script type="text/javascript" src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/prettify.js"></script>
+<script type="text/javascript" src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/lang-sql.js"></script>
+<script type="text/javascript" src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/lang-vb.js"></script>
+<script type="text/javascript">
+  $(function() {
+    prettyPrint();
+  });
+</script>
+
+	<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/jquery_003.js"></script>
+	<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/ssc.js"></script>
+	<link rel="SHORTCUT ICON" href="http://www.sqlservercentral.com/favicon.ico">
+<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/nonSecureAnonymousFramework"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_reset{background:none;border-spacing:0;border:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_link img{border:none}
+.fb_dialog{position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{background:rgba(82, 82, 82, .7);padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/zL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/zL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/zL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ze/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ze/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ze/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ze/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/z9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:right}
+.fb_iframe_widget{position:relative;display:-moz-inline-block;display:inline-block}
+.fb_iframe_widget iframe{position:relative;vertical-align:text-bottom}
+.fb_iframe_widget span{position:relative}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/z9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_button_simple,
+.fb_button_simple_rtl{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/zH/r/eIpbnVKI9lR.png);background-repeat:no-repeat;cursor:pointer;outline:none;text-decoration:none}
+.fb_button_simple_rtl{background-position:right 0}
+.fb_button_simple .fb_button_text{margin:0 0 0 20px;padding-bottom:1px}
+.fb_button_simple_rtl .fb_button_text{margin:0 10px 0 0}
+a.fb_button_simple:hover .fb_button_text,
+a.fb_button_simple_rtl:hover .fb_button_text,
+.fb_button_simple:hover .fb_button_text,
+.fb_button_simple_rtl:hover .fb_button_text{text-decoration:underline}
+.fb_button,
+.fb_button_rtl{background:#29447e url(http://static.ak.fbcdn.net/rsrc.php/v1/zL/r/FGFbc80dUKj.png);background-repeat:no-repeat;cursor:pointer;display:inline-block;padding:0 0 0 1px;text-decoration:none;outline:none}
+.fb_button .fb_button_text,
+.fb_button_rtl .fb_button_text{background:#5f78ab url(http://static.ak.fbcdn.net/rsrc.php/v1/zL/r/FGFbc80dUKj.png);border-top:solid 1px #879ac0;border-bottom:solid 1px #1a356e;color:#fff;display:block;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-weight:bold;padding:2px 6px 3px 6px;margin:1px 1px 0 21px;text-shadow:none}
+a.fb_button,
+a.fb_button_rtl,
+.fb_button,
+.fb_button_rtl{text-decoration:none}
+a.fb_button:active .fb_button_text,
+a.fb_button_rtl:active .fb_button_text,
+.fb_button:active .fb_button_text,
+.fb_button_rtl:active .fb_button_text{border-bottom:solid 1px #29447e;border-top:solid 1px #45619d;background:#4f6aa3;text-shadow:none}
+.fb_button_xlarge,
+.fb_button_xlarge_rtl{background-position:left -60px;font-size:24px;line-height:30px}
+.fb_button_xlarge .fb_button_text{padding:3px 8px 3px 12px;margin-left:38px}
+a.fb_button_xlarge:active{background-position:left -99px}
+.fb_button_xlarge_rtl{background-position:right -268px}
+.fb_button_xlarge_rtl .fb_button_text{padding:3px 8px 3px 12px;margin-right:39px}
+a.fb_button_xlarge_rtl:active{background-position:right -307px}
+.fb_button_large,
+.fb_button_large_rtl{background-position:left -138px;font-size:13px;line-height:16px}
+.fb_button_large .fb_button_text{margin-left:24px;padding:2px 6px 4px 6px}
+a.fb_button_large:active{background-position:left -163px}
+.fb_button_large_rtl{background-position:right -346px}
+.fb_button_large_rtl .fb_button_text{margin-right:25px}
+a.fb_button_large_rtl:active{background-position:right -371px}
+.fb_button_medium,
+.fb_button_medium_rtl{background-position:left -188px;font-size:11px;line-height:14px}
+a.fb_button_medium:active{background-position:left -210px}
+.fb_button_medium_rtl{background-position:right -396px}
+.fb_button_text_rtl,
+.fb_button_medium_rtl .fb_button_text{padding:2px 6px 3px 6px;margin-right:22px}
+a.fb_button_medium_rtl:active{background-position:right -418px}
+.fb_button_small,
+.fb_button_small_rtl{background-position:left -232px;font-size:10px;line-height:10px}
+.fb_button_small .fb_button_text{padding:2px 6px 3px;margin-left:17px}
+a.fb_button_small:active,
+.fb_button_small:active{background-position:left -250px}
+.fb_button_small_rtl{background-position:right -440px}
+.fb_button_small_rtl .fb_button_text{padding:2px 6px;margin-right:18px}
+a.fb_button_small_rtl:active{background-position:right -458px}
+.fb_share_count_wrapper{position:relative;float:left}
+.fb_share_count{background:#b0b9ec none repeat scroll 0 0;color:#333;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;text-align:center}
+.fb_share_count_inner{background:#e8ebf2;display:block}
+.fb_share_count_right{margin-left:-1px;display:inline-block}
+.fb_share_count_right .fb_share_count_inner{border-top:solid 1px #e8ebf2;border-bottom:solid 1px #b0b9ec;margin:1px 1px 0 1px;font-size:10px;line-height:10px;padding:2px 6px 3px;font-weight:bold}
+.fb_share_count_top{display:block;letter-spacing:-1px;line-height:34px;margin-bottom:7px;font-size:22px;border:solid 1px #b0b9ec}
+.fb_share_count_nub_top{border:none;display:block;position:absolute;left:7px;top:35px;margin:0;padding:0;width:6px;height:7px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/zU/r/bSOHtKbCGYI.png)}
+.fb_share_count_nub_right{border:none;display:inline-block;padding:0;width:5px;height:10px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/zX/r/i_oIVTKMYsL.png);vertical-align:top;background-position:right 5px;z-index:10;left:2px;margin:0 2px 0 0;position:relative}
+.fb_share_no_count{display:none}
+.fb_share_size_Small .fb_share_count_right .fb_share_count_inner{font-size:10px}
+.fb_share_size_Medium .fb_share_count_right .fb_share_count_inner{font-size:11px;padding:2px 6px 3px;letter-spacing:-1px;line-height:14px}
+.fb_share_size_Large .fb_share_count_right .fb_share_count_inner{font-size:13px;line-height:16px;padding:2px 6px 4px;font-weight:normal;letter-spacing:-1px}
+.fb_share_count_hidden .fb_share_count_nub_top,
+.fb_share_count_hidden .fb_share_count_top,
+.fb_share_count_hidden .fb_share_count_nub_right,
+.fb_share_count_hidden .fb_share_count_right{visibility:hidden}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr{left:-4px}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_rtl{left:2px}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{left:0}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:10%}
+#fb_social_bar_container{position:fixed;left:0;right:0;height:34px;padding:0 25px;z-index:999999999}
+.fb_social_bar_iframe{position:relative;float:right;opacity:0;-moz-opacity:0;filter:alpha(opacity=0)}
+.fb_social_bar_iframe_bottom_ie6{bottom:auto;top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)))}
+.fb_social_bar_iframe_top_ie6{bottom:auto;top:expression(eval(document.documentElement.scrollTop-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)))}
+</style><style type="text/css">#li_ui_li_gen_1302614815123_0 {position:relative !important;overflow:visible !important;display:block !important;}#li_ui_li_gen_1302614815123_0 #li_ui_li_gen_1302614815123_0-link {border:0 !important;height:18px !important;text-decoration:none !important;padding:0 !important;margin:0 !important;display:inline-block !important;}#li_ui_li_gen_1302614815123_0 a#li_ui_li_gen_1302614815123_0-link:link, #li_ui_li_gen_1302614815123_0 a#li_ui_li_gen_1302614815123_0-link:visited, #li_ui_li_gen_1302614815123_0 a#li_ui_li_gen_1302614815123_0-link:hover, #li_ui_li_gen_1302614815123_0 a#li_ui_li_gen_1302614815123_0-link:active {border:0 !important;text-decoration:none !important;}* html #li_ui_li_gen_1302614815123_0-link {height:1% !important;}#li_ui_li_gen_1302614815123_0 #li_ui_li_gen_1302614815123_0-link:after {content:"." !important;display:block !important;clear:both !important;visibility:hidden !important;line-height:0 !important;height:0 !important;}#li_ui_li_gen_1302614815123_0 #li_ui_li_gen_1302614815123_0-logo {background:url(http://static01.linkedin.com/scds/common/u/img/sprite/sprite_connect_v9.png) 0px 0px no-repeat !important;cursor:pointer !important;border:0 !important;text-indent:-9999em !important;overflow:hidden !important;padding:0 !important;margin:0 !important;z-index:1 !important;position:absolute !important;left:0px !important;top:0px !important;display:block !important;width:18px !important;height:18px !important;float:left !important;}#li_ui_li_gen_1302614815123_0.hovered #li_ui_li_gen_1302614815123_0-logo {background-position:-30px -40px !important;}#li_ui_li_gen_1302614815123_0.clicked #li_ui_li_gen_1302614815123_0-logo, #li_ui_li_gen_1302614815123_0.down #li_ui_li_gen_1302614815123_0-logo {background-position:-50px -40px !important;}#li_ui_li_gen_1302614815123_0 #li_ui_li_gen_1302614815123_0-title {font-size:10px !important;font-family:Arial, sans-serif !important;font-weight:bold !important;color:#333 !important;cursor:pointer !important;display:block !important;float:left !important;margin-left:1px !important;height:16px !important;padding:0 4px 0 22px !important;border:1px solid #000 !important;border-top-color:#E2E2E2 !important;border-right-color:#BFBFBF !important;border-bottom-color:#B9B9B9 !important;text-shadow:#FFFFFF -1px 1px 0 !important;border-left:0 !important;line-height:18px !important;border-radius:0 !important;-moz-border-radius:0 !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-moz-border-radius-topright:2px !important;-moz-border-radius-bottomright:2px !important;background-color:#ECECEC !important;background-image:-moz-linear-gradient(top,  #FEFEFE,  #ECECEC) !important;}#li_ui_li_gen_1302614815123_0.hovered #li_ui_li_gen_1302614815123_0-title {color:#000 !important;border:1px solid #000 !important;border-top-color:#ABABAB !important;border-right-color:#9A9A9A !important;border-bottom-color:#787878 !important;border-left-color:#04568B !important;border-left:0 !important;background-color:#DEDEDE !important;background-image:-moz-linear-gradient(top,  #EDEDED,  #DEDEDE) !important;}#li_ui_li_gen_1302614815123_0.clicked #li_ui_li_gen_1302614815123_0-title, #li_ui_li_gen_1302614815123_0.down #li_ui_li_gen_1302614815123_0-title {color:#666 !important;border:1px solid #000 !important;border-top-color:#B6B6B6 !important;border-right-color:#B3B3B3 !important;border-bottom-color:#9D9D9D !important;border-left-color:#49627B !important;border-left:0 !important;background-color:#DEDEDE !important;background-image:-moz-linear-gradient(top,  #E3E3E3,  #EDEDED) !important;}#li_ui_li_gen_1302614815130_1 {position:relative !important;overflow:visible !important;display:block !important;}#li_ui_li_gen_1302614815130_1 #li_ui_li_gen_1302614815130_1-link {border:0 !important;height:18px !important;text-decoration:none !important;padding:0 !important;margin:0 !important;display:inline-block !important;}#li_ui_li_gen_1302614815130_1 a#li_ui_li_gen_1302614815130_1-link:link, #li_ui_li_gen_1302614815130_1 a#li_ui_li_gen_1302614815130_1-link:visited, #li_ui_li_gen_1302614815130_1 a#li_ui_li_gen_1302614815130_1-link:hover, #li_ui_li_gen_1302614815130_1 a#li_ui_li_gen_1302614815130_1-link:active {border:0 !important;text-decoration:none !important;}* html #li_ui_li_gen_1302614815130_1-link {height:1% !important;}#li_ui_li_gen_1302614815130_1 #li_ui_li_gen_1302614815130_1-link:after {content:"." !important;display:block !important;clear:both !important;visibility:hidden !important;line-height:0 !important;height:0 !important;}#li_ui_li_gen_1302614815130_1 #li_ui_li_gen_1302614815130_1-logo {background:url(http://static01.linkedin.com/scds/common/u/img/sprite/sprite_connect_v9.png) 0px 0px no-repeat !important;cursor:pointer !important;border:0 !important;text-indent:-9999em !important;overflow:hidden !important;padding:0 !important;margin:0 !important;z-index:1 !important;position:absolute !important;left:0px !important;top:0px !important;display:block !important;width:18px !important;height:18px !important;float:left !important;}#li_ui_li_gen_1302614815130_1.hovered #li_ui_li_gen_1302614815130_1-logo {background-position:-30px -40px !important;}#li_ui_li_gen_1302614815130_1.clicked #li_ui_li_gen_1302614815130_1-logo, #li_ui_li_gen_1302614815130_1.down #li_ui_li_gen_1302614815130_1-logo {background-position:-50px -40px !important;}#li_ui_li_gen_1302614815130_1 #li_ui_li_gen_1302614815130_1-title {font-size:10px !important;font-family:Arial, sans-serif !important;font-weight:bold !important;color:#333 !important;cursor:pointer !important;display:block !important;float:left !important;margin-left:1px !important;height:16px !important;padding:0 4px 0 22px !important;border:1px solid #000 !important;border-top-color:#E2E2E2 !important;border-right-color:#BFBFBF !important;border-bottom-color:#B9B9B9 !important;text-shadow:#FFFFFF -1px 1px 0 !important;border-left:0 !important;line-height:18px !important;border-radius:0 !important;-moz-border-radius:0 !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-moz-border-radius-topright:2px !important;-moz-border-radius-bottomright:2px !important;background-color:#ECECEC !important;background-image:-moz-linear-gradient(top,  #FEFEFE,  #ECECEC) !important;}#li_ui_li_gen_1302614815130_1.hovered #li_ui_li_gen_1302614815130_1-title {color:#000 !important;border:1px solid #000 !important;border-top-color:#ABABAB !important;border-right-color:#9A9A9A !important;border-bottom-color:#787878 !important;border-left-color:#04568B !important;border-left:0 !important;background-color:#DEDEDE !important;background-image:-moz-linear-gradient(top,  #EDEDED,  #DEDEDE) !important;}#li_ui_li_gen_1302614815130_1.clicked #li_ui_li_gen_1302614815130_1-title, #li_ui_li_gen_1302614815130_1.down #li_ui_li_gen_1302614815130_1-title {color:#666 !important;border:1px solid #000 !important;border-top-color:#B6B6B6 !important;border-right-color:#B3B3B3 !important;border-bottom-color:#9D9D9D !important;border-left-color:#49627B !important;border-left:0 !important;background-color:#DEDEDE !important;background-image:-moz-linear-gradient(top,  #E3E3E3,  #EDEDED) !important;}</style></head><body onload="WideImageHandler.AddSupportForWideImages()"><div style="display: none;" id="cboxOverlay"></div><div class="" style="padding-bottom: 0px; padding-right: 0px; display: none;" id="colorbox"><div style="" id="cboxWrapper"><div style="" id="false"><div style="float: left;" id="cboxTopLeft"></div><div style="float: left;" id="cboxTopCenter"></div><div style="float: left;" id="cboxTopRight"></div></div><div style="clear: left;" id="false"><div style="float: left;" id="cboxMiddleLeft"></div><div style="float: left;" id="cboxContent"><div class="" style="width: 0pt; height: 0pt; overflow: hidden;" id="cboxLoadedContent"></div><div class="" style="" id="cboxLoadingOverlay"></div><div class="" style="" id="cboxLoadingGraphic"></div><div class="" style="" id="cboxTitle"></div><div class="" style="" id="cboxCurrent"></div><div class="" style="" id="cboxNext"></div><div class="" style="" id="cboxPrevious"></div><div class="" style="" id="cboxSlideshow"></div><div class="" style="" id="cboxClose"></div></div><div style="float: left;" id="cboxMiddleRight"></div></div><div style="clear: left;" id="false"><div style="float: left;" id="cboxBottomLeft"></div><div style="float: left;" id="cboxBottomCenter"></div><div style="float: left;" id="cboxBottomRight"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;" id="false"></div></div>
+<!-- The SiteTemplate comments are very important! used by the forums to delimit the content template -->
+<!--SiteTemplateBegins-->
+  <!-- Start of Google Analytics Code -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-90206-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- End of Google Analytics Code -->
+
+	<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/global.js"></script> <!-- Script needed in forums too -->
+	<table class="MainLayoutContainer" border="0" cellpadding="0" cellspacing="0" width="100%">
+		
+<tbody><tr>
+	<td colspan="2">
+		<table class="SiteTitleBar" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td align="left" valign="bottom"><a href="http://www.sqlservercentral.com/"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/sqlservercentral_logo.gif" alt="SQLServerCentral logo" class="SiteLogo"></a></td>
+				<td align="center" valign="middle" height="75">
+					<!-- AdSpeed.com Serving Code 7.9.5 for [Zone] SSCtop 468x60 -->
+
+<script type="text/javascript">var a=new Date();d=document;n=navigator;s=screen;var q='&tz='+a.getTimezoneOffset()/60 +'&ck='+(n.cookieEnabled?'Y':'N') +'&jv='+(n.javaEnabled()?'Y':'N') +'&scr='+s.width+'x'+s.height+'x'+s.colorDepth +'&z='+Math.random() +'&ref='+escape(d.referrer.substr(0,255)) +'&uri='+escape(d.URL.substr(0,255));document.write('<ifr'+'ame width="468" height="60" src="http://g.adspeed.net/ad.php?do=html&zid=15220&wd=468&ht=60&target=_blank'+q+'" frameborder="0" scrolling="no" allowtransparency="true" hspace="0" vspace="0"></ifr'+'ame>');</script><iframe src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/ad.gif" allowtransparency="true" hspace="0" vspace="0" width="468" frameborder="0" height="60" scrolling="no"></iframe>
+<noscript><iframe width="468" height="60" src="http://g.adspeed.net/ad.php?do=html&zid=15220&wd=468&ht=60&target=_blank" frameborder="0" scrolling="no" allowtransparency="true" hspace="0" vspace="0"><a href="http://g.adspeed.net/ad.php?do=clk&zid=15220&wd=468&ht=60&pair=as" target="_blank"><img style="border:0px;" src="http://g.adspeed.net/ad.php?do=img&zid=15220&wd=468&ht=60&pair=as" alt="i" width="468" height="60"/></a></iframe>
+
+</noscript><!-- AdSpeed.com End -->
+				</td>
+				<td align="right" valign="bottom"><a href="http://www.red-gate.com/about/welcomesscvisitors.htm?utm_source=ssc&amp;utm_medium=textad&amp;utm_campaign=ssclandingpage"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/supportedbyrglogo.gif" alt="SQLServerCentral is supported by Red Gate Software Ltd."></a></td>
+			</tr>
+		</tbody></table>
+	</td>
+	<td></td>
+</tr>
+<tr class="BodyRow">
+	<td class="TopLeft">&nbsp;</td>
+	<td class="HeaderBar">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="middle">
+			<td>
+				<span class="LoginControls">
+					
+							Welcome, 
+							jcfernandezz
+							&nbsp;&nbsp;
+							<a href="http://www.sqlservercentral.com/MyAccount">My Account</a>
+							&nbsp;::&nbsp;
+							<a href="http://www.sqlservercentral.com/Briefcase">Briefcase</a>
+							&nbsp;::&nbsp;
+							<a href="http://www.sqlservercentral.com/Logout">Logout</a>
+						
+				</span>
+			</td>
+			<td align="right">
+				<!-- Search -->
+				<form action="/search/">
+<input value="Search" class="SearchBox SearchHint" name="q" maxlength="1000" size="34" title="Search" type="text">&nbsp;<input class="SearchGo" value="Go" type="submit">
+</form>
+<script type="text/javascript" language="javascript">
+  if (/\/search\/?/i.test(window.location.pathname))
+  {
+    var searchBar = $('table:has(input[name=q]):last');
+    searchBar.height(searchBar.height());
+    $('form:has(input[name=q])').hide();
+  }
+  $(function() {
+    $('input[name=q]').hint('SearchHint');
+  });
+</script>
+			</td>
+		</tr></tbody></table>
+	</td>
+	<td class="TopRight">&nbsp;</td>
+</tr>
+
+	</tbody></table>
+	<table class="MainLayoutContainer" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr class="BodyRow" valign="top">
+			<td class="MainMenuCell">
+				<div class="MainMenuCellMenuItems">
+					
+<div class="MainMenu">
+  <ul>
+	  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/" data-event-category="MainMenu: Home">
+				    Home
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/Tags" data-event-category="MainMenu: Tags">
+				    Tags
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/Articles/" data-event-category="MainMenu: Articles">
+				    Articles
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/Articles/Editorial" data-event-category="MainMenu: Editorials">
+				    Editorials
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/stairway/" data-event-category="MainMenu: Stairways">
+				    Stairways
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/Forums" data-event-category="MainMenu: Forums">
+				    Forums
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/Scripts/" data-event-category="MainMenu: Scripts">
+				    Scripts
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/Articles/Video" data-event-category="MainMenu: Videos">
+				    Videos
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/blogs" data-event-category="MainMenu: Blogs">
+				    Blogs
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/Questions" data-event-category="MainMenu: QotD">
+				    QotD
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/Books/" data-event-category="MainMenu: Books">
+				    Books
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://ask.sqlservercentral.com/" data-event-category="MainMenu: Ask SSC">
+				    Ask SSC
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://jobs.sqlservercentral.com/" data-event-category="MainMenu: SQL Jobs">
+				    SQL Jobs
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/Training/" data-event-category="MainMenu: Training">
+				    Training
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem " href="http://www.sqlservercentral.com/Authors/Articles/" data-event-category="MainMenu: Authors">
+				    Authors
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem , Minor" href="javascript:ssc_showPostsSinceLastVisit()" data-event-category="MainMenu: Active Threads">
+				    Active Threads
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem , Minor" href="http://www.sqlservercentral.com/About/AboutUs/" data-event-category="MainMenu: About us">
+				    About us
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem , Minor" href="http://www.sqlservercentral.com/About/ContactUs/" data-event-category="MainMenu: Contact us">
+				    Contact us
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem , Minor" href="http://www.sqlservercentral.com/NewsletterArchive" data-event-category="MainMenu: Newsletters">
+				    Newsletters
+			    </a>
+			  </li>
+		  
+		    <li>
+			    <a class="track-clicks MenuItem , Minor" href="http://www.sqlservercentral.com/Contributions/Home" data-event-category="MainMenu: Write for us">
+				    Write for us
+			    </a>
+			  </li>
+		  
+	</ul>
+</div>
+				</div>
+				<!-- Skyscraper advert -->
+				<div style="margin-top: 0.75em;" align="center"><table cellpadding="0" cellspacing="0"><tbody><tr><td align="left">
+					<a href="http://www.sqlservercentral.com/Contributions/Home" border="0"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/Writeforus_M1.gif"></a><br><br>
+
+
+<!-- <a target="_blank" href="http://www.devconnections.com/conf/default.aspx?s=161" border="0"><img src="http://www.sqlservercentral.com/image/Dev_SQL.jpg"></a> -->
+<br>
+<br>
+
+<script type="text/javascript">
+<!--
+var jobthread_jobroll_title = "SQL Jobs";
+var jobthread_jobroll_outer_style = "background-color:#dddddd;border:1px solid #999999;width:120px;";
+var jobthread_jobroll_inner_style = "background-color:#ffffff;color:#666666;border:1px solid #999999;margin-left:10px;margin-right:10px;padding:10px 10px 2px 8px;font:11px Arial, Helvetica, Sans-serif;line-height:16px;";
+var jobthread_jobroll_title_style = "color:#313131;font-weight:bold;";
+var jobthread_jobroll_link_style = "color:#0464bb;font-size:11px;font-weight:bold;text-decoration:none;border:none;";
+var jobthread_jobroll_featured_style = "";
+var jobthread_jobroll_featured_link_style = "";
+var jobthread_jobroll_top_style = "padding-top:8px;";
+var jobthread_jobroll_bottom_style = "padding-bottom:4px;";
+//-->
+</script>
+<script type="text/javascript" src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/a.js"></script><div style="background-color: rgb(221, 221, 221); border: 1px solid rgb(153, 153, 153); width: 120px;"><div style="padding-top: 8px;"><div style="margin-left: 10px; margin-bottom: 8px; color: rgb(49, 49, 49); font-weight: bold;">SQL Jobs</div></div><div style="background-color: rgb(255, 255, 255); color: rgb(102, 102, 102); border: 1px solid rgb(153, 153, 153); margin-left: 10px; margin-right: 10px; padding: 10px 10px 2px 8px; font: 11px/16px Arial,Helvetica,Sans-serif; overflow: hidden;"><div style="margin-bottom: 5px;"><a href="http://jobs.sqlservercentral.com/job/sql-server-oracle-dba-lake-mary-fl-us-team-recruiting-services-0d5d6f6ed8/?d=1&amp;source=jobroll" target="_top" style="color: rgb(4, 100, 187); font-size: 11px; font-weight: bold; text-decoration: none; border: medium none;">SQL Server/ Oracle DBA</a><br>Lake Mary, FL (us)<br>TEAM Recruiting Services</div><div style="margin-bottom: 5px;"><a href="http://jobs.sqlservercentral.com/job/sql-server-dba-wilmington-de-yoh-6a0feb7d37/?d=1&amp;source=jobroll" target="_top" style="color: rgb(4, 100, 187); font-size: 11px; font-weight: bold; text-decoration: none; border: medium none;">SQL Server DBA</a><br>Wilmington, DE<br>Yoh</div><div style="margin-bottom: 5px;"><a href="http://jobs.sqlservercentral.com/job/oracle-database-dw-bi-etl-developer-wilmington-de-yoh-1f64a20fb2/?d=1&amp;source=jobroll" target="_top" style="color: rgb(4, 100, 187); font-size: 11px; font-weight: bold; text-decoration: none; border: medium none;">Oracle Database DW/BI ETL Developer</a><br>Wilmington, DE<br>Yoh</div><div style="margin-bottom: 5px;"><a href="http://jobs.sqlservercentral.com/job/sql-server-developer-carrollton-tx-yoh-51319164a0/?d=1&amp;source=jobroll" target="_top" style="color: rgb(4, 100, 187); font-size: 11px; font-weight: bold; text-decoration: none; border: medium none;">SQL Server Developer</a><br>Carrollton, TX<br>Yoh</div><div style="margin-bottom: 5px;"><a href="http://jobs.sqlservercentral.com/job/database-marketing-analyst-shoreview-mn-deluxe-6a0407819f/?d=1&amp;source=jobroll" target="_top" style="color: rgb(4, 100, 187); font-size: 11px; font-weight: bold; text-decoration: none; border: medium none;">Database Marketing Analyst</a><br>Shoreview, MN<br>Deluxe</div><div style="margin-top: 10px; margin-bottom: 5px;"><a href="http://jobs.sqlservercentral.com/" style="text-transform: uppercase; color: rgb(4, 100, 187); font-size: 11px; font-weight: bold; text-decoration: none; border: medium none;">More Jobs &gt;</a><br><a href="http://jobs.sqlservercentral.com/post" style="text-transform: uppercase; color: rgb(4, 100, 187); font-size: 11px; font-weight: bold; text-decoration: none; border: medium none;">Post a Job &gt;</a></div></div><div style="padding-bottom: 4px; text-align: center; margin-top: 8px; cursor: pointer; display: block; visibility: visible;" onclick="window.location='http://www.jobthread.com/';"><div style="text-transform: uppercase; font-family: Arial,Helvetica; font-size: 9px; cursor: pointer;">Powered by JobThread</div></div></div>
+				</td></tr></tbody></table></div>
+			</td>
+			<td class="MainContentLeftPadding">&nbsp;</td>
+			<td class="MainContentCell">
+				<!-- [content_start] -->
+					
+    <form name="aspnetForm" method="post" onsubmit="javascript:return WebForm_OnSubmit();" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_ctl00_MainContent_MainContent_DisplayLimiterControl_RegistrationControl_RegisterButton')" id="aspnetForm">
+<div>
+<input name="__EVENTTARGET" id="__EVENTTARGET" value="" type="hidden">
+<input name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" type="hidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="6FxgJa9R+mGHoXuaVZx+PtTHZ0FYXrK1/A/C0wCUP7j6eV9Am3NwmjjOtMRvKkbbiMuoxZN9z6CN4ZVGEzt2S5SRgHTx1Mq93sl5SZ7MHYLnBtt6F/z47SrgiDDf75wWn3CYjxedwBLgq6AMgYNwKRINVat+fLW8OFHHhyzpna00I0VtPCstGLOOxTxs7fWaNRTo2CiMvM4t8XXj555wfK7PMT+cxf5WiTkMWdyt58Kvj/Blifg7Qz0YNfmiyW9mRz72sBG/Usf1OKAe7BwnhmQCy86eCQD2P1Yran6KeihhmdKa46SH64FRiMyTrKLIThT14jZlggRe+6gLNdexhHEwjT9EzKv/25Fz1L/OgPqhvqIgmf3ennbu2AhqRMw2UU/1lM25dTjvxYCSTDeehLvjQoQ+oGTPfuEzhIIh8zzgRULfXhJLi0miSR/HapKIBqldirdALurzGiQ2rrEWFjLev31ctSn3IDwStN+emS6sbdn1u+YpOiqlglMsuQBO+3n2lnbJGbYsa/JtvaG6Ifk0FbEwmjxvg+w2vKATsrKfElR/TsQrX14EdGqcJF9zWzW49bqXXAr1BwycB41GpuxAyOgbg6PP77MlXacHDClFqx7TVjezOiO67hn00qCbgX/y8mUnhMZCECsA+qYMii/DtBtrrrHvjWEJZJpvpeyHxSURQZB1a67DcyMrFrPhEpioZeITiykGt8nGDk9ea7t+Vt8VS5CaZs/iOfJkeEK8i3aOFEHQaAX6npCJz1r+mc/ZXqLCxONxTH05CHYhgD3nHX9odxDLxA6duNI29Z9axkO7I9YJNEMpiIIvWxKr4UqmD5GhUAyJ41IWbp5Jedy6s5lUpP+P4QloMETMvBgdprQ1BqrAVxSjaMg0n9eKqP086BU9qK60ymOBk0N3eQK2O2xctemYwGD+Y5r8F5CftiY9whs5jPNvikXTkReQ/KJdeloa1/95knYoi9WQ2TFUZK4jwIrosQ/HJzBuvyNgOL4/WYJxH1BahVjiNPdmU+KQIlpOZUoxUo9JTBdwRPopEuC4KJc33BErRfHC7QFzCFhKms3FNGElNa8nLWBTkqwmUVlEtUXcH9lS1uiITeOUmFkWNSESoJJdE5ybq2tJ6msTy58qMDhc6k21R9LzJWQKmnS3N/BiN6Swegz6VZWPLPgflPFaRA+HJ2DuetkfZ8SgtgihIn0gLCKOkLoH74Q4O3E8oLhCkiF5+eg1bvXBkIOrq3ArCqTQtGxF+rjL67JuEmWSVrazRLikWi1i/qbRfzbp4wq/3dKN3nzyjUikiBIx6q/B5UsToUPfCYutBBfKIC8EuR2uWdlr1K/kj+saRV2nh5pe8Uad5646Ko0BRtq3KYgkiinoGepoYK1gGsgkVp1N75+2bxhuwV8BcZLy/vrOQ3jBJIW+7t0BNqUhHn1Ya5U0Qhd1z4B4bBI78d9mdrg546t0WG6fCj+/MRcDKwLPVy7Id5pq1MAFtYGp+DdjmO9EoTujW46TvvHIj+/5IgsDNH+sFa/EK51ohMdwJ/xpwo/8vsRTWqCoYs5EaH4rIJdfXTLZ0qLAAOmuPGrwFMveEorK7BGi6tZ3URlGA5kod0V+vQ4UoAUut55dWiE1Pl/ZsRyaHZgx75GIw2KPB/ECoUH3N5FTUfAtZC3/GcEVroQPgEtW/h0G+52MIsYq6l4QGU0z3zC68FYqjiQGySbJA8C+hdnTHThzgQlj3fa9iYr6Cb54XBn+u7LP3bw+QQl3G17hdjFSmuWpyGaegH8uJ6GgAx8KfxZJ0RxfZWgiLzjKllQIzd4j1Uxhsq3AO82xZN/A8L/qNvfEOB+XfPYm0iRP/A6BdM4bLPpfw5z5KufxSpvph+at/aFkKmRyWSBP8NUYEeG7qmXvu3Y1jbESOf+3JZyzS2vGzonSXMXcbSqlrUKoYc+fRIGmG8RyfuNHapZWU21t2xyX5QBApYrtuxrSSSifuDE7o4A99NkxDedOdrNGopHE4+C8+9YttlaZjrKucZshbFi0v3bLFmoIwF/Xv+H9MgqQw4TwZpjvAKwk7wWh2L+9e6dfIuM9CylU2cZZina0HeAztgxQlHmh+ZiU/WQAPPPCraVxgmxxWAzgCRyYxJ4jsICUgeGzskN6VYAqMXWXClRrWo644scwYBfxXNXdgtZXCy909Bf9XsHg9ib4610Sqot7KJiP/FkWo3XpBU3ht+tboLMgLXvidQq/eq+92TbQqSyNbvn+6O1miMi3byXD9k3qcG/Zy4zw227OS/Cnq68i+ASHqqgnbsxGGfbe/rnrSh+/qfTs6764JcNJhk+fFdvZMOLysKCUYTkZpl5Fj4hIqIyilnMTlUSv35vnb3hnEzJNwrmQk7Fkg40WUegiloVtyX1uJ5g4YZppudZDeZ2cXzh8rH+XiEvv6YSbQ+qoX0OcfP4ntOJVZ2fTo3aFms64KUM8Jpn7lVX7yAlvo/KFVgbZsIgYpP9Vku9myCCZ5qbwbA3euR2ahcUFjkyQRdtsajnAZaXF7VLZho1FbKL3ZGtlowNTJmPUweHoRuvY7Iz28WeKWrjHlIQZmki0SMc7spzBMTlzrUY2JLb7SZQ4hg4KxAcFVT7hwDLDw3UsQ+tijn5yiYNP/Xuvfh8jBGOV5SJACIiWV0UrnWBvgeMA0i+IfqqnlM23bmj7fO/7r8Ga37TszHittoHQjhrTFAhy/epMzdRLhwtDrf+kWoO5LA87AQkrBgH4YG7mBfvPUME7WCcDTIkT8AyLmzTQDQMXIAlTArJatls48S6c9P0cDVo77ltrlXYEYz6N9YU5ox9r3fPN+aZmw1aOdHDRR1TB+2Kem0T2tjg8wHcKvGudP8vYnizWaf0SrVSkb2AAR871+u+oYufrVZCqQ9koPJxAAcaPK0bvJ/AGOSwLlvOw4nYfVgz3S3Eij7XHKS9YkUPH5I/iYX1m8yagiygSXobBohGlDVwul8IscLhgUG4RA9rezq8hphbKaFEPo2RECloBrM1/KV+2OHqOgicRo/rlPjxGL8HOS/uA4h+3lGzOoY5RardfdkKLn3qkf9MAvB2GOoDZNM8m7lfaeInKkhflGCF3DCY2uN5knnyEvKUn2A+AB0s+gXhbBoGAHACNWeFcU0q89dAb9lREI8xDgjFDp/teWROSzZArhSMtHBHz6hHuxV7skU8W9mzgK8SKQErp9IBUfe2N6AFwM8D/dtEwkC2E/Md1Y9ITyBJF264XB7Ce5JOx2EkzprvJwnr2Zk98EW69GLZaGVby3eNBLFAqtjZlXYIa63cx5B9OAY0HPrODOwg2EPEA8A8xGtrCx2snFJNopDLmt1HaDaJvrNg+nxqyiGwGJov/wDyadm4BCWK8HU47V9w1byMT97ecJr293aGO5TDek48aH0iUSjz4bjH7pajoShVtjJnbSlDO8NEv2c9i0Xk2W3bPSzLDzqOaGrsEMJlOVkIYzvsgOaal8Vs15ITTN8XscMzT/LFXCdrompdwY1JZWAL39VZE7Z1rTe8+ixR0sgagZqm/X1ag18zGlLEiSKW2u08qNWai7EFqhUpmHgqP7szDft60Mfxeo01wkVTO0tZN5Q7KEQs/nlPMrqOqLheGJUoei2fPkWt2QSl+7T9/i/igQuyn/tZEQyNln0eH3huLL2pUooKC3PXbeZfEGE8Qlx5SwjPmYLiOuCMJept4iREWpqaRLEqhcj6kLRy2YW2wNmrJVdZHjwURDbVMKKlhpCwdV2qYE02PpanSgpTZWU0vzXYqFaQus27+Hvnwddtg3/Ynz0IvIKglCbUYP9oysFE0ENknoo6P91u5LunCSgZLgKKcmunIIy46GMjnsIeq5YItUUKEw4of+Op75V4q8tY8sk8iw7EBM/rO5pRz7dX9Mk2a6uq6+orpCw77hqdl0D8+E1ZCLY3gCW1lKlcbP9ePyE52tTORmAFsfyvU8RPugFFRwrSPWdNYXpzgzjVgiNqK9DIi4h+j+wJzhXOyOXAfreMdg2//" type="hidden">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/WebResource_002.js" type="text/javascript"></script>
+
+
+<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/HelpTooltip.js" type="text/javascript"></script>
+<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/ShareLinks.js" type="text/javascript"></script>
+<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/ScriptResource_003.js" type="text/javascript"></script>
+<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/IFramePopupController.js" type="text/javascript"></script>
+<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/ScriptResource.js" type="text/javascript"></script>
+<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/ScriptResource_002.js" type="text/javascript"></script>
+<script src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/WebResource.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+        
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$MainContent$MainContent$ctl00', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+
+    
+        <table class="DynamicContent" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody><tr valign="top">
+                <td rowspan="2">
+                    
+                    <h1 class="MinMargin">REPLACE Multiple Spaces with One</h1>
+                    
+                    
+
+<h3 class="MinMargin">
+	
+		By <a href="http://www.sqlservercentral.com/Authors/Articles/Jeff_Moden/80567/">Jeff Moden</a>, 
+	2011/03/18 (first published: 2009/11/16)
+</h3>
+<div style="margin-top: 0.25em;">
+	Total article views: 29371
+	<span class="Separator">|</span>
+	Views in the last 30 days: 12841
+</div>
+
+<div style="margin-top: 0.25em;">
+	<span isratingcontrol="true"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/FilledStar.png"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/FilledStar.png"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/FilledStar.png"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/FilledStar.png"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/FilledStar.png"> <a id="ctl00_ctl00_MainContent_MainContent_DisplayLimiterControl_ContentMetadata1_RateThisLink" onclick="IFramePopup_Open(this, event, '/sqlservercentral2/Controls/Rating/RatingPopup.aspx?ContentItemID=68378', 330, 'RateThis', '__doPostBack(\'ctl00$ctl00$MainContent$MainContent$DisplayLimiterControl$ContentMetadata1$ctl03\',\'[ifpe_arg]\')');" href="javascript:;">&nbsp;Rate this</a></span>
+	
+	<span class="Separator">|</span>
+	<img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/Discuss.gif">&nbsp;
+	<a href="http://www.sqlservercentral.com/Forums/FindPost819042.aspx">Join the discussion</a>
+	
+	<span class="Separator">|</span>
+	<span id="ctl00_ctl00_MainContent_MainContent_DisplayLimiterControl_ContentMetadata1_TagThisControl"><a id="ctl00_ctl00_MainContent_MainContent_DisplayLimiterControl_ContentMetadata1_TagThisLink" onclick="IFramePopup_Open(this, event, '/Controls/TagThisPopup/68378/false', 380, 'TagThis', '__doPostBack(\'ctl00$ctl00$MainContent$MainContent$DisplayLimiterControl$ContentMetadata1$ctl04\',\'[ifpe_arg]\')');" href="javascript:;"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/Briefcase.gif" align="baseline"> &nbsp;Briefcase</a></span>
+	
+	
+		<span class="Separator">|</span>
+		<img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/print.gif">&nbsp;
+		<a href="#" onclick="window.open('Printable', null, 'width=600,height=600,menubar=1,resizable=1,scrollbars=1,location=0,status=0');">Print</a>
+	
+	
+</div>
+
+      
+<div style="margin: 1.5em 0pt; min-width: 0pt;">
+  <div class="ShareIcon">
+    <span class="db-wrapper db-clear db-compact"><span><span class="db-container db-submit"><span class="db-body db-compact"><span class="db-count">0</span><span class="db-copy">diggs</span><a class="db-anchor">digg</a></span></span></span></span>
+  </div>
+ 
+  <div class="ShareIcon">
+    <a href="http://delicious.com/post?url=http%3a%2f%2fwww.sqlservercentral.com%2farticles%2fT-SQL%2f68378%2f&amp;title=REPLACE+Multiple+Spaces+with+One" title="Post to Delicious">
+      <img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/delicious.gif" alt="Delicious">
+    </a>
+  </div>
+ 
+  <div class="ShareIcon">
+    <a href="http://technorati.com/faves?add=http%3a%2f%2fwww.sqlservercentral.com%2farticles%2fT-SQL%2f68378%2f" title="Post to Delicious">
+      <img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/technorati.gif" alt="Delicious">
+    </a>
+  </div>
+
+  <div class="ShareIcon">
+    <iframe title="Twitter For Websites: Tweet Button" style="width: 55px; height: 20px;" src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/tweet_button.htm" allowtransparency="true" tabindex="0" class="twitter-share-button twitter-count-none" frameborder="0" scrolling="no"></iframe>
+  </div>
+  
+  <div class="ShareIcon">
+    <span class="IN-widget" style="line-height: 1; vertical-align: middle; display: inline-block; text-align: center;"><span style="padding: 0pt ! important; margin: 0pt ! important; text-indent: 0pt ! important; display: inline-block ! important; vertical-align: middle ! important; font-size: 1px ! important;"><span id="li_ui_li_gen_1302614815123_0"><a id="li_ui_li_gen_1302614815123_0-link" href="javascript:void(0);"><span id="li_ui_li_gen_1302614815123_0-logo">in</span><span id="li_ui_li_gen_1302614815123_0-title">Share</span></a></span></span></span><script type="in/share+init"></script>
+  </div>
+ 
+  <div class="ShareIcon">
+    <fb:like class=" fb_edge_widget_with_comment fb_iframe_widget" layout="button_count" show_faces="false" width="90"><span><iframe src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/like.htm" class="fb_ltr" title="Like this content on Facebook." style="border: medium none; overflow: hidden; height: 25px; width: 90px;" name="f1d1a981c269dc6" id="f13cd5f4eff09d4" scrolling="no"></iframe></span></fb:like>
+  </div>
+  <div style="clear: both;"></div>
+</div>
+
+                                    
+                    <div id="articleText"><!-- Generated by XStandard version 2.0.0.0 on 2011-01-08T17:47:18 -->
+
+<h2>Prologue</h2>
+<p>This article was originally published on November 16th, 2009. As with
+ anything else, improvements can be made to code and the subject of this
+ article is no exception. Although this article is still an interesting 
+read (I left everything after the "Introduction" heading as it 
+originally was), I no longer recommend the method in this article 
+because it has been soundly beaten (more than 6 times faster) for 
+performance by another T-SQL method as demonstrated by Michael 
+Meierruth. If you prefer to "cut to the chase", that method can be found
+ in a post in the discussion for this article at the following URL:</p>
+<p><a href="http://www.sqlservercentral.com/Forums/FindPost821209.aspx"><strong></strong></a><strong><a href="http://www.sqlservercentral.com/Forums/FindPost821209.aspx">http://www.sqlservercentral.com/Forums/FindPost821209.aspx</a></strong></p>
+<p>The discussion that followed this article is also fascinating and a 
+large number of people took part in some rather wonderful testing. Some 
+folks even took the time to create and post some CLRs to solve the same 
+problem. All in all, the discussion makes for an incredible learning 
+experience which is typical of the amazing community of professional 
+people we've all grown to know and love here at SSC. I learn something 
+new here everyday.</p>
+<p>One of the things that came out of the discussion is the fact that 
+the default collation can make a huge impact on performance.  The the 
+following link to the post in the discussion where Paul White 
+demonstrates that not-so-little nuance:</p>
+<p><a href="http://www.sqlservercentral.com/Forums/FindPost821565.aspx"><strong>http://www.sqlservercentral.com/Forums/FindPost821565.aspx</strong></a></p>
+<p>Be you Neophyte or "Ninja", thanks for being a part of this community, folks.</p>
+<p>--Jeff Moden</p>
+<h2>Introduction</h2>
+<p>Replacing multiple spaces with a single space is an old problem. If 
+you Google the problem, you find that most folks still resort to While 
+Loops in functions or maybe even a Tally table or (ugh!) XML in a 
+function to solve this seemingly complex problem. The truth is that you 
+don't need the RBAR of a User Defined Function at all.</p>
+<p>This article explains the "puzzle solving" behind a common set based 
+method to replace unknown numbers of adjacent spaces with a single space
+ by establishing and replacing simple patterns in a set based fashion.</p>
+<h2>The Problem</h2>
+<p>You have a column of data that looks something like the following...</p>
+<pre class="brush: sql;">--===== Create and populate a test table.<br>     -- This is NOT a part of the solution.<br>DECLARE @Demo TABLE(OriginalString VARCHAR(8000))<br> INSERT INTO @Demo (OriginalString)<br> SELECT '  This      has multiple   unknown                 spaces in        it.   ' UNION ALL<br> SELECT 'So                     does                      this!' UNION ALL<br> SELECT 'As                                does                        this' UNION ALL<br> SELECT 'This, that, and the other  thing.' UNION ALL<br> SELECT 'This needs no repair.'
+</pre>
+<p>The goal is to convert the sections of multiple spaces of unknown 
+length to a single space each as quickly as possible. There are some 
+additional requirements. You can't make the data any bigger during the 
+process because it might get too big for VARCHAR(8000) (or whatever size
+ the column is) or you can't use VARCHAR(MAX) because you're using SQL 
+Server 2000.</p>
+<h2>The Method Explained</h2>
+<p>I'll use the letter "O" to act as a "visible" space so you can see 
+what I'm talking about... consider the following sets of spaces, 
+please....</p>
+<p>O<br>OO<br>OOO<br>OOOO<br>OOOOO<br>OOOOOO<br>OOOOOOO<br>OOOOOOOO</p>
+<p>Remember the goal is to convert all of those sets of spaces to just a
+ single space without the use of RBAR even if the RBAR is through the 
+simple use of a UDF. I'll also state that the goal is to remove the 
+extra spaces without making the original string any larger in the 
+process because it may already be as large as it can be for the given 
+datatype.</p>
+<p>So... <strong>STEP 1</strong> is to identify pairs of spaces. This is
+ done by modifying the second space in each pair of spaces to be an 
+"unlikely" character. In this case, I'll use the visible character of 
+"X" (which isn't unlikely but serves this visual example) to represent a
+ space that has been changed in a pair of spaces. When we replace all 
+pairs of space "OO" with "OX", we get the following</p>
+<p>O<br>OX<br>OXO<br>OXOX<br>OXOXO<br>OXOXOX<br>OXOXOXO<br>OXOXOXOX</p>
+<p><strong>STEP 2</strong> is to replace all occurrences of "XO" with NOTHING...</p>
+<p>O<br>OX<br>O<strong><span class="codeRed">XO</span><br></strong>O<strong><span class="codeRed">XO</span></strong>X<br>O<strong><span class="codeRed">XOXO</span><br></strong>O<strong><span class="codeRed">XOXO</span></strong>X<br>O<strong><span class="codeRed">XOXOXO</span><br></strong>O<strong><span class="codeRed">XOXOXO</span></strong>X</p>
+<p>... and that leaves us with ...</p>
+<p>O<br>OX<br>O<br>OX<br>O<br>OX<br>O<br>OX</p>
+<p><strong>STEP 3</strong> is to replace "X" with NOTHING...</p>
+<p>O<br>O<strong><span class="codeRed">X</span><br></strong>O<br>O<strong><span class="codeRed">X</span><br></strong>O<br>O<strong><span class="codeRed">X</span><br></strong>O<br>O<strong><span class="codeRed">X</span></strong></p>
+<p>... and that leaves us with just singles spaces everywhere...</p>
+<p>O<br>O<br>O<br>O<br>O<br>O<br>O<br>O</p>
+<p>Again... the "O"s represent unmodified spaces and the "X"s represent 
+spaces changed to some "unlikely character" like a special non 
+printable, almost non type-able character like ASCII 7 (the "Bell" 
+character). It's just a matter of 3 nested REPLACE functions to handle 
+ANY number of spaces to accomplish the puzzle we solved above. It can 
+all be done in a single set-based query without loops or even UDF's.</p>
+<p>Be careful which "unlikely character" you pick, though. We'll talk 
+more about that when we get to the "Unlikely Characters and Collation" 
+section of this article further below.</p>
+<h2>The Code</h2>
+<p>Ok... now that you know how it works, here's the code that 
+accomplishes the 3 steps as 3 nested REPLACE's. I've included the test 
+table I previously covered in "The Problem" section of this article just
+ to make things easy to run. Notice that I've also added an LTRIM/RTRIM 
+to take out any leading or trailing spaces, as well...</p>
+<pre class="brush: sql;">--===== Create and populate a test table.<br>     -- This is NOT a part of the solution.<br>DECLARE @Demo TABLE(OriginalString VARCHAR(8000))<br> INSERT INTO @Demo (OriginalString)<br> SELECT '  This      has multiple   unknown                 spaces in        it.   ' UNION ALL<br> SELECT 'So                     does                      this!' UNION ALL<br> SELECT 'As                                does                        this' UNION ALL<br> SELECT 'This, that, and the other  thing.' UNION ALL<br> SELECT 'This needs no repair.'
+
+--===== Reduce each group of multiple spaces to a single space<br>     -- for a whole table without functions, loops, or other<br>     -- forms of slow RBAR.  In the following example, CHAR(7)<br>     -- is the "unlikely" character that "X" was used for in <br>     -- the explanation.<br> SELECT REPLACE(<br>            REPLACE(<br>                REPLACE(<br>                    LTRIM(RTRIM(OriginalString))<br>                ,'  ',' '+CHAR(7))  --Changes 2 spaces to the OX model<br>            ,CHAR(7)+' ','')        --Changes the XO model to nothing<br>        ,CHAR(7),'') AS CleanString --Changes the remaining X's to nothing<br>   FROM @Demo<br>  WHERE CHARINDEX('  ',OriginalString) &gt; 0
+</pre>
+<table summary="Results from above code" border="1" cellpadding="1" cellspacing="0">
+	<caption>Results from Code Above</caption>
+	<thead>
+		<tr align="left" valign="top">
+			<th id="th06913EC00000">CleanString</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr align="left" valign="top">
+			<td headers="th06913EC00000">This has multiple unknown spaces in it.</td>
+		</tr>
+		<tr align="left" valign="top">
+			<td headers="th06913EC00000">So does this!</td>
+		</tr>
+		<tr align="left" valign="top">
+			<td headers="th06913EC00000">As does this</td>
+		</tr>
+		<tr align="left" valign="top">
+			<td headers="th06913EC00000">This, that, and the other thing.</td>
+		</tr>
+	</tbody>
+</table>
+<h2>Unlikely Characters and Collation</h2>
+<p>Just a quick note on "unlikely characters". <strong>You do have to be <em>really</em> careful about what you select as an "unlikely character"</strong> for the "X" of the "OX" model we previously discussed. For example, if you have the not-so-uncommon collation of <strong>Latin1_General_CI_AI</strong>
+ on a column and you've chosen the "unlikely character" of Thorn (þ), 
+you could end up deleting a whole lot more than you bargained for. 
+According to Wikipedia, "þ" (the Thorn character) still survives as 30th
+ character of the Icelandic alphabet and appears in other alphabets, as 
+well. Further, in many languages, it has been replaced by the "th" 
+digraph and, in certain collations like the <strong>Latin1_General_CI_AI</strong> collation, the "þ" character and "th" are treated as equals. For example...</p>
+<pre class="brush: sql;">--===== Create and populate a test table.<span class="codeRed"><br><strong>-- *** NOTICE THE COLLATION SETTING ON THE STRING COLUMN. ***</strong></span><br>DECLARE @Demo TABLE(OriginalString VARCHAR(8000) COLLATE Latin1_General_CI_AI)<br> INSERT INTO @Demo (OriginalString)<br> SELECT '  This      has multiple   unknown                 spaces in        it.  ' UNION ALL<br> SELECT ' So                     does                      this!   ' UNION ALL<br> SELECT '   As                                does                                this' UNION ALL<br> SELECT 'This, that, and the other thing.'
+
+--===== This uses a "thorn" character as the "X" of the "OX" model <br> SELECT LTRIM(RTRIM(<br>            REPLACE(REPLACE(REPLACE(OriginalString,'  ',' þ'),'þ ',''),'þ','')<br>        ))<br>  FROM @Demo
+</pre>
+<p>Because of the equivalent treatment of the Thorn (þ) character and 
+the "th" digraph, you end up with a most undesirable result...</p>
+<table summary="Results from above code" border="1" cellpadding="1" cellspacing="0">
+	<caption>Results from Code Above</caption>
+	<thead>
+		<tr align="left" valign="top">
+			<th id="th069601C00000">CleanString</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr align="left" valign="top">
+			<td headers="th069601C00000">is has multiple unknown spaces in it.</td>
+		</tr>
+		<tr align="left" valign="top">
+			<td headers="th069601C00000">So does is!</td>
+		</tr>
+		<tr align="left" valign="top">
+			<td headers="th069601C00000">As does is</td>
+		</tr>
+		<tr align="left" valign="top">
+			<td headers="th069601C00000">is, at, and e oer ing.</td>
+		</tr>
+	</tbody>
+</table>
+<p>... which is nothing like what we wanted.</p>
+<p>There's also a danger in selecting the wrong "control character" 
+(ASCII characters 0 through 31) as the "unlikely character". I chose 
+CHAR(7) which is a very benign character in today's world of 
+electronics. It was designed to literally ring the bell on old Tele-Type
+ machines and is just passed through by today's electronics.</p>
+<p>If you chose CHAR(0), you've just chosen the "NULL" character and 
+anything that follows it's appearance will simply disappear. Using the 
+current test table in this article, you'd get an output that looks like 
+the following...</p>
+<table summary="Results from above code" border="1" cellpadding="1" cellspacing="0">
+	<caption>Results from Code Above</caption>
+	<thead>
+		<tr align="left" valign="top">
+			<th id="th0697DEB80000">CleanString</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr align="left" valign="top">
+			<td headers="th0697DEB80000">This</td>
+		</tr>
+		<tr align="left" valign="top">
+			<td headers="th0697DEB80000">So</td>
+		</tr>
+		<tr align="left" valign="top">
+			<td headers="th0697DEB80000">As</td>
+		</tr>
+		<tr align="left" valign="top">
+			<td headers="th0697DEB80000">This,that,andtheotherthing.</td>
+		</tr>
+	</tbody>
+</table>
+<p>If you chose CHAR(1), you've just chosen the ASCII "Start of Header" 
+character which is still in use today. When certain electronics see this
+ character, it can cause some very strange behavior usually resulting in
+ failure of your code.</p>
+<p>Another good "unlikely character" is CHAR(8) which is the ASCII 
+"Backspace" character. It's normally never included in any type of 
+assembled text now adays. CHAR(127) also works well because it's a left 
+over for "Delete" from the paper tape world. It actually punches all the
+ holes in a paper tape (7 of them) to quite literally delete a 
+character.</p>
+<p>For more information on the ASCII "Control Characters", please see the following URL:</p>
+<p><a href="http://www.lammertbies.nl/comm/info/ascii-characters.html#cont">http://www.lammertbies.nl/comm/info/ascii-characters.html#cont</a></p>
+<h2>Conclusion</h2>
+<p>To borrow a phrase from R. Barry Young's series of articles on the 
+subject, "There must be 15 ways to lose your cursors". Even the 
+seemingly complex task of condensing multiple adjacent spaces to a 
+single space can be done without a loop.</p>
+<p>When you run into a problem where you're absolutely sure there's no 
+way to do it without a loop, have another look. There's usually a high 
+performance way to avoid the loop.</p>
+<p>Thanks for listening, folks.</p>
+<p>&nbsp;</p>
+<p>--Jeff Moden</p>
+<hr>
+<p>"<strong>RBAR</strong>" is pronounced "ree-bar" and is a "Modenism" for "<strong>R</strong>ow-<strong>B</strong>y-<strong>A</strong>gonizing-<strong>R</strong>ow".</p>
+</div>
+
+                    
+      
+<div style="margin: 1.5em 0pt; min-width: 0pt;">
+  <div class="ShareIcon">
+    <span class="db-wrapper db-clear db-compact"><span><span class="db-container db-submit"><span class="db-body db-compact"><span class="db-count">0</span><span class="db-copy">diggs</span><a class="db-anchor">digg</a></span></span></span></span>
+  </div>
+ 
+  <div class="ShareIcon">
+    <a href="http://delicious.com/post?url=http%3a%2f%2fwww.sqlservercentral.com%2farticles%2fT-SQL%2f68378%2f&amp;title=REPLACE+Multiple+Spaces+with+One" title="Post to Delicious">
+      <img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/delicious.gif" alt="Delicious">
+    </a>
+  </div>
+ 
+  <div class="ShareIcon">
+    <a href="http://technorati.com/faves?add=http%3a%2f%2fwww.sqlservercentral.com%2farticles%2fT-SQL%2f68378%2f" title="Post to Delicious">
+      <img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/technorati.gif" alt="Delicious">
+    </a>
+  </div>
+
+  <div class="ShareIcon">
+    <iframe title="Twitter For Websites: Tweet Button" style="width: 55px; height: 20px;" src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/tweet_button_002.htm" allowtransparency="true" tabindex="0" class="twitter-share-button twitter-count-none" frameborder="0" scrolling="no"></iframe>
+  </div>
+  
+  <div class="ShareIcon">
+    <span class="IN-widget" style="line-height: 1; vertical-align: middle; display: inline-block; text-align: center;"><span style="padding: 0pt ! important; margin: 0pt ! important; text-indent: 0pt ! important; display: inline-block ! important; vertical-align: middle ! important; font-size: 1px ! important;"><span id="li_ui_li_gen_1302614815130_1"><a id="li_ui_li_gen_1302614815130_1-link" href="javascript:void(0);"><span id="li_ui_li_gen_1302614815130_1-logo">in</span><span id="li_ui_li_gen_1302614815130_1-title">Share</span></a></span></span></span><script type="in/share+init"></script>
+  </div>
+ 
+  <div class="ShareIcon">
+    <fb:like class=" fb_edge_widget_with_comment fb_iframe_widget" layout="button_count" show_faces="false" width="90"><span><iframe src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/like_002.htm" class="fb_ltr" title="Like this content on Facebook." style="border: medium none; overflow: hidden; height: 25px; width: 90px;" name="f9721c232b3a56" id="f1336719172a44" scrolling="no"></iframe></span></fb:like>
+  </div>
+  <div style="clear: both;"></div>
+</div>
+
+
+<h3 class="MinMargin">
+	
+		By <a href="http://www.sqlservercentral.com/Authors/Articles/Jeff_Moden/80567/">Jeff Moden</a>, 
+	2011/03/18 (first published: 2009/11/16)
+</h3>
+<div style="margin-top: 0.25em;">
+	Total article views: 29371
+	<span class="Separator">|</span>
+	Views in the last 30 days: 12841
+</div>
+
+	<div class="BarSpacer"></div>
+	<div class="BarSpacer"></div><div class="BarRight"></div><div class="BarLeft"></div><div class="Bar">Your response</div>
+
+	<div class="IndentedColumn">
+
+<div style="margin-top: 0.25em;">
+	<span isratingcontrol="true"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/FilledStar.png"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/FilledStar.png"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/FilledStar.png"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/FilledStar.png"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/FilledStar.png"> <a id="ctl00_ctl00_MainContent_MainContent_DisplayLimiterControl_ContentMetadata2_RateThisLink" onclick="IFramePopup_Open(this, event, '/sqlservercentral2/Controls/Rating/RatingPopup.aspx?ContentItemID=68378', 330, 'RateThis', '__doPostBack(\'ctl00$ctl00$MainContent$MainContent$DisplayLimiterControl$ContentMetadata2$ctl03\',\'[ifpe_arg]\')');" href="javascript:;">&nbsp;Rate this</a></span>
+	
+	<span class="Separator">|</span>
+	<img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/Discuss.gif">&nbsp;
+	<a href="http://www.sqlservercentral.com/Forums/FindPost819042.aspx">Join the discussion</a>
+	
+	<span class="Separator">|</span>
+	<span id="ctl00_ctl00_MainContent_MainContent_DisplayLimiterControl_ContentMetadata2_TagThisControl"><a id="ctl00_ctl00_MainContent_MainContent_DisplayLimiterControl_ContentMetadata2_TagThisLink" onclick="IFramePopup_Open(this, event, '/Controls/TagThisPopup/68378/false', 380, 'TagThis', '__doPostBack(\'ctl00$ctl00$MainContent$MainContent$DisplayLimiterControl$ContentMetadata2$ctl04\',\'[ifpe_arg]\')');" href="javascript:;"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/Briefcase.gif" align="baseline"> &nbsp;Briefcase</a></span>
+	
+	
+		<span class="Separator">|</span>
+		<img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/print.gif">&nbsp;
+		<a href="#" onclick="window.open('Printable', null, 'width=600,height=600,menubar=1,resizable=1,scrollbars=1,location=0,status=0');">Print</a>
+	
+	
+</div>
+</div><div style="height: 1.2em;">&nbsp;</div>
+                </td>
+                <td rowspan="2" width="20">&nbsp;</td>
+                
+                    <td width="315">
+                        
+                        
+                            <div class="BarSpacer"></div>
+                            <div>
+                                <div class="BarLeft"></div>
+                                <div class="Bar">
+                                    <div class="Subheading"></div>
+                                    Related Articles
+                                </div>
+                                
+
+<div class="IndentedColumn">
+    <div class="contentSummary">
+    
+        
+        
+            <div class="SearchResult" id="f550073">
+                <div class="SearchType forum"><div>FORUM</div></div>
+                <div class="SearchDetails">
+                    <h3>
+                        <a href="http://www.sqlservercentral.com/Forums/FindPost550073.aspx">Detecting Specific Characters in a Varchar Field</a>
+                    </h3>
+                    
+                        <p>spaces or invalid characters</p>
+                    
+                </div>
+            </div>
+        
+        
+        
+            <div class="SearchResult" id="f925210">
+                <div class="SearchType forum"><div>FORUM</div></div>
+                <div class="SearchDetails">
+                    <h3>
+                        <a href="http://www.sqlservercentral.com/Forums/FindPost925210.aspx">derived column --replace " with space expression error</a>
+                    </h3>
+                    
+                        <p>derived column --replace " with space expression error</p>
+                    
+                </div>
+            </div>
+        
+        
+        
+            <div class="SearchResult" id="f773300">
+                <div class="SearchType forum"><div>FORUM</div></div>
+                <div class="SearchDetails">
+                    <h3>
+                        <a href="http://www.sqlservercentral.com/Forums/FindPost773300.aspx">In select query values with space appended takes higher precedence than normal characters</a>
+                    </h3>
+                    
+                        <p>In select query values with space appended takes higher precedence than normal characters . How to o...</p>
+                    
+                </div>
+            </div>
+        
+        
+        
+            <div class="SearchResult" id="f484693">
+                <div class="SearchType forum"><div>FORUM</div></div>
+                <div class="SearchDetails">
+                    <h3>
+                        <a href="http://www.sqlservercentral.com/Forums/FindPost484693.aspx">replace characters on condition in table and cell</a>
+                    </h3>
+                    
+                        <p>replace characters on condition in table and cells</p>
+                    
+                </div>
+            </div>
+        
+        
+        
+            <div class="SearchResult" id="s61301">
+                <div class="SearchType script"><div>SCRIPT</div></div>
+                <div class="SearchDetails">
+                    <h3>
+                        <a href="http://www.sqlservercentral.com/scripts/61301/">Function to expand tab characters</a>
+                    </h3>
+                    
+                        <p>A function to replace tab characters with the correct number of spaces to align the text as original...</p>
+                    
+                </div>
+            </div>
+        
+        
+    
+    </div>
+</div>
+
+                            </div>
+                        
+
+<div id="tagCloud">
+    <div class="BarLeft"></div><div class="Bar">Tags</div>
+
+    <div class="IndentedColumn">
+        <div class="IndentedTagColumn">
+           <table id="ctl00_ctl00_MainContent_MainContent_DisplayLimiterControl_TagCloud1_TagsList" style="border-collapse: collapse;" border="0" cellspacing="0">
+	<tbody><tr>
+		<td valign="top">
+			        <a href="http://www.sqlservercentral.com/articles/T-SQL/">t-sql</a> 
+			        
+			        &nbsp;&nbsp;&nbsp;
+		        </td>
+	</tr>
+</tbody></table>
+        </div>
+    </div>
+</div>
+<!-- -->
+                        
+                        <div class="BarSpacer">&nbsp;</div>
+                        <div class="IndentedColumn">
+                            <div class="IndentedTagColumn">
+                                <a href="http://www.sqlservercentral.com/Contributions/Home"><img src="REPLACE%20Multiple%20Spaces%20with%20One%20-%20SQLServerCentra_archivos/Writeforus_M1.gif" alt="Contribute"></a>
+                            </div>
+                        </div>
+                    
+                    
+                </td>
+            </tr>
+        </tbody></table>
+    
+		
+
+
+    
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        WebForm_AutoFocus('ctl00_ctl00_MainContent_MainContent_DisplayLimiterControl_RegistrationControl_EmailAddress');Sys.Application.initialize();
+//]]>
+</script>
+</form>
+
+				<!-- [content_end] -->
+			</td>
+			
+		</tr>
+	</tbody></table>
+	<table class="MainLayoutContainer MainLayoutContainerBottom" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody><tr class="BodyRow">
+			<td class="BottomLeft">&nbsp;</td>
+			<td>
+				<div class="Footer">
+					Copyright © 2002-2011 Simple Talk Publishing. All Rights Reserved. <a href="http://www.sqlservercentral.com/About/Privacy/">Privacy Policy.</a> <a href="http://www.sqlservercentral.com/About/Terms">Terms of Use.</a> <a href="mailto:abuse@sqlservercentral.com">Report Abuse.</a>
+				</div>
+			</td>
+			<td class="BottomRight">&nbsp;</td>
+		</tr>
+	</tbody></table>
+	<script type="text/javascript">
+	    if (typeof jQuery != 'undefined') {
+	        $('.rounded').corner();
+	    }
+	</script>
+<!--SiteTemplateEnds-->
+<sfdocready id="sfDocReady"></sfdocready></body></html>
