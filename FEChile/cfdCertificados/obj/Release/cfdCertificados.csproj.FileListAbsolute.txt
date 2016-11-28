@@ -1,0 +1,5 @@
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdCertificados\bin\Release\cfdCertificados.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdCertificados\bin\Release\cfdCertificados.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdCertificados\bin\Release\MyGeneration.dOOdads_2005.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdCertificados\obj\Release\cfdCertificados.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdCertificados\obj\Release\cfdCertificados.pdb

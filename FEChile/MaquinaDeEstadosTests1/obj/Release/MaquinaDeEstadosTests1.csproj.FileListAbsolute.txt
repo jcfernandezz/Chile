@@ -1,0 +1,14 @@
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\bin\Release\MaquinaDeEstadosTests1.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\bin\Release\MaquinaDeEstadosTests1.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\bin\Release\MaquinaDeEstados.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\bin\Release\xunit.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\bin\Release\Comun.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\bin\Release\Ionic.Zip.Reduced.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\bin\Release\MaquinaDeEstados.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\bin\Release\xunit.xml
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\bin\Release\Comun.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\obj\Release\MaquinaDeEstadosTests1.csprojResolveAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\obj\Release\MaquinaDeEstadosTests1.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\obj\Release\MaquinaDeEstadosTests1.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\bin\Release\CLConfiguracion.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstadosTests1\bin\Release\CLConfiguracion.pdb

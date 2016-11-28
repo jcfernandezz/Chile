@@ -1,0 +1,14 @@
+C:\jcTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\Comun\bin\Release\Ionic.Zip.Reduced.dll
+C:\jcTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\Comun\bin\Release\Comun.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\G. Deployment\Instalación de GP factura digital cfdi.pdf
+C:\jcTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\EjecutableEncriptador\bin\Release\EjecutableEncriptador.exe
+C:\jcTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\EMailManejador\bin\Release\EMailManejador.dll
+C:\jcTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\Encriptador\bin\Release\Encriptador.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\Encriptador\bin\Release\Encriptador.XmlSerializers.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\G. Deployment\Manual de Usuario GP Factura Digital cfdi.pdf
+C:\jcTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Release\MaquinaDeEstados.dll
+C:\jcTii\Desarrollo\_DevTools\MyGeneration.dOOdads\bin\Release\MyGeneration.dOOdads_2005.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\Comun\ParametrosCfd_plantilla.xml
+C:\jcTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\QRCodeLib\QRCodeLib.dll
+C:\jcTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\Reporteador\bin\Release\Reporteador.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\Reporteador\bin\Release\Reporteador.XmlSerializers.dll

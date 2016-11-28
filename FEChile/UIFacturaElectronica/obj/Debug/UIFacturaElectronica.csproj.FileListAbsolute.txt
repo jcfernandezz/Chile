@@ -1,0 +1,9 @@
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\UIFacturaElectronica\bin\Debug\UIFacturaElectronica.exe.config
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\UIFacturaElectronica\bin\Debug\UIFacturaElectronica.exe
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\UIFacturaElectronica\bin\Debug\UIFacturaElectronica.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\UIFacturaElectronica\obj\Debug\UIFacturaElectronica.Form1.resources
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\UIFacturaElectronica\obj\Debug\UIFacturaElectronica.Properties.Resources.resources
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\UIFacturaElectronica\obj\Debug\UIFacturaElectronica.csproj.GenerateResource.Cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\UIFacturaElectronica\obj\Debug\UIFacturaElectronica.exe
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\UIFacturaElectronica\obj\Debug\UIFacturaElectronica.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\UIFacturaElectronica\obj\Debug\UIFacturaElectronica.csprojResolveAssemblyReference.cache

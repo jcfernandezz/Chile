@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<listaParametros>
+  <servidor>GILABASRDB03</servidor>
+  <seguridadIntegrada>0</seguridadIntegrada>
+  <usuariosql>sa</usuariosql>
+  <passwordsql>sa2</passwordsql>
+  <ingresoPredeterminado>GCHI</ingresoPredeterminado>
+  <compannia bd="GCHI">
+	<encoding>ISO-8859-1</encoding>
+	<URLArchivoLibroCVXSD>C:\GPUsuario\GPExpressCfdi\feGilaChiTST\fePlantillas\LibroCV_v10.xsd</URLArchivoLibroCVXSD>
+    <URLArchivoEnvioXSD>C:\GPUsuario\GPExpressCfdi\feGilaChiTST\fePlantillas\EnvioDTE_v10.xsd</URLArchivoEnvioXSD>
+    <URLArchivoXSD>C:\GPUsuario\GPExpressCfdi\feGilaChiTST\fePlantillas\DTE_v10.xsd</URLArchivoXSD>
+    <URLArchivoXSLT>C:\GPUsuario\GPExpressCfdi\fePlantillas\cadenaoriginal_3_2.xslt</URLArchivoXSLT>
+    <PAC>
+      <urlWebService>na</urlWebService>
+    </PAC>
+    <reporteador>CRYSTAL</reporteador>
+    <rutaReporteCrystal tipo="default">
+      <Ruta>\\GILABASRDB03\Integraciones Getty\Factura Chile\GCHI_FACTURA_DTE.rpt</Ruta>
+      <Margenes>
+        <bottomMargin>0</bottomMargin>
+        <topMargin>0</topMargin>
+        <leftMargin>0</leftMargin>
+        <rightMargin>0</rightMargin>
+      </Margenes>
+      <Parametro>
+        <Nombre>Desde Numero</Nombre>
+        <Tipo>string</Tipo>
+      </Parametro>
+      <Parametro>
+        <Nombre>Hasta Numero</Nombre>
+        <Tipo>string</Tipo>
+      </Parametro>
+      <Parametro>
+        <Nombre>sTabla</Nombre>
+        <Tipo>string</Tipo>
+      </Parametro>
+      <Parametro>
+        <Nombre>Comprobante</Nombre>
+        <Tipo>int</Tipo>
+      </Parametro>
+    </rutaReporteCrystal>
+    <ReporteSSRS tipo="default">
+      <Ruta>na</Ruta>
+      <SSRSServer>na</SSRSServer>
+      <Parametro>
+        <Nombre>na</Nombre>
+        <Tipo>na</Tipo>
+      </Parametro>
+    </ReporteSSRS>
+    <emite>1</emite>
+    <anula>1</anula>
+    <imprime>1</imprime>
+    <publica>0</publica>
+    <envia>1</envia>
+    <zip>1</zip>
+    <emailSetup>
+                <smtp>smtp.gmail.com</smtp>
+                <puerto>587</puerto>
+				<pop3>locastillo.webempresario.cl</pop3>
+				<puertoIn>110</puertoIn>
+                <cuenta>billing@gettyimageslatam.com</cuenta>
+				<usuario>billing@gettyimageslatam.com</usuario>
+				<clave>327L43</clave>
+				<ssl>true</ssl>
+				<replyto>billing@gettyimageslatam.com</replyto>
+                <carta>FACTURA_ELECTRONICA</carta>
+				<cartaProveedor>RESPUESTA_PROVEEDOR</cartaProveedor>
+                <adjuntoEmite>zip</adjuntoEmite>
+                <adjuntoImprime>pdf</adjuntoImprime>
+    </emailSetup>
+  </compannia>
+</listaParametros>
+
