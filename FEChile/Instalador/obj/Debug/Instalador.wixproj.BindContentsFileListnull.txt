@@ -1,0 +1,22 @@
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdCertificados\bin\Debug\cfdCertificados.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaCompra\bin\Debug\cfdLogFacturaCompra.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\bin\Debug\cfdLogFacturaXML.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogLibroCV\bin\Debug\cfdLogLibroCV.dll
+C:\jcTii\Desarrollo\_DevTools\DotNetZipLib_DevKit_v1.9\DotNetZip-v1.9-Reduced\Release\Ionic.Zip.Reduced.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\Comun\bin\Debug\Comun.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\G. Deployment_and_Training\Capacitación\Instalación de GP factura electrónica de Chile.pdf
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\dte\bin\Debug\dte.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\EjecutableEncriptador\bin\Debug\EjecutableEncriptador.exe
+C:\jcTii\Desarrollo\_DevLibrary\EMailManejador\bin\Release\EMailManejador.dll
+C:\jcTii\Desarrollo\_DevLibrary\Encriptador .net4.6.1\bin\Release\Encriptador.dll
+C:\jcTii\Desarrollo\_DevLibrary\Encriptador .net4.6.1\bin\Release\Encriptador.XmlSerializers.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\envioDTE\bin\Debug\envioDTE.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\FEChile\bin\Debug\FEChile.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\G. Deployment_and_Training\Capacitación\GILA CHILE Instructivo de Usuario GP Factura Electrónica.pdf
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.dll
+C:\jcTii\Desarrollo\_DevTools\MyGeneration.dOOdads\bin\Release\MyGeneration.dOOdads_2005.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\Comun\ParametrosCfd_plantilla.xml
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\ReciboMercaderiaServicios\bin\Debug\ReciboMercaderiaServicios.dll
+C:\jcTii\Desarrollo\_DevLibrary\Reporteador\bin\Release\Reporteador.dll
+C:\jcTii\Desarrollo\_DevLibrary\Reporteador\bin\Release\Reporteador.XmlSerializers.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\respuestaEnvioDTE\bin\Debug\respuestaEnvioDTE.dll

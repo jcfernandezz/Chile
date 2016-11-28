@@ -1,0 +1,1142 @@
+/* --------- External CSS files ---------- */
+@import "/Resources/AutoCompleteDropdown.css";
+@import "/Resources/ExSimpleTalk.css";
+
+/*
+-- Notes: Use relative sizes where possible (em/percent)
+--		  Use percentages for font sizes, ems elsewhere
+--        (for IE compatibility. Moz just regards 1em=100%)
+*/
+
+/* ------------- Standard fonts -------------- */
+body { font-size: 80%; }
+body, td 
+{
+	font-family: Arial, Helvetica, sans-serif;
+	color: #2a2a2a;
+}
+
+h1, h2, h3 
+{
+	color: #003366;
+	font-weight: bold;
+}
+
+h1 { font-size: 160%; margin: 1em 0 0.2em 0; padding: 0px; }
+h2 { font-size: 150%; margin: 1em 0 0.2em 0; padding: 0px; }
+h3 { font-size: 120%; margin: 1em 0 0.2em 0; padding: 0px; }
+h4 { font-size: 105%; margin: 0.1em 0 0.1em 0; padding: 0px; }
+h1.MinMargin, h2.MinMargin { margin: 0.0em 0 0.2em 0; }
+h3.MinMargin { margin: 0.3em 0 0.15em 0; }
+h4.MinMargin { margin: 0.1em 0 0.1em 0; }
+
+a, .action-text { text-decoration: none; color:#258; cursor: pointer; }
+a:hover, .action-text:hover { color: #5577AA; }
+a.Emphasised { text-decoration: underline; }
+h1 a, h2 a, h3 a { color: #243488; }
+h4 a, h5 a { color: #003366; }
+
+p { padding: 0px; margin: 0.6em 0 0.6em 0; }
+
+.FadedText { color: #999999; }
+.ShadedBox, .ShadedBox TD { background-color: #E4E4E4 !important; }
+
+.code, pre
+{
+	font-size: 110%;
+	color: black;
+	font-family: 'Courier New';
+	background-color: #F0F0FF;
+	border: 1px dotted #99B1FF;
+    overflow: auto;
+    max-height: 400px;
+    width: expression(this.calculatedWidth || (this.calculatedWidth = GetIntendedContentWidth(this))); /* Workaround for IE failing to show horizontal scrollbar unless explicit width is given. The (x || (x = y)) hack forces y to be evaluated only once and then cached in x. */
+}
+
+pre.inline 
+{
+	border:none;
+	background-color:white;
+	max-height:10000px;
+}
+
+TEXTAREA.code 
+{
+	margin-top:1em; 
+	width:98%;
+	overflow: scroll; 
+	overflow-x: scroll; 
+	overflow-y: scroll;
+}
+
+TABLE.DynamicContent 
+{
+	table-layout: fixed;	
+}
+
+/* ------------- Misc -------------- */
+img { border: none; } /* By default, hyperlinking images shouldn't have a blue border */
+form { margin:0px; padding: 0px; }
+img.SiteLogo { margin-left: 5px; }
+img.Banner { margin-top:3px;}
+.contributeImage { text-align: center; }
+.contributeImage a { margin-left: auto; margin-right: auto; }
+
+ul { margin: 0px; padding-left: 1.3em; list-style-position: outside; }
+
+table.PublicGrid { border: 1px solid gray; }
+table.PublicGrid tr.HeaderRow, table.PublicGrid th.HeaderRow { background-color: #003366; color:White; }
+table.PublicGrid tr.HeaderRow A, table.PublicGrid th.HeaderRow A { color: Silver; }
+table.Calendar { border-collapse: collapse; }
+table.Calendar TD { border: 1px solid silver; }
+table.Calendar TD DIV.ContentSummary { font-size: 80%; }
+table.Calendar TD DIV.ContentSummary UL { padding-left: 1.5em;  }
+TR.Separator HR 
+{
+	color: gray;
+	background-color: silver;
+	height: 1px;
+	line-height: 1px;
+	border: none;
+	width:90%;
+}
+/* ------------- Page border -------------- */
+body 
+{
+	background-color: #003366;
+	margin: 0.8em 1.3em 0 1.3em;
+}
+body.NoBorder { background-color: White; margin:0px; padding:0px; }
+
+table.MainLayoutContainer tr.BodyRow
+{
+	background-color:White;
+}
+table.MainLayoutContainer td.TopLeft, table.MainLayoutContainer td.TopRight 
+{
+	background-repeat:no-repeat;
+	border-bottom: 1px solid #CCC;
+	width:1.6em;
+}
+table.MainLayoutContainer td.TopLeft 
+{
+	background-image: url(/Resources/Images/topleftround.gif);
+	background-position: top left;
+}
+table.MainLayoutContainer td.TopRight
+{
+	background-image: url(/Resources/Images/toprightround.gif);
+	background-position: top right;
+}
+table.MainLayoutContainer td.BottomLeft, table.MainLayoutContainer td.BottomRight 
+{
+	background-repeat:no-repeat;	
+	width:1.6em;
+}
+table.MainLayoutContainer td.BottomLeft 
+{
+	background-image: url(/Resources/Images/botleftround.jpg);
+	background-position: bottom left;
+}
+table.MainLayoutContainer td.BottomRight
+{
+	background-image: url(/Resources/Images/botrightround.jpg);
+	background-position: bottom right;
+}
+table.MainLayoutContainerBottom { margin-bottom: 1em; border-top: 1px solid #CCC; }
+/* ------------ Global elements ------------ */
+TABLE.SiteTitleBar IMG { display:block; }
+TD.HeaderBar 
+{
+	padding: 0.9em 0 0.4em 0;
+	border-bottom: 1px solid #CCC;
+}
+TD.HeaderBar TD 
+{
+	color:Black;
+	font-family: Arial;
+	font-weight: bolder;
+	font-size: 120%;	
+ }
+TD.HeaderBar A { color: #003366; }
+TD.HeaderBar A:hover { color: #2233AA; text-decoration: underline; }
+DIV.Footer 
+{
+	color: #444;
+	text-align: center;
+	margin: 10px;
+}
+DIV.PerfData 
+{
+	background-color:White;
+	color:Black;
+	padding: 10px;
+}
+
+TD.MainMenuCell 
+{
+	border-right: 1px solid #CCC;
+	padding-top: 1em;
+	width: 11em;
+}
+DIV.MainMenuCellMenuItems 
+{
+	padding-right:1em;
+}
+
+TD.MainContentCell 
+{
+	padding-top: 1em;
+}
+TD.MainContentRightPadding { width: 1.6em; }
+TD.MainContentLeftPadding { width: 1.2em; }
+
+INPUT.button 
+{
+	background-color: #003366; 
+	border: 1px solid #777;
+	color: White;
+	-moz-border-radius: 1px;
+	padding: 0em 0.3em 0em 0.3em;
+}
+
+/* ------------ Main menu -------------- */
+
+.MainMenu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+DIV.MainMenu A 
+{
+	display: block;
+	color: #003366;
+	font-family: Arial;
+	font-weight: bolder;
+	font-size: 120%;	
+	margin-bottom: 0.15em;
+	padding-left: 1.5em;
+}
+DIV.MainMenu A.CurrentNode 
+{
+	background-color:#003366;
+	color:White;
+	background-image: url(/Resources/Images/barendright.gif);
+	background-position: right center;
+	background-repeat: no-repeat;
+	height: 17px;
+}
+*>DIV.MainMenu A.CurrentNode
+{
+	padding-top: 1px;
+}
+DIV.MainMenu A.Minor 
+{
+	font-weight:normal;
+}
+
+/* ----------- Home page ------------- */
+DIV.SiteIntro 
+{
+	padding-right: 1.6em;
+	padding-bottom: 0.5em;
+}
+
+DIV.contentSummary 
+{
+	clear: left;
+	margin-top: 0.7em;
+	margin-bottom: 1.2em;
+}
+
+DIV.contentAttribution { margin-top: 0.2em; }
+DIV.contentActions { margin-top: 0.1em; }
+DIV.contentAttribution, DIV.contentActions
+{
+	font-size: 90%;
+	color: #666666;
+}
+DIV.contentDescriptionBelow { margin-top: 0.5em; }
+
+SPAN.Separator { margin: 0 0.5em 0 0.5em; color: #888888; }
+
+DIV.ForumItemSummary { margin: 0.5em 0 1em 0; }
+
+IMG.ContentItemIcon { float:left; margin-right:4px; margin-bottom: 10px; }
+
+/* ----------- Blue bars  ------------- */
+DIV.BarSpacer 
+{ 
+	height: 0.77em; 
+	clear: left;
+}
+DIV.Bar, DIV.BarLeft, DIV.BarRight 
+{
+	background-color:#003366; 
+	background-repeat: no-repeat;
+}
+DIV.Bar 
+{
+	font-family: Arial;
+	font-weight: bolder;
+	font-size: 120%;		
+	color:White;
+	padding-right: 0.5em;
+}
+*>DIV.Bar
+{
+	padding-top: 1px;
+	height: 17px;
+}
+DIV.BarLeft, DIV.BarRight 
+{
+	width: 9px;
+	height: 18px;
+}
+DIV.BarLeft 
+{
+	float:left;
+	background-image: url(/Resources/Images/barendleft.gif);
+	background-position: left top;
+}
+DIV.BarRight
+{
+	float:right;
+	background-image: url(/Resources/Images/barendright.gif);
+	background-position: right top;
+}
+DIV.Bar DIV.Subheading, DIV.Bar SPAN.SubheadingLeft 
+{
+	font-weight: normal;
+	color:#A8B7FF;
+}
+DIV.Bar DIV.Subheading 
+{
+	float:right;
+}
+DIV.Bar A { color:#A8B7FF; }
+DIV.Bar DIV.Subheading IMG { vertical-align: text-top; }
+
+DIV.IndentedColumn { padding: 0px 5px 0px 5px; }
+DIV.NoIndentLeft { padding-left: 0px !important; }
+
+/* --------- Points reports ----------- */
+TABLE.HighScoresTable { margin-top: 0.3em; margin-bottom: 0.5em; }
+TABLE.HighScoresTable TH 
+{
+	font-weight: bold;
+}
+/*TABLE.HighScoresTable TR.HeaderRow TD { padding: 0px; }*/
+TABLE.HighScoresTable TR.AlternateRow TD { background-color: #DDD; }
+TABLE.HighScoresTable TR.CurrentUser TD { font-weight: bold; }
+
+/* ------------- Content editor --------------- */
+TABLE.EditorModule 
+{
+	width: 650px;
+	background-color: #D6D6DB;
+}
+TABLE.EditorModule TD { background-color: #D6D6DB !important; }
+
+DIV.BriefcaseNotes 
+{
+	padding: 8px;
+	background-color: #E0E0F8;
+	border-left: 4px solid silver;
+	width: 264px;
+	margin-top:10px;
+	margin-left: 30px;
+}
+
+/* ------------- Legacy images --------------- */
+/* Copied from the v1 site css file to deal with excessively large images */
+/*
+ wrapped IMG tag in a div with class="img_container"
+   search for "img_container" to locate the affected div's (2) this document
+It's important that the margin, border and padding are all 0. Otherwise the width: 100% causes box model problems.
+*/
+div.img_container img {
+  float: left;
+}      
+ 
+.img_container {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  overflow: scroll;
+  overflow-y: hidden;
+}
+
+/* --------------- Controls for wide images --------------- */
+DIV.wideImageContainer 
+{
+	background-color: #003366;
+	color: silver;
+	padding: 2px;
+	text-align:left;
+}
+
+DIV.wideImageContainer A { color: White; padding: 3px 2px 0px 2px; font-size: 90%; }
+DIV.wideImageContainer A:hover { text-decoration:underline; }
+
+/* ---- float images left or right ---- */
+img.floatRight {float:right;}
+img.floatLeft {float:left;}
+
+.inlineCode, .codeBlack, .sqlIdentifier, .sqlNumber
+{
+	color:Black;
+	font-family: Courier New, Monospace;
+}
+.codeGreen, .sqlComment, .sqlSystemTable
+{
+	font-family: Courier New, Monospace;
+	color:green;
+}
+.codeRed, .sqlString
+{
+	font-family: Courier New, Monospace;
+	color:red;
+}
+.codeBlue, .sqlKeyword
+{
+	font-family: Courier New, Monospace;
+	color:blue;
+}
+.codeMagenta, .sqlSystemFunction
+{
+	font-family: Courier New, Monospace;
+	color:#FF00FF;
+}
+.codeGray, .sqlOperator
+{
+	font-family: Courier New, Monospace;
+	color:#808080;
+}
+.codeWhite
+{
+	font-family: Courier New, Monospace;
+	color:white;
+}
+.codeBrown, .sqlMDX
+{
+	font-family: Courier New, Monospace;
+	color:#800000;
+}
+
+/*---------------------Elements for announcements - they make a grey box with rounded corners.---------------------*/
+.grey_bl 
+{
+background: url(/Resources/images/bottomleft.gif) 0 100% no-repeat #CCCCCC; width:100%
+}
+
+.grey_br 
+{
+background: url(/Resources/images/bottomright.gif) 100% 100% no-repeat
+}
+
+.grey_tl 
+{
+background: url(/Resources/images/topleft.gif) 0 0 no-repeat
+}
+
+.grey_tr 
+{
+background: url(/Resources/images/topright.gif) 100% 0 no-repeat; padding-bottom:2px; padding-left:12px; padding-right:12px; 
+padding-top:2px
+}
+
+/*---------------------Elements for bookmarks ---------------------*/
+.bookmarks
+{
+	padding: 5px;
+	text-align: center;
+}
+.bookmarks A
+{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.bookmarks IMG
+{
+	margin-right: 3px;
+}
+
+/*---------------------Login---------------------*/
+.loginLabel
+{
+	float: left;
+	width: 115px;
+	text-align: right;
+}
+.loginField
+{
+	display: block;
+	margin-left: 119px;
+	margin-bottom: 5px;
+}
+#forgotPassword
+{
+	display:block;
+	margin-top: 15px;
+}
+.loginButton
+{
+	margin-top: 10px;
+	display: block;
+	width: 302px;
+	text-align: right;
+}
+.notRegisteredYet
+{
+	display: block;
+	margin-top: 10px;
+}
+#displayStopperContainer
+{
+	width: 100%;
+	padding-right: 3px;
+}
+
+/*---------------------Register---------------------*/
+.subscriptionInfo
+{
+}
+
+#limiterLogin
+{
+	padding: 10px;
+	background-color:White;
+	color: #003366;
+	height: 270px;
+	margin-bottom: 12px;
+    width: 313px;
+}
+#limiterBox H3
+{
+	margin-top:0px;
+	color: White;
+	font-size: 1.6em;
+}
+#limiterBox .MinMargin
+{
+	display: none;
+}
+#limiterLogin H3
+{
+	color: #003366;
+	margin-bottom: 20px;
+}
+#limiterLogin .MinMargin
+{
+	display: none;
+}
+
+#limiterRegisterLater 
+{
+    text-align: center;
+    background-color: #fff;
+    padding: 12px;
+    height: 24px;
+    width: 313px;
+}
+
+#limiterRegister
+{
+	padding: 10px;
+	background-color: White;
+	width: 435px;
+	color: #333;
+	height: 330px;
+}
+#limiterRegister H3
+{
+	color: #003366;
+	margin-bottom: 20px;
+}
+#limiterBox
+{
+	background-color: #003366;
+	color: White;
+	margin: auto;
+	width: 800px; 
+	height: 420px; 
+	border:2px solid #999999; 
+	padding: 15px; 
+	position:relative; 
+	top: -16px;
+}
+.transparent {
+	filter:alpha(opacity=50);
+	-moz-opacity:0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+}
+
+/*---------------------Stay up to date---------------------*/
+.stayuptodate H3
+{
+	margin-top:0px;
+	color: White;
+	font-size: 1.6em;
+}
+.stayuptodate .MinMargin
+{
+	display: none;
+}
+#stayuptodateRegister
+{
+	padding: 10px;
+	background-color: White;
+}
+#stayuptodateRegister td
+{
+	color: #003366;
+}
+#stayuptodateRegister p
+{
+	margin: 0;
+}
+.stayuptodate .loginLabel
+{
+	width: 80px;
+}
+.stayuptodate .loginField
+{
+	margin-left:90px;
+}
+.stayuptodate .loginButton
+{
+	width:274px;
+}
+.stayuptodate
+{
+	background-color: #003366;
+	color: White;
+	margin: auto;
+	border:2px solid #999999; 
+	padding: 15px; 
+}
+
+/*---------------------Search---------------------*/
+.SearchResult
+{
+	padding-bottom: 0.7em;
+}
+
+.SearchResult .SearchType
+{
+	float: left;
+	color: #000000;
+	border: solid 1px #000000;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 70%;
+}
+
+.SearchResult .SearchType.article
+{
+	background-color: #9999FF;
+}
+
+.SearchResult .SearchType.blog
+{
+	background-color: #99CC77;
+}
+
+.SearchResult .SearchType.forum
+{
+	background-color: #FFEE66;
+}
+
+.SearchResult .SearchType.script
+{
+	background-color: #FF6666;
+}
+
+.SearchResult .SearchType div
+{
+	padding: 1px 0 0 0;
+	margin: -1px 0 0 0;
+	background-color: transparent;
+	background-position: 0 1px;
+	background-repeat: repeat-x;
+	width: 5em;
+	font-size: 120%;
+	font-weight: bold;
+	text-align: center;
+}
+
+html>body .SearchResult .SearchType div /* CSS Hack - hide from IE6 */
+{
+	background-image: url(/Resources/Images/taggradient.png);
+}
+
+.SearchResult .SearchDetails, .IndentedTagColumn
+{
+	padding-left: 5em;
+}
+
+.SearchResult .SearchDetails h3
+{
+	margin: 0;
+}
+
+.SearchHint
+{
+	color: #999;
+}
+
+.SearchBar
+{
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border: solid 1px #003366;
+	padding: 0.6em;
+	background-color: #dddddd;
+	margin-bottom: 1em;
+}
+
+.SearchPaging
+{
+	float: right;
+	padding: 0.2em;
+}
+
+.SearchPagingEnd
+{
+	clear: right;
+}
+
+.SearchHit
+{
+    font-weight: bold;
+}
+
+/** Question of the Day **/
+
+.qotdBanner {
+    background-color: #003366;
+    padding: 0.1em 1em;
+    margin-right: 1.2em;
+    margin-bottom: 1.2em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+
+}
+
+.qotdBanner, .qotdBanner a, qotdBanner a:visited {
+    color: #fff;
+}
+
+.qotdBanner a {
+    font-weight: bold;
+}
+
+.qotdBanner p {
+    font-size: 1.3em;
+}
+
+/** Stairway **/
+
+.StairwayBanner {
+	background:url(/Resources/Images/stairway.png) no-repeat;
+	height:80px;
+	padding:40px 0px 0 320px;
+}
+
+.StairwayBanner h2 {
+    font-size: 20px;
+    color: #8a8a8a;
+    margin: 0;
+    text-shadow: 0 1px 0 #FFFFFF;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.StairwayQuote {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.StairwaySideBar {
+    float: right;
+    width: 40%;
+    background-color: #f4f4fa;
+    padding: 1em;
+    margin-top: 20px;
+    line-height: 1.5;
+    border: 1px solid #cccccc;
+    color: #666666;
+}
+
+.StairwayList {
+    float: left;
+    width: 55%;
+    line-height: 1.5;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.StairwayList li {
+    display: block;
+	background: #ffffff;
+	padding: 10px;
+	border-top: solid 1px #cccccc;
+	overflow: auto;
+	clear: both;
+}
+
+.StairwayList li:hover {
+	background: #fbfbfb;
+}
+
+.StairwayList img {
+    margin-right: 1em;
+    float: left;
+}
+
+.StairwayList h3 {
+	margin: 0 0 0.2em;
+}
+
+.StairwayList .Authors {
+    font-style: italic;
+    margin: 0;
+}
+
+.StairwayItem {
+    border-top: 1px solid #ccc;
+    clear: left;
+}
+
+.StairwayItem .Unpublished, .StairwayItem .Unpublished h3 {
+    color: #999;
+}
+
+/** Social media icons **/
+
+.ShareIcon {
+    min-height: 25px;
+    float: left;
+    margin: 0 0.5em;
+}
+
+/** Colorbox **/
+
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%; left:0; right: 0}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:0;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+
+#cboxOverlay{background-color: #000;}
+#cboxLoadedContent{margin-bottom:2em;}
+#cboxClose {
+    position:absolute;
+    bottom:0;
+    display:block;
+    color:#225588;
+    width: 100%;
+    text-align:center;
+    padding: 0.5em;
+}
+
+#colorbox {
+    border: 3px #ddd solid;
+    background-color: #fff;
+    display: inline;
+}
+
+/** Briefcase **/
+
+.briefcase-controls {
+    float: right;
+    width: 20em;
+    border: 1px solid #ccc;
+    background-color: #f4f4fa;
+    color: #333;
+    margin: 0 0 2em 2em;
+    padding: 1em;
+    line-height: 1.5;
+}
+
+.briefcase-controls h3 {
+    margin: 0 0 1em 0;
+}
+
+.briefcase-controls ul {
+    margin: 0 1em;
+    padding: 0;
+}
+
+.briefcase-controls li {
+    list-style-type: none;
+    margin: 0.2em 0;
+}
+
+.briefcase {
+    line-height: 1.5;
+}
+
+.briefcase {
+    margin: 0;
+    padding: 0;
+}
+
+.briefcase li.briefcase-entry {
+    list-style-type: none;
+    border-bottom: 1px solid #ccc;
+    overflow: auto;
+    padding: 0.4em 0;
+    margin-right: 25em;
+}
+
+.briefcase .briefcase-entry-details {
+    min-height: 2em;
+}
+
+.briefcase li.briefcase-entry:hover {
+    background-color: #fbfbfb;
+}
+
+ul.briefcase-tags-display {
+    overflow: auto;
+    list-style-type: none;
+    margin: 0.3em 0;
+    padding: 0;
+}
+
+li.briefcase-tag {
+    display: block;
+}
+
+.briefcase-tag a, .briefcase-tag a:visited {
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    border: 1px solid #bbb;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    color: #666;
+}
+
+.briefcase-tags-display li {
+    float: left;
+    margin: 0 1em 0 0;
+    font-size: 0.9em;
+}
+
+.briefcase-tag a.selected, .briefcase-tag a.selected:visited {
+    background-color: #336799;
+    color: #fff;
+}
+
+.briefcase-tag a img {
+    padding-left: 0.5em;
+    vertical-align: middle;
+}
+
+.briefcase-entry-details {
+    margin-right: 13em;
+}
+
+.briefcase .briefcase-entry-controls {
+    float: right;
+    overflow: auto;
+    margin: -2em 0 0 0;
+}
+
+.briefcase-entry-controls .briefcase-entry-control {
+    padding: 0.1em 0;
+    margin: 0 1.5em 0 0;
+    float: left;
+}
+
+.briefcase-entry .briefcase-save {
+    float: left;
+}
+
+.briefcase .briefcase-entry-control img {
+    padding-right: 0.2em;
+    vertical-align: middle;
+}
+
+.briefcase .briefcase-message {
+    margin: 0 1em 0 0;
+}
+
+.briefcase p, .briefcase h3 {
+    margin: 0;
+}
+
+.briefcase li .authors {
+    font-style: italic;
+    margin: 0 0 0.5em 0;
+}
+
+.briefcase textarea {
+    width: 400px;
+    font-family: sans-serif;
+    font-size: 0.9em;
+}
+
+/** Briefcase popup **/
+
+.rounded-button {
+    border: none;
+    cursor: pointer;
+    padding: 0.4em 1em;
+    
+    vertical-align: middle;
+    
+    -moz-border-radius: 1.2em;
+    -webkit-border-radius: 1.2em;
+    border-radius: 1.2em;
+}
+
+.add-to-briefcase-div {
+    position: absolute;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #999;
+    background-color: #f3f3f3;
+    text-align: left;
+    z-index: 10002;
+    margin: 15px 0 0 -65px;
+   
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.add-to-briefcase-div:before {
+   content: "";
+   display: block; /* reduce the damage in FF3.0 */
+   position: absolute;
+   top: -15px;
+   left: 50px;
+   width: 0;
+   height: 0;
+   border-width: 0 15px 15px;
+   border-style: solid;
+   border-color: #999 transparent;
+   z-index: 10000;
+}
+
+.add-to-briefcase-div:after {
+   content: "";
+   display: block; /* reduce the damage in FF3.0 */
+   position: absolute;
+   top: -14px;
+   left: 50px;
+   width: 0;
+   height: 0;
+   border-width: 0 15px 15px;
+   border-style: solid;
+   border-color: #f3f3f3 transparent;
+   z-index: 10001;
+}
+
+.add-to-briefcase-div h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.add-to-briefcase-div p {
+    margin: 0;
+    margin: 0.2em 0;
+}
+
+.close-button {
+    float: right;
+    cursor: pointer;
+    padding-left: 2em;
+    margin-top: -0.5em;
+}
+
+.add-to-briefcase-status {
+    margin: 0.4em 0 1em;
+    height: 1.5em;
+    vertical-align: text-bottom;
+    font-weight: bold;
+}
+
+.add-to-briefcase-div hr {
+    border-color: #ccc #ddd #fff;
+    border-width: 1px 0;
+    border-style: solid;
+}
+
+.add-to-briefcase-explanation {
+    margin: 0.2em 0;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.add-to-briefcase-div table {
+    margin: 0 10px 10px 10px;
+}
+
+.add-to-briefcase-div textarea {
+    width: 300px;
+    font-family: sans-serif;
+    font-size: 0.9em;
+}
+
+.add-to-briefcase-tag-format {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.add-to-briefcase-error {
+    color: #a44;
+}
+
+.briefcase-save {
+    color: #fff;
+    background-color: #204074;
+    filter: filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#204074', endColorstr='#1c3664');
+    background: -webkit-gradient(linear, left top, left bottom, from(#204074), to(#1c3664));
+    background: -moz-linear-gradient(center top, #204074, #1c3664);
+}
+
+.ui-autocomplete {
+    background-color: white;
+    border: solid 1px #555;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+}
+
+.ui-autocomplete li {
+    margin: 0;
+    padding: 0;
+}
+
+.ui-autocomplete li a {
+    display: block;
+    padding: 0.2em;
+    cursor: pointer;
+    color: #333;
+}
+
+.ui-autocomplete li a.ui-state-hover {
+    background-color: #f4f4f4;
+}

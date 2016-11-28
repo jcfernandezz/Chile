@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{10DAA069-2B5A-4622-B8A8-F28B8744B704}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FEChile</RootNamespace>
+    <AssemblyName>FEChile</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="cfdLogFacturaCompra">
+      <HintPath>..\cfdLogFacturaCompra\bin\Debug\cfdLogFacturaCompra.dll</HintPath>
+    </Reference>
+    <Reference Include="CLConfiguracion">
+      <HintPath>..\..\..\..\_DevLibrary\CLConfiguracion\CLConfiguracion\bin\Release\CLConfiguracion.dll</HintPath>
+    </Reference>
+    <Reference Include="EMailManejador">
+      <HintPath>..\..\..\..\_DevLibrary\EMailManejador\bin\Release\EMailManejador.dll</HintPath>
+    </Reference>
+    <Reference Include="Encriptador">
+      <HintPath>..\..\..\..\_DevLibrary\Encriptador .net4.6.1\bin\Release\Encriptador.dll</HintPath>
+    </Reference>
+    <Reference Include="MyGeneration.dOOdads_2005">
+      <HintPath>..\..\..\..\_DevTools\MyGeneration.dOOdads\bin\Release\MyGeneration.dOOdads_2005.dll</HintPath>
+    </Reference>
+    <Reference Include="Reporteador">
+      <HintPath>..\..\..\..\_DevLibrary\Reporteador\bin\Release\Reporteador.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Barcode">
+      <HintPath>..\..\..\..\_DevLibrary\PDF417 spire.barcode_1.2.2\Spire.BarCode\Bin\NET4.0\Spire.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\enviodte_v10Extendido.cs" />
+    <Compile Include="BLL\enviodte_v10_xmldsignature_v10.cs" />
+    <Compile Include="BLL\vwCfdCartasReclamacionDeuda.cs" />
+    <Compile Include="BLL\vwCfdClienteDireccionesCorreo.cs" />
+    <Compile Include="BLL\vwCfdLibroCVLog.cs" />
+    <Compile Include="BLL\vwCfdLogFacturaCompra.cs" />
+    <Compile Include="CFDComprobanteFiscalDigital.cs" />
+    <Compile Include="CFDComprobanteFiscalDigitalFabrica.cs" />
+    <Compile Include="CFDFacturaCompraCab.cs" />
+    <Compile Include="CFDFacturaCompraDet.cs" />
+    <Compile Include="CFDFacturasCompraFabrica.cs" />
+    <Compile Include="CFDLibroCV.cs" />
+    <Compile Include="CFDLibroCVFabrica.cs" />
+    <Compile Include="CFDReglasEmailSolicitud.cs" />
+    <Compile Include="CFDServicioDespachoSII.cs" />
+    <Compile Include="CFDServicioDespachoSolicitudes.cs" />
+    <Compile Include="CustomXmlTextWriter.cs" />
+    <Compile Include="DteModel.cs" />
+    <Compile Include="EnvioDteModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="TedModel.cs" />
+    <Compile Include="Web References\WebRefCrSeed\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebRefGetToken\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cfdCertificados\cfdCertificados.csproj">
+      <Project>{c70239fd-3486-42c7-bc5e-b96500c8dfb9}</Project>
+      <Name>cfdCertificados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cfdLogFacturaXML\cfdLogFacturaXML.csproj">
+      <Project>{6cb9257a-8125-41bd-a5cd-669c6c6e2cf4}</Project>
+      <Name>cfdLogFacturaXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cfdLogLibroCV\cfdLogLibroCV.csproj">
+      <Project>{523ba5d7-bf98-4302-b2a8-71011184a071}</Project>
+      <Name>cfdLogLibroCV</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Comun\Comun.csproj">
+      <Project>{d43004bd-e235-41be-b272-a05fc4fb9a96}</Project>
+      <Name>Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MaquinaDeEstados\MaquinaDeEstados.csproj">
+      <Project>{3325d053-41aa-48a1-9166-11dc6afea8d7}</Project>
+      <Name>MaquinaDeEstados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReciboMercaderiaServicios\ReciboMercaderiaServicios.csproj">
+      <Project>{ea598f0e-1cae-4080-b853-4fb2ab578d1e}</Project>
+      <Name>ReciboMercaderiaServicios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\respuestaEnvioDTE\respuestaEnvioDTE.csproj">
+      <Project>{a05ba445-d56f-4df8-9d37-cb4e94531b96}</Project>
+      <Name>respuestaEnvioDTE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\CFDFacturaCompraCab.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefCrSeed\CrSeed.wsdl" />
+    <None Include="Web References\WebRefCrSeed\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebRefGetToken\GetTokenFromSeed.wsdl" />
+    <None Include="Web References\WebRefGetToken\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\FEChile\CrSeed.prodPalena.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefCrSeed\</RelPath>
+      <UpdateFromURL>C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\FEChile\CrSeed.prodPalena.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FEChile_WebRefCrSeed_CrSeedService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\FEChile\GetTokenFromSeed.prodPalena.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefGetToken\</RelPath>
+      <UpdateFromURL>C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\FEChile\GetTokenFromSeed.prodPalena.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FEChile_WebRefGetToken_GetTokenFromSeedService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

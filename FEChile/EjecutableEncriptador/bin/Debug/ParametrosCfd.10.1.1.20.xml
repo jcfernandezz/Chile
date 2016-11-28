@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<listaParametros>
+  <servidor>10.1.1.20</servidor>
+  <seguridadIntegrada>0</seguridadIntegrada>
+  <usuariosql>sa</usuariosql>
+  <passwordsql>sa20</passwordsql>
+  <ingresoPredeterminado>GCHI</ingresoPredeterminado>
+  <compannia bd="GCHI">
+	<encoding>ISO-8859-1</encoding>
+	<URLArchivoLibroCVXSD>\\10.1.1.20\GettyCh_FacturaElectronicaXml\fePlantillas\LibroCV_v10.xsd</URLArchivoLibroCVXSD>
+    <URLArchivoEnvioXSD>\\10.1.1.20\GettyCh_FacturaElectronicaXml\fePlantillas\EnvioDTE_v10.xsd</URLArchivoEnvioXSD>
+    <URLArchivoXSD>\\10.1.1.20\GettyCh_FacturaElectronicaXml\fePlantillas\DTE_v10.xsd</URLArchivoXSD>
+    <URLArchivoXSLT>na</URLArchivoXSLT>
+	<RutaArchivosTemp>\\10.1.1.20\GettyCh_FacturaElectronicaXml\intercambio\</RutaArchivosTemp>
+    <PAC>
+      <urlWebService>https://maullin.sii.cl/cgi_dte/UPL/DTEUpload</urlWebService>
+    </PAC>
+    <reporteador>CRYSTAL</reporteador>
+    <rutaReporteCrystal tipo="default">
+      <Ruta>\\10.1.1.20\Integraciones Getty\Factura Chile\GCHI_FACTURA_DTE.rpt</Ruta>
+      <Margenes>
+        <bottomMargin>0</bottomMargin>
+        <topMargin>0</topMargin>
+        <leftMargin>0</leftMargin>
+        <rightMargin>0</rightMargin>
+      </Margenes>
+      <Parametro>
+        <Nombre>Desde Numero</Nombre>
+        <Tipo>string</Tipo>
+      </Parametro>
+      <Parametro>
+        <Nombre>Hasta Numero</Nombre>
+        <Tipo>string</Tipo>
+      </Parametro>
+      <Parametro>
+        <Nombre>sTabla</Nombre>
+        <Tipo>string</Tipo>
+      </Parametro>
+      <Parametro>
+        <Nombre>Comprobante</Nombre>
+        <Tipo>int</Tipo>
+      </Parametro>
+    </rutaReporteCrystal>
+    <ReporteSSRS tipo="default">
+      <Ruta>na</Ruta>
+      <SSRSServer>na</SSRSServer>
+      <Parametro>
+        <Nombre>na</Nombre>
+        <Tipo>na</Tipo>
+      </Parametro>
+    </ReporteSSRS>
+    <emite>1</emite>
+    <anula>1</anula>
+    <imprime>1</imprime>
+    <publica>0</publica>
+    <envia>1</envia>
+    <zip>1</zip>
+    <emailSetup>
+		  <smtp>locastillo.webempresario.cl</smtp>
+		  <pop3>locastillo.webempresario.cl</pop3>
+		  <puerto>25</puerto>
+		  <puertoIn>110</puertoIn>
+		  <cuenta>juan-carlos.fernandez@tiiselam.com</cuenta>
+		  <usuario>juan-carlos.fernandez</usuario>
+		  <clave>1201</clave>
+		  <ssl>false</ssl>
+	      <replyto>jfernandezz@hotmail.com</replyto>
+                <carta>FACTURA_ELECTRONICA</carta>
+				<cartaProveedor>RESPUESTA_PROVEEDOR</cartaProveedor>
+                <adjuntoEmite>xml</adjuntoEmite>
+                <adjuntoImprime>pdf</adjuntoImprime>
+    </emailSetup>
+    <modoTest>1</modoTest>
+	</compannia>
+</listaParametros>
+

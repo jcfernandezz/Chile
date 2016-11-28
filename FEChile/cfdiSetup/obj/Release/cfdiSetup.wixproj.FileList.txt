@@ -1,0 +1,7 @@
+obj\Release\MajorUpgrade.wixobj
+obj\Release\UserRegistrationDlg.wixobj
+C:\jcTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\cfdiSetup\bin\Release\cfdiSetup.msi
+C:\jcTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\cfdiSetup\bin\Release\cfdiSetup.wixpdb
+obj\Release\cfdiSetup.wixproj.BindContentsFileListnull.txt
+obj\Release\cfdiSetup.wixproj.BindOutputsFileListnull.txt
+obj\Release\cfdiSetup.wixproj.BindBuiltOutputsFileListnull.txt

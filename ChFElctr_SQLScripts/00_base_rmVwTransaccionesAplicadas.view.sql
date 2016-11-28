@@ -1,0 +1,1 @@
+--ejecutar rmVwTransaccionesAplicadas.view.sql

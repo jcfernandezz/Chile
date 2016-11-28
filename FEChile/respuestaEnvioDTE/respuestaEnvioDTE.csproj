@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A05BA445-D56F-4DF8-9D37-CB4E94531B96}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>respuestaEnvioDTE</RootNamespace>
+    <AssemblyName>respuestaEnvioDTE</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="cfdCertificados">
+      <HintPath>..\cfdCertificados\bin\Debug\cfdCertificados.dll</HintPath>
+    </Reference>
+    <Reference Include="cfdLogFacturaCompra">
+      <HintPath>..\cfdLogFacturaCompra\bin\Debug\cfdLogFacturaCompra.dll</HintPath>
+    </Reference>
+    <Reference Include="CLConfiguracion">
+      <HintPath>..\..\..\..\_DevLibrary\CLConfiguracion\CLConfiguracion\bin\Release\CLConfiguracion.dll</HintPath>
+    </Reference>
+    <Reference Include="EMailManejador">
+      <HintPath>..\..\..\..\_DevLibrary\EMailManejador\bin\Release\EMailManejador.dll</HintPath>
+    </Reference>
+    <Reference Include="Encriptador">
+      <HintPath>..\..\..\..\_DevLibrary\Encriptador .net4.6.1\bin\Release\Encriptador.dll</HintPath>
+    </Reference>
+    <Reference Include="EstructuraMensajeEMail, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\_DevLibrary\EstructuraMensajeEMail\bin\Debug\EstructuraMensajeEMail.dll</HintPath>
+    </Reference>
+    <Reference Include="MaquinaDeEstados, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.dll</HintPath>
+    </Reference>
+    <Reference Include="MyGeneration.dOOdads_2005, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\_DevTools\MyGeneration.dOOdads\bin\Release\MyGeneration.dOOdads_2005.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenPop, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\_DevLibrary\OpenPop.NET 2.0.5\binaries\unsigned\OpenPop.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CFDReglasEmailRespuesta.cs" />
+    <Compile Include="CFDServicioDespachoRespuestas.cs" />
+    <Compile Include="CustomXmlTextWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RespuestaEnvio.cs" />
+    <Compile Include="RespuestaEnvioDTE_v10.cs" />
+    <Compile Include="RespuestaSII.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cfdLogFacturaXML\cfdLogFacturaXML.csproj">
+      <Project>{6cb9257a-8125-41bd-a5cd-669c6c6e2cf4}</Project>
+      <Name>cfdLogFacturaXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReciboMercaderiaServicios\ReciboMercaderiaServicios.csproj">
+      <Project>{ea598f0e-1cae-4080-b853-4fb2ab578d1e}</Project>
+      <Name>ReciboMercaderiaServicios</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
