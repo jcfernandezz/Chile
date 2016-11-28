@@ -1,0 +1,1 @@
+xsd RespuestaEnvioDTE_v10.xsd SiiTypes_v10.xsd xmldsignatur_v10.xsd /c
