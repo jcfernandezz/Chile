@@ -1,0 +1,13 @@
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\bin\Release\cfdLogFacturaXML.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\bin\Release\cfdLogFacturaXML.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\bin\Release\Comun.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\bin\Release\MyGeneration.dOOdads_2005.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\bin\Release\Ionic.Zip.Reduced.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\bin\Release\Comun.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\obj\Release\cfdLogFacturaXML.csprojResolveAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\obj\Release\cfdLogFacturaXML.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\obj\Release\cfdLogFacturaXML.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\bin\Release\CLConfiguracion.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\bin\Release\CLConfiguracion.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\bin\Release\MaquinaDeEstados.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaXML\bin\Release\MaquinaDeEstados.pdb

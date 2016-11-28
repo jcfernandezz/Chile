@@ -1,0 +1,48 @@
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.pdb
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Comun.dll
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Comun.pdb
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\ResolveAssemblyReference.cache
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.pdb
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Release\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Release\MaquinaDeEstados.pdb
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Release\Comun.dll
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Release\Comun.pdb
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Release\ResolveAssemblyReference.cache
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Release\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Release\MaquinaDeEstados.pdb
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Ionic.Zip.Reduced.dll
+C:\JCTii\Desarrollo\GETTY Factura Electrónica\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Release\Ionic.Zip.Reduced.dll
+C:\JCTii\Desarrollo\MEX Factura electrónica cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\MEX Factura electrónica cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.pdb
+C:\JCTii\Desarrollo\MEX Factura electrónica cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Comun.dll
+C:\JCTii\Desarrollo\MEX Factura electrónica cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Ionic.Zip.Reduced.dll
+C:\JCTii\Desarrollo\MEX Factura electrónica cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Comun.pdb
+C:\JCTii\Desarrollo\MEX Factura electrónica cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\ResolveAssemblyReference.cache
+C:\JCTii\Desarrollo\MEX Factura electrónica cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\MEX Factura electrónica cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.pdb
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.pdb
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Comun.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Ionic.Zip.Reduced.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Comun.pdb
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\ResolveAssemblyReference.cache
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E. Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.pdb
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.pdb
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Comun.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Ionic.Zip.Reduced.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Debug\Comun.pdb
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\ResolveAssemblyReference.cache
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.pdb
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Release\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Release\MaquinaDeEstados.pdb
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Release\Comun.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Release\Ionic.Zip.Reduced.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\bin\Release\Comun.pdb
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Release\ResolveAssemblyReference.cache
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Release\MaquinaDeEstados.dll
+C:\JCTii\Desarrollo\MEX_Factura_digital_cfdi\E_Implementation\MxFElctr_Aplicación\MaquinaDeEstados\obj\Release\MaquinaDeEstados.pdb

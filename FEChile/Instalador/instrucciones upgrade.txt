@@ -1,0 +1,32 @@
+﻿  16/9/15 jcf 
+  ------------------------------------------------------------------------------------
+  Propósito. Elimina los archivos de programas anteriores y registra los nuevos.
+			 También sirve para nuevas instalaciones.
+  Ref. http://wix.tramontana.co.hu/tutorial/upgrades-and-modularization
+  
+  If our intention is a complete and automatic removal of the previous version when a new one arrives, 
+  we just need to set OnlyDetect to no and to set the version numbers accordingly.
+  
+  1. Definir un nuevo product guid, y reemplazar el atributo id del tag Product
+  2. Indicar la nueva versión en los siguientes lugares: 
+		tag Product, atributo Version
+		tag Upgrade, atributo Maximum
+  3. Si necesita ejecutar scripts SQL:
+	a. Deshabilite el tag Upgrade. Sección: Actualiza una versión anterior
+	b. Cambie el atributo Level=1 del tag Feature Id=SqlFeature y SqlFeatureDyn para ejecutar scripts sql
+	c. Habilite la sección: Variables SQL
+	d. Habilite la sección: Pide valores para variables SQL
+	e. Revisar la sección Reportes y permisos. Se puede agregar datos específicos de la compañía.
+  4. Si no necesita ejecutar scripts SQL:
+	a. Habilite el tag Upgrade. Sección: Actualiza una versión anterior
+	b. Cambie el atributo Level=0 del tag Feature Id=SqlFeature y SqlFeatureDyn para ejecutar scripts sql
+	c. Comente la sección: Variables SQL
+	d. Comente la sección: Pide valores para variables SQL
+  
+  Historial de Product GUID:
+  Versión 1.2.3 {D2EB3341-8D92-448A-B481-4D5B74B37EFE}
+
+
+  GILA
+  16/9/15 A partir de v.1.2.3 usa instalador
+  

@@ -1,0 +1,7 @@
+obj\Debug\MajorUpgrade.wixobj
+obj\Debug\UserRegistrationDlg.wixobj
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\Instalador\bin\Debug\Instalador.msi
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\Instalador\bin\Debug\Instalador.wixpdb
+obj\Debug\Instalador.wixproj.BindContentsFileListnull.txt
+obj\Debug\Instalador.wixproj.BindOutputsFileListnull.txt
+obj\Debug\Instalador.wixproj.BindBuiltOutputsFileListnull.txt
