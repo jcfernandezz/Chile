@@ -1,0 +1,7 @@
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\feConsolaMonitoreaMensajes\ComunMonMen\bin\Debug\ComunMonMen.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\feConsolaMonitoreaMensajes\ComunMonMen\bin\Debug\ComunMonMen.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\feConsolaMonitoreaMensajes\ComunMonMen\obj\Debug\ComunMonMen.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\feConsolaMonitoreaMensajes\ComunMonMen\obj\Debug\ComunMonMen.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\feConsolaMonitoreaMensajes\ComunMonMen\bin\Debug\CLConfiguracion.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\feConsolaMonitoreaMensajes\ComunMonMen\bin\Debug\CLConfiguracion.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\feConsolaMonitoreaMensajes\ComunMonMen\obj\Debug\ComunMonMen.csprojResolveAssemblyReference.cache

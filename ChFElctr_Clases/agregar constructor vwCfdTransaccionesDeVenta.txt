@@ -1,0 +1,7 @@
+	//28/10/10 jcf Crea constructor con cadena de conexión
+	public vwCfdTransaccionesDeVenta(string connstr)
+        {
+            this.ConnectionString = connstr;
+            this.QuerySource = "vwCfdTransaccionesDeVenta";
+            this.MappingName = "vwCfdTransaccionesDeVenta";
+        }	
