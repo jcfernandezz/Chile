@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MaquinaDeEstados">
-      <HintPath>..\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.dll</HintPath>
-    </Reference>
     <Reference Include="MyGeneration.dOOdads_2005">
       <HintPath>..\..\..\..\_DevTools\MyGeneration.dOOdads\bin\Release\MyGeneration.dOOdads_2005.dll</HintPath>
     </Reference>
@@ -52,7 +49,12 @@
     <Compile Include="ILogLibroCVService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MaquinaDeEstados\MaquinaDeEstados.csproj">
+      <Project>{3325d053-41aa-48a1-9166-11dc6afea8d7}</Project>
+      <Name>MaquinaDeEstados</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

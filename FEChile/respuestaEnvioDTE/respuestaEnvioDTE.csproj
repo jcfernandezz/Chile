@@ -31,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="cfdCertificados">
-      <HintPath>..\cfdCertificados\bin\Debug\cfdCertificados.dll</HintPath>
-    </Reference>
-    <Reference Include="cfdLogFacturaCompra">
-      <HintPath>..\cfdLogFacturaCompra\bin\Debug\cfdLogFacturaCompra.dll</HintPath>
-    </Reference>
     <Reference Include="CLConfiguracion">
       <HintPath>..\..\..\..\_DevLibrary\CLConfiguracion\CLConfiguracion\bin\Release\CLConfiguracion.dll</HintPath>
     </Reference>
@@ -49,10 +43,6 @@
     <Reference Include="EstructuraMensajeEMail, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\_DevLibrary\EstructuraMensajeEMail\bin\Debug\EstructuraMensajeEMail.dll</HintPath>
-    </Reference>
-    <Reference Include="MaquinaDeEstados, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MaquinaDeEstados\bin\Debug\MaquinaDeEstados.dll</HintPath>
     </Reference>
     <Reference Include="MyGeneration.dOOdads_2005, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -81,9 +71,21 @@
     <Compile Include="RespuestaSII.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\cfdCertificados\cfdCertificados.csproj">
+      <Project>{c70239fd-3486-42c7-bc5e-b96500c8dfb9}</Project>
+      <Name>cfdCertificados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cfdLogFacturaCompra\cfdLogFacturaCompra.csproj">
+      <Project>{7150c65e-e19b-404a-98cf-f00c64dad1be}</Project>
+      <Name>cfdLogFacturaCompra</Name>
+    </ProjectReference>
     <ProjectReference Include="..\cfdLogFacturaXML\cfdLogFacturaXML.csproj">
       <Project>{6cb9257a-8125-41bd-a5cd-669c6c6e2cf4}</Project>
       <Name>cfdLogFacturaXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MaquinaDeEstados\MaquinaDeEstados.csproj">
+      <Project>{3325d053-41aa-48a1-9166-11dc6afea8d7}</Project>
+      <Name>MaquinaDeEstados</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReciboMercaderiaServicios\ReciboMercaderiaServicios.csproj">
       <Project>{ea598f0e-1cae-4080-b853-4fb2ab578d1e}</Project>

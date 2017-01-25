@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="cfdLogFacturaCompra">
-      <HintPath>..\cfdLogFacturaCompra\bin\Debug\cfdLogFacturaCompra.dll</HintPath>
-    </Reference>
     <Reference Include="CLConfiguracion">
       <HintPath>..\..\..\..\_DevLibrary\CLConfiguracion\CLConfiguracion\bin\Release\CLConfiguracion.dll</HintPath>
     </Reference>
@@ -107,6 +104,10 @@
     <ProjectReference Include="..\cfdCertificados\cfdCertificados.csproj">
       <Project>{c70239fd-3486-42c7-bc5e-b96500c8dfb9}</Project>
       <Name>cfdCertificados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cfdLogFacturaCompra\cfdLogFacturaCompra.csproj">
+      <Project>{7150c65e-e19b-404a-98cf-f00c64dad1be}</Project>
+      <Name>cfdLogFacturaCompra</Name>
     </ProjectReference>
     <ProjectReference Include="..\cfdLogFacturaXML\cfdLogFacturaXML.csproj">
       <Project>{6cb9257a-8125-41bd-a5cd-669c6c6e2cf4}</Project>

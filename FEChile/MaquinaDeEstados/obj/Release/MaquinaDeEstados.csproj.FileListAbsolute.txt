@@ -16,3 +16,13 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEst
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstados\obj\Release\MaquinaDeEstados.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstados\bin\Release\CLConfiguracion.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\MaquinaDeEstados\bin\Release\CLConfiguracion.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\Release\MaquinaDeEstados.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\Release\MaquinaDeEstados.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\Release\CLConfiguracion.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\Release\Comun.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\Release\Ionic.Zip.Reduced.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\Release\Comun.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\Release\CLConfiguracion.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\obj\Release\MaquinaDeEstados.csprojResolveAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\obj\Release\MaquinaDeEstados.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\obj\Release\MaquinaDeEstados.pdb

@@ -6,6 +6,7 @@
 
 -------------------------------------------------------------------------------------------------------
 --OBJETOS DTE
+use gchi;
 
 select * from fCfdEmisor()
 select dbo.fCfdDescuentosXML(100, 1)
@@ -23,12 +24,12 @@ select * from dbo.fCfdCertificadoVigente('1/1/14', 'sa')
 select dbo.fCfdConceptosXML(3, '33-00001446')
 select dbo.fCfdImpuestosXML(3, 'FV 00003929', 'V-IVA DF')
 select * FROM dbo.fCfdImpuestos(3, 'FV 00003929', 'V-IVA DF')
-select dbo.fCfdGeneraDocumentoDeVentaXML (4, '61-0000117')	--aceptado
+select dbo.fCfdGeneraDocumentoDeVentaXML (3, '33-00003641')	--aceptado
 
 select tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr,
 		dbo.fCfdReferenciaXML(tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr)	'Documento'
 	from vwSopTransaccionesVenta tv
-where tv.sopnumbe like '33-00001368'
+where tv.sopnumbe like '33-00003641'
 and datediff(day, '1/1/1900', usrdat02) = 0
 
 select itemdesc, replace(itemdesc, '’', ''), dbo.fCfdReemplazaCaracteresNI(itemdesc), dbo.fCfdConceptosXML(3, '33-00001446')
@@ -60,17 +61,21 @@ select *
 --						values(3, '33-00000277', 'aceptado SII', '00000000111100', 8, 'EMITIDO. ENVIADO SII. ACEPTADO SII. ', 'Resultado del SII. ACEPTA', null, '0912719492', '1/23/15'  )
 
 --update lf set estadoActual = '00000000111100', noAprobacion = 8, mensajeEA = 'EMITIDO. ENVIADO SII. ACEPTADO SII. '
-select * --into _temp_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
+select sopnumbe, idexterno, * --into _temp_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
 --delete lf
 from cfdlogfacturaxml lf
-where lf.sopnumbe in 
+where 
+lf.sopnumbe in 
 (
-'61-0000579'
---'61-0000575',
---'61-0000576',
---'61-0000577'         
+'33-00003485'
 )
-('33-00003260')	--('61-0000471')	--	--, '61-0000354', '61-0000355', '61-0000356')		--'33-00001453')	--, '33-00000605', '33-00000617')
+and estado = 'emitido'
+
+select sopnumbe, idexterno, * --into _temp_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
+from cfdlogfacturaxml lf
+where mensajeEA = 'EMITIDO. ENVIADO SII. RECHAZADO SII.'
+and exists (select docnumbr from vwRmTransaccionesTodas where voidstts = 0 and docnumbr = lf.sopnumbe)
+and estado = 'emitido'
 
 --update so set refrence = 'Razón social distinta'
 select custnmbr, custname, *
@@ -96,13 +101,13 @@ inner join loch0004 id
 	and id.lochtrxno = sp.sopnumbe
 	and id.module1 = 2			--2:ventas
 where --@soptype = 4				--devolución
- ta.apfrdcnm = '61-0000087'
+ ta.apfrdcnm = '33-00003641'
 and ta.apfrdcty = 8		--nc
 
 --update du set usrtab01 = '1-Anula documento'
 select *
 from sop10106 du
-where du.sopnumbe like '33-00002502'
+where du.sopnumbe like '33-00003641'
 
 ----------------------------------------------------------------------------------------------------
 --LOG FACTURAS DE COMPRA
@@ -226,7 +231,7 @@ and itemnmbr = 'SII3'
 
 select ortxsls, tdttxsls,*	--total venta gravable
 from sop10105
-WHERE SOPNUMBE in ( '33-00002502') --, '33-00000102', '33-00000103', 'FV 00000082')
+WHERE SOPNUMBE in ( '33-00003641') --, '33-00000102', '33-00000103', 'FV 00000082')
 
 SELECT IVITMTXB, TAXAMNT, *
 FROM SOP30300
@@ -256,14 +261,15 @@ and cab.docid = 'NC'
 AND ID.LOCHDOCCOD != '61'
 
 ----------------------------------------------------------
+
 --actualiza rut de clientes con guión
 --update cl set cl.rutclieprovee = '97036000K'  --replace(cl.rutClieProvee, '-', '')
 select *
 --delete CL
---update cl set RutClieProvee =	'967877506', razonSocial = 'VTR BANDA ANCHA CHILE S.A.'	--correcto: '761141430', razonSocial = 'VTR COMUNICACIONES SPA'
+--update cl set RutClieProvee =	'966466502', razonSocial = 'VTR BANDA ANCHA CHILE S.A.'	--correcto: '761141430', razonSocial = 'VTR COMUNICACIONES SPA'
 from cllc0002 CL	--razón social de clientes y proveedores (localización chilena)
 where --cl.rutclieprovee like '%.%'
-cl.custvndr like '000008903%' --= '000005844'
+cl.custvndr like '000023196%' --= '000005844'
 
 SELECT TXRGNNUM, *
 --UPDATE RM SET TXRGNNUM = '767357702'
@@ -330,7 +336,7 @@ values (4, '61-0000060', '1-Anula documento', '')
 select *
 from SOP10106 ctrl					--campos def. por el usuario.
 where ctrl.soptype = 3
-and ctrl.sopnumbe = '33-00002502'	--'61-0000303'
+and ctrl.sopnumbe = '33-00003641'	--'61-0000303'
 and ctrl.usrtab01 = ''
 
 --update sl set subtotal = 4609656, orsubtot= 4609656, remsubto= 4609656, oremsubt= 4609656
@@ -348,10 +354,10 @@ union all
 select '33-00000661', 3, 'OC4514537804'
 
 select *
---update s set tracking_number = 'OC4513218136'
+--update s set tracking_number = 'OC3679'
 --DELETE s
 from sop10107 s
-where s.sopnumbe = '33-00002502'
+where s.sopnumbe = '33-00003641'
 AND TRACKING_NUMBER = 'NP'
 
 --HES10114452088/4513278387                
