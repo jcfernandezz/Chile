@@ -237,7 +237,7 @@ namespace MaquinaDeEstados
                                     new Transicion(eventoSIIRechazo, "FEChile marcar rechazado por el SII", "std", 10, 6),
                                     new Transicion(eventoSIIAcepta, "FEChile marcar aceptado por el SII", "std", 10, 8),
                                     new Transicion(eventoEnsamblaLote, "FEChile ensamblar y guardar cfd", "std", 11, 10),
-                                    new Transicion(eventoEnsamblaLote, "FEChile ensamblar y guardar cfd", "std", 10, 10),
+                                    //new Transicion(eventoEnsamblaLote, "FEChile ensamblar y guardar cfd", "std", 10, 10),
                                     new Transicion(1, "", "std", 6, 11)
                                     };
             };

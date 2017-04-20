@@ -3,3 +3,8 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\envioDTE\bin
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\envioDTE\obj\Release\envioDTE.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\envioDTE\obj\Release\envioDTE.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\envioDTE\obj\Release\envioDTE.csprojResolveAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\envioDTE\bin\Release\envioDTE.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\envioDTE\bin\Release\envioDTE.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\envioDTE\obj\Release\envioDTE.csprojResolveAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\envioDTE\obj\Release\envioDTE.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\envioDTE\obj\Release\envioDTE.pdb

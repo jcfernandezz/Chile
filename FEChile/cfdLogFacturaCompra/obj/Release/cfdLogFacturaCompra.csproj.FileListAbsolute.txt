@@ -11,3 +11,16 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFactur
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.csprojResolveAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\cfdLogFacturaCompra.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\cfdLogFacturaCompra.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\MaquinaDeEstados.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\MyGeneration.dOOdads_2005.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\Comun.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\CLConfiguracion.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\Ionic.Zip.Reduced.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\MaquinaDeEstados.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\Comun.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\CLConfiguracion.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.csprojResolveAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.pdb

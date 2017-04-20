@@ -1,3 +1,5 @@
+--use gchi;
+
 --GETTY
 --Pruebas de Factura electrónica México
 --
@@ -6,6 +8,7 @@
 
 -------------------------------------------------------------------------------------------------------
 --OBJETOS DTE
+use gchi;
 
 select * from fCfdEmisor()
 select dbo.fCfdDescuentosXML(100, 1)
@@ -23,12 +26,12 @@ select * from dbo.fCfdCertificadoVigente('1/1/14', 'sa')
 select dbo.fCfdConceptosXML(3, '33-00001446')
 select dbo.fCfdImpuestosXML(3, 'FV 00003929', 'V-IVA DF')
 select * FROM dbo.fCfdImpuestos(3, 'FV 00003929', 'V-IVA DF')
-select dbo.fCfdGeneraDocumentoDeVentaXML (4, '61-0000117')	--aceptado
+select dbo.fCfdGeneraDocumentoDeVentaXML (3, '33-00003641')	--aceptado
 
 select tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr,
 		dbo.fCfdReferenciaXML(tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr)	'Documento'
 	from vwSopTransaccionesVenta tv
-where tv.sopnumbe like '33-00001368'
+where tv.sopnumbe like '33-00003641'
 and datediff(day, '1/1/1900', usrdat02) = 0
 
 select itemdesc, replace(itemdesc, '’', ''), dbo.fCfdReemplazaCaracteresNI(itemdesc), dbo.fCfdConceptosXML(3, '33-00001446')
@@ -57,20 +60,40 @@ select *
 --LOG FACTURA XML venta
 --
 --insert into cfdlogfacturaxml(soptype,sopnumbe,estado,estadoActual,noAprobacion,mensajeEA,mensaje,archivoXML,idExterno,fechaEmision)
---						values(3, '33-00000277', 'aceptado SII', '00000000111100', 8, 'EMITIDO. ENVIADO SII. ACEPTADO SII. ', 'Resultado del SII. ACEPTA', null, '0912719492', '1/23/15'  )
+--						values(3, '33-3882', 'aceptado SII', '00000000111100', 8, 'EMITIDO. ENVIADO SII. ACEPTADO SII. ', 'Resultado del SII. ACEPTA', null, '0912719492', '1/23/15'  )
+--				select soptype,'33-3882',estado,estadoActual,noAprobacion,rtrim(mensajeEA) + ' (ajustado)',mensaje,archivoXML,idExterno,'3/31/17'
 
 --update lf set estadoActual = '00000000111100', noAprobacion = 8, mensajeEA = 'EMITIDO. ENVIADO SII. ACEPTADO SII. '
-select * --into _temp_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
+select sopnumbe, idexterno, * --into _temp_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
 --delete lf
 from cfdlogfacturaxml lf
-where lf.sopnumbe in 
+where 
+lf.sopnumbe in 
 (
-'61-0000579'
---'61-0000575',
---'61-0000576',
---'61-0000577'         
+'33-00004050',  --    BANCO DE CHILE
+'33-00004051' , --    FUNDACIÓN MUSEO DE LA MODA
+'33-00004066'  , --   BANCO DEL ESTADO DE CHILE
+'33-00004067'  ,  --  BANCO DE CHILE
+'33-00004069'  ,   -- BANCO DE CHILE
+'33-00004076'  ,   -- BANCO DE CHILE
+'33-00004077'  ,   -- Studio MG
+'33-00004078'  ,   -- PROXIMITY CHILE S.A.
+'33-00004079'  ,   -- POSTON WORKS S.A.
+'33-00004080'  ,   -- BANCO DE CHILE
+'33-00004082'  ,   -- ADM.C.C.A. LAS CONDES LTDA
+'33-00004083'  ,   -- SERVICIOS MEDICOS COLSALUD LTDA.
+'61-0000617'   ,   --  INMOBILIARIA SAN FRANCISCO SPA
+'61-0000623' 
 )
-('33-00003260')	--('61-0000471')	--	--, '61-0000354', '61-0000355', '61-0000356')		--'33-00001453')	--, '33-00000605', '33-00000617')
+and estado = 'emitido'
+
+use gchi;
+
+select sopnumbe, idexterno, * --into _temp_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
+from cfdlogfacturaxml lf
+where mensajeEA = 'EMITIDO. ENVIADO SII. RECHAZADO SII.'
+and exists (select docnumbr from vwRmTransaccionesTodas where voidstts = 0 and docnumbr = lf.sopnumbe)
+and estado = 'emitido'
 
 --update so set refrence = 'Razón social distinta'
 select custnmbr, custname, *
@@ -96,13 +119,13 @@ inner join loch0004 id
 	and id.lochtrxno = sp.sopnumbe
 	and id.module1 = 2			--2:ventas
 where --@soptype = 4				--devolución
- ta.apfrdcnm = '61-0000087'
+ ta.apfrdcnm = '33-00003641'
 and ta.apfrdcty = 8		--nc
 
 --update du set usrtab01 = '1-Anula documento'
 select *
 from sop10106 du
-where du.sopnumbe like '33-00002502'
+where du.sopnumbe like '33-00003745'
 
 ----------------------------------------------------------------------------------------------------
 --LOG FACTURAS DE COMPRA
@@ -139,12 +162,7 @@ select *
 from vwCfdLibroCVLog
 
 select DBO.fCfdLibroComprasXML ('LC', 2016, 3)
-select dbo.fCfdLibroVentasXML('LV', 2015, 11)
-
-select *
-from vwIecvLibroComprasCrudo tv
-where year(tv.pstgdate) = 2016
-		and MONTH(tv.pstgdate) = 3
+select dbo.fCfdLibroVentasXML('LV', 2017, 3)
 
 ------------------------------------------------------------------------------------------------------
 --docs sin código de documento de loc Chile
@@ -164,7 +182,7 @@ and a.doctype = 1
 --revisa docs sin código de documento en SOP
 --insert into loch0004 (LOCHTRXNO,DOCTYPE,LOCHDOCCOD,CUSTVNDR,VNDDOCNM,DOCDATE,MODULE1,DOCAMNT,RPRTTYPE,USERID,DOCCLTYP)
 select 
-a.sopnumbe, 8, '61', a.custnmbr, '', a.docdate, 2, a.docamnt, 2, 'sa', 1 -- *
+a.sopnumbe, 1, '33', a.custnmbr, '', a.docdate, 2, a.docamnt, 2, 'sa', 1 -- *	--factura sop
 --a.sopnumbe, a.soptype, cdt.*
   from sop30200 a
         left outer join loch0004 cdt --loch_boleta_trx_details Indica si es electrónica
@@ -172,12 +190,14 @@ a.sopnumbe, 8, '61', a.custnmbr, '', a.docdate, 2, a.docamnt, 2, 'sa', 1 -- *
             and cdt.lochtrxno = a.sopnumbe
 where cdt.lochdoccod is null
 and year(a.docdate) >= 2016
-
+and soptype = 3
 
 select top 100 *
 from loch0004 
-where lochtrxno >= '61-0000570'
-and lochtrxno like '61%'
+where 
+--lochtrxno >= '61-0000570'
+lochtrxno like '33%'
+and year(docdate) >= 2016
 
 -------------------------------------------------------------------------------------
 --PARA IMPRIMIR
@@ -195,7 +215,7 @@ from fCfdDatosXmlParaImpresion(@archivoXml)
 select *
 from loch0004	--CUSTVNDR VNDDOCNM LOCHTRXNO
 where 
-custvndr like '000021037%' 
+custvndr like '%23427%' 
 and MODULE1 = 1	--1:compras, 2:ventas
 and YEAR(docdate ) = 2014
 
@@ -208,10 +228,10 @@ SELECT *
 FROM sop10100
 WHERE SOPNUMBE in ( '33-0000101', '33-0000102', '33-0000103', 'FV 00000082')
 
-SELECT *
+SELECT voidstts, *
 FROM SOP30200
 --update sop30200 set docdate = '7/7/2013'
-WHERE SOPNUMBE = '33-00002143'
+WHERE SOPNUMBE = '33-00003671'
 year(docdate) = 2014
 and month(docdate) = 7
 and day(docdate) <= 22
@@ -226,7 +246,7 @@ and itemnmbr = 'SII3'
 
 select ortxsls, tdttxsls,*	--total venta gravable
 from sop10105
-WHERE SOPNUMBE in ( '33-00002502') --, '33-00000102', '33-00000103', 'FV 00000082')
+WHERE SOPNUMBE in ( '33-00003641') --, '33-00000102', '33-00000103', 'FV 00000082')
 
 SELECT IVITMTXB, TAXAMNT, *
 FROM SOP30300
@@ -258,12 +278,13 @@ AND ID.LOCHDOCCOD != '61'
 ----------------------------------------------------------
 --actualiza rut de clientes con guión
 --update cl set cl.rutclieprovee = '97036000K'  --replace(cl.rutClieProvee, '-', '')
-select *
---delete CL
---update cl set RutClieProvee =	'967877506', razonSocial = 'VTR BANDA ANCHA CHILE S.A.'	--correcto: '761141430', razonSocial = 'VTR COMUNICACIONES SPA'
+--update cl set RutClieProvee =	ltrim(RutClieProvee)	--, razonSocial = 'VTR BANDA ANCHA CHILE S.A.'	--correcto: '761141430', razonSocial = 'VTR COMUNICACIONES SPA'
+--insert into cllc0002 (CUSTVNDR,RutClieProvee,TipClieProvee,GiroEmpresa,RazonSocial,RutRepLegal,NomRepLeg,Activo)
+select CUSTVNDR,RutClieProvee,TipClieProvee,GiroEmpresa,RazonSocial,RutRepLegal,NomRepLeg,Activo
 from cllc0002 CL	--razón social de clientes y proveedores (localización chilena)
 where --cl.rutclieprovee like '%.%'
-cl.custvndr like '000008903%' --= '000005844'
+cl.custvndr in ('000011447', '000019226')
+like '%11447%' --= '000005844'
 
 SELECT TXRGNNUM, *
 --UPDATE RM SET TXRGNNUM = '767357702'
@@ -298,11 +319,6 @@ where --lo.giroEmpresa = lo.razonsocial
  lo.tipClieProvee = 1
  and cl.comment1 != lo.giroEmpresa
 
-
-select tax_number, *
-from intdb2..ERP_Organisation rg
-where tax_number like '79649140%'
-
 ------------------------------------------------------------------------------------------------------------------
 --agregar código de documento del SII a factura
 --insert into loch0004 (LOCHTRXNO,DOCTYPE,LOCHDOCCOD,CUSTVNDR,VNDDOCNM,DOCDATE,MODULE1,DOCAMNT,RPRTTYPE,USERID,DOCCLTYP)
@@ -328,9 +344,9 @@ and sopnumbe in (
 values (4, '61-0000060', '1-Anula documento', '')
 --update ctrl set usrdat02 = '10/30/15', userdef2 = '33-1611'		-- usrtab01 = '1-Anula documento'
 select *
-from SOP10106 ctrl					--campos def. por el usuario.
+from SOP10106 ctrl	--campos def. por el usuario.
 where ctrl.soptype = 3
-and ctrl.sopnumbe = '33-00002502'	--'61-0000303'
+and ctrl.sopnumbe = '33-00003745'	--'61-0000303'
 and ctrl.usrtab01 = ''
 
 --update sl set subtotal = 4609656, orsubtot= 4609656, remsubto= 4609656, oremsubt= 4609656
@@ -342,20 +358,12 @@ where sl.sopnumbe in (
   )
 
 
---insert into sop10107(sopnumbe, soptype, tracking_number)
-select '33-00000661', 3, 'HES1015344454'
-union all
-select '33-00000661', 3, 'OC4514537804'
-
 select *
---update s set tracking_number = 'OC4513218136'
+--update s set tracking_number = 'OC458928'
 --DELETE s
-from sop10107 s
-where s.sopnumbe = '33-00002502'
+from sop10107 s		--números de seguimiento
+where s.sopnumbe = '33-00003745'
 AND TRACKING_NUMBER = 'NP'
-
---HES10114452088/4513278387                
---OC4513218136/1014477990                  
 
 --update rm set txrgnnum = '765102340'
 select *
@@ -366,4 +374,11 @@ select *	--sum(iva)
 from vwIecvLibroComprasCrudo
 where year(docdate) = 2015
 and month(docdate) = 7
+
+------------------------------------------------------------------------------------
+--Para excluir la factura del libro de ventas
+select cspornbr, *
+--update r set cspornbr = 'EXCLUIRDELV'
+from rm20101 r
+where r.docnumbr = '33-00003882'
 

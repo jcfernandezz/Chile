@@ -91,7 +91,7 @@
     </Reference>
     <Reference Include="FEMonitoreaMensajes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FEMonitoreaMensajes\bin\Debug\FEMonitoreaMensajes.dll</HintPath>
+      <HintPath>..\..\FEMonitoreaMensajes\bin\Release\FEMonitoreaMensajes.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
       <Private>True</Private>
