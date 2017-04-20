@@ -12,6 +12,7 @@ as
 --22/12/14 jcf Montos deben ser cero cuando la factura está anulada
 --			 Agrega temporalmente el cálculo manual de: ('33-00000062', '33-00000071', '33-00000077', '33-00000079', '33-00000082', '61-0000014', '61-0000020', '61-0000022', '61-0000025') 
 --19/10/16 jcf Ajusta parámetros para obtener neto y exento
+--31/03/17 JCF Excluye facturas marcadas: cstponbr = 'EXCLUIRDELV'
 --
 begin
 	declare @lcv xml;
@@ -57,6 +58,7 @@ begin
 			outer apply dbo.fCfdConceptosSumaExentos(tv.soptype, tv.sopnumbe) ex
 		where year(tv.docdate) = @year
 		and MONTH(tv.docdate) = @month
+		and isnull(tv.cstponbr, '') != 'EXCLUIRDELV'
 		
 		--and tv.sopnumbe in ('33-0000238', '33-0000239', '33-0000240', '33-0000241', '61-0000150', '61-0000151', '61-0000152', '56-0000150')
 		
@@ -87,6 +89,7 @@ as
 --			Agrega temporalmente el cálculo manual de: ('33-00000062', '33-00000071', '33-00000077', '33-00000079', '33-00000082', '61-0000014', '61-0000020', '61-0000022', '61-0000025') 
 --02/04/15 jcf Obtiene ruc y razón social del xml
 --19/10/16 jcf Ajusta parámetros para obtener neto y exento
+--31/03/17 JCF Excluye facturas marcadas: cstponbr = 'EXCLUIRDELV'
 --
 begin
 	declare @lcv xml;
@@ -140,6 +143,7 @@ begin
 			outer apply dbo.fCfdDatosXmlParaImpresion(lf.archivoXML) dx
 		where year(tv.docdate) = @year
 		and MONTH(tv.docdate) = @month
+		and isnull(tv.cstponbr, '') != 'EXCLUIRDELV'
 
 		--and tv.sopnumbe in ('33-0000238', '33-0000239', '33-0000240', '33-0000241', '61-0000150', '61-0000151', '61-0000152', '56-0000150')
 
