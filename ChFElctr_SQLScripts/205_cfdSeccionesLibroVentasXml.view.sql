@@ -12,7 +12,7 @@ as
 --22/12/14 jcf Montos deben ser cero cuando la factura está anulada
 --			 Agrega temporalmente el cálculo manual de: ('33-00000062', '33-00000071', '33-00000077', '33-00000079', '33-00000082', '61-0000014', '61-0000020', '61-0000022', '61-0000025') 
 --19/10/16 jcf Ajusta parámetros para obtener neto y exento
---31/03/17 JCF Excluye facturas marcadas: cstponbr = 'EXCLUIRDELV'
+--31/03/17 JCF Excluye facturas marcadas: cstponbr = 'EXCLUIRDELV'. totMntNeto = 0 si es nulo
 --
 begin
 	declare @lcv xml;
@@ -31,7 +31,7 @@ begin
 				else 0
 				end)								'TotalesPeriodo/TotMntExe',
 			SUM(case when tv.subtotal <> 0 and tv.voidstts = 0 then 
-					dbo.fCfdVentasObtieneNeto(tv.subtotal, tv.descuento, ex.importe, tv.docType)
+					isnull(dbo.fCfdVentasObtieneNeto(tv.subtotal, tv.descuento, ex.importe, tv.docType), 0)
 				else 0
 				end)								'TotalesPeriodo/TotMntNeto',
 			sum(case when tv.voidstts = 0 then
