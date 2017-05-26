@@ -68,9 +68,11 @@ where USERID  = 'gila\priscilla.parra'
 --values(3, 'FACTURA ELCTRN', 3938, 3987, '\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\FoliosSII760555683339382017371230.xml');
 
 --27/3/17 nuevos folios!
-insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
-values(3, 'FACTURA ELCTRN', 3988, 4200, '\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\FoliosSII7605556833398820173271124.xml');
+--insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+--values(3, 'FACTURA ELCTRN', 3988, 4200, '\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\FoliosSII7605556833398820173271124.xml');
 
+insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+values(3, 'FACTURA ELCTRN', 4201, 4600, '\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\FoliosSII7605556833420120175161114.xml');
 
 --insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
 --values(3, 'NDEBITO ELECTRN', 150, 157, '\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\FoliosSII7605556856150201410131714.xml');
@@ -98,8 +100,9 @@ where f.soptype = 3
 and f.docid = 'FACTURA ELCTRN'	--'NCREDIT ELECTRN'	--'NCREDIT ELECTRN'
 
 --update cfd_fol00100 set ruta_codigo_autorizacion = REPLACE(ruta_codigo_autorizacion, 'gilabasrap05', 'gilabasrap05')
-select docid, max(sopnumbe)
+select docid, max(sopnumbe)		--3882 no es real
 from SOP30200
+--where sopnumbe like '%3882'
 --where soptype = 3
 group by docid
 

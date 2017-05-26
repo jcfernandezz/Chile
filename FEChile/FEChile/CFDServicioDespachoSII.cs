@@ -360,12 +360,15 @@ namespace FEChile
             }
             catch (NullReferenceException nr)
             {
-                SMsj = "No se encuentra el trackId del SII. " + nr.Message + " [CFDServicioDespachoSII.RevisaRespuestaUploadDelSII]";
+                string res = respuesta == null ? "" : respuesta;
+                SMsj = "No se encuentra el trackId del SII. " + nr.Message + " [CFDServicioDespachoSII.RevisaRespuestaUploadDelSII] " + res ;
+                
                 IErr++;
             }
             catch (Exception re)
             {
-                SMsj = "Excepción desconocida al revisar la respuesta del SII luego de cargar el archivo. " + re.Message + " [CFDServicioDespachoSII.RevisaRespuestaUploadDelSII]";
+                string res = respuesta == null ? "" : respuesta;
+                SMsj = "Excepción desconocida al revisar la respuesta del SII luego de cargar el archivo. " + re.Message + " [CFDServicioDespachoSII.RevisaRespuestaUploadDelSII] " + res;
                 IErr++;
             }
         }

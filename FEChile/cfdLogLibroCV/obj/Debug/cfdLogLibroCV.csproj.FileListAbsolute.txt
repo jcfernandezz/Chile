@@ -11,3 +11,16 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogLibroC
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogLibroCV\bin\Debug\Comun.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogLibroCV\bin\Debug\CLConfiguracion.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\cfdLogLibroCV\obj\Debug\cfdLogLibroCV.csprojResolveAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\bin\Debug\cfdLogLibroCV.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\bin\Debug\cfdLogLibroCV.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\bin\Debug\MaquinaDeEstados.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\bin\Debug\MyGeneration.dOOdads_2005.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\bin\Debug\Comun.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\bin\Debug\CLConfiguracion.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\bin\Debug\Ionic.Zip.Reduced.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\bin\Debug\MaquinaDeEstados.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\bin\Debug\Comun.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\bin\Debug\CLConfiguracion.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\obj\Debug\cfdLogLibroCV.csprojResolveAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\obj\Debug\cfdLogLibroCV.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\obj\Debug\cfdLogLibroCV.pdb
