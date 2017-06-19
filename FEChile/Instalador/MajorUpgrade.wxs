@@ -198,6 +198,7 @@
                 <sql:SqlScript Id="CreateBaseview01" BinaryKey="CreateBaseview01" ExecuteOnInstall="yes" Sequence="1" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="CreateBaseview02" BinaryKey="CreateBaseview02" ExecuteOnInstall="yes" Sequence="2" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="CreateBaseview03" BinaryKey="CreateBaseview03" ExecuteOnInstall="yes" Sequence="3" ExecuteOnReinstall="yes"/>
+                <sql:SqlScript Id="Createfunc05" BinaryKey="Createfunc05" ExecuteOnInstall="yes" Sequence="5" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="Createview10" BinaryKey="Createview10" ExecuteOnInstall="yes" Sequence="10" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="Createview30" BinaryKey="Createview30" ExecuteOnInstall="yes" Sequence="30" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="Createtrig35" BinaryKey="Createtrig35" ExecuteOnInstall="yes" Sequence="35" ExecuteOnReinstall="yes"/>
@@ -213,7 +214,6 @@
                 <sql:SqlScript Id="Createfunc98" BinaryKey="Createfunc98" ExecuteOnInstall="yes" Sequence="98" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="Createfunc99" BinaryKey="Createfunc99" ExecuteOnInstall="yes" Sequence="99" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="Createview100" BinaryKey="Createview100" ExecuteOnInstall="yes" Sequence="100" ExecuteOnReinstall="yes"/>
-                <sql:SqlScript Id="Createfunc200" BinaryKey="Createfunc200" ExecuteOnInstall="yes" Sequence="200" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="CreateObj201" BinaryKey="CreateObj201" ExecuteOnInstall="yes" Sequence="201" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="CreateObj202" BinaryKey="CreateObj202" ExecuteOnInstall="yes" Sequence="202" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="CreateObj205" BinaryKey="CreateObj205" ExecuteOnInstall="yes" Sequence="205" ExecuteOnReinstall="yes"/>
@@ -239,6 +239,7 @@
         <Binary Id="CreateBaseview01" SourceFile="C:\jcTii\GPRelational\pm_fLcPmTax.WorkHist.functions.sql"/>
         <Binary Id="CreateBaseview02" SourceFile="C:\jcTii\GPRelational\rmvwRmTransaccionesTodas.view.sql"/>
         <Binary Id="CreateBaseview03" SourceFile="C:\jcTii\GPRelational\rmVwTrxAplicadas.view.sql"/>
+        <Binary Id="Createfunc05" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\05_fLcLvParametros.function.sql"/>
         <Binary Id="Createview10" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\10_OPCIONALCreaMaestroDeCertificadosYFolios.table.sql"/>
         <Binary Id="Createview30" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\30_vwCfdIdDocumentos.view.sql"/>
         <Binary Id="Createtrig35" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\35_RegistraHoradeFacturaElectronica.trigger.sql"/>
@@ -254,7 +255,6 @@
         <Binary Id="Createfunc98" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\98_fCfdVentasObtieneNeto y Exento.functions.sql"/>
         <Binary Id="Createfunc99" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\99_referenciasYExcepciones.functions.sql"/>
         <Binary Id="Createview100" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\100_ObtieneDocumentosXml.view.sql"/>
-        <Binary Id="Createfunc200" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\200_fLcLvParametros.function.sql"/>
         <Binary Id="CreateObj201" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\201_cfdLogLibroCV.table.sql"/>
         <Binary Id="CreateObj202" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\202_cfdLogLibroCV.sql"/>
         <Binary Id="CreateObj205" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\205_cfdSeccionesLibroVentasXml.view.sql"/>

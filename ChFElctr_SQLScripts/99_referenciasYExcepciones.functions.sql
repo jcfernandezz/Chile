@@ -78,7 +78,7 @@ IF OBJECT_ID ('dbo.fCfdReferencia') IS NOT NULL
    DROP FUNCTION dbo.fCfdReferencia
 GO
 
-create function dbo.fCfdReferencia(@soptype smallint, @rmdtypal smallint, @p_sopnumbe varchar(21), @p_docdate datetime,
+ALTER function dbo.fCfdReferencia(@soptype smallint, @rmdtypal smallint, @p_sopnumbe varchar(21), @p_docdate datetime,
 									@USRTAB01 varchar(21), @REFRENCE VARCHAR(31), @USERDEF2 varchar(21), @USRDAT02 datetime, @DOCAMNT numeric(21,5),
 									@cliente varchar(15), @CSTPONBR VARCHAR(21))
 returns table
@@ -98,18 +98,26 @@ as
 --17/08/16 jcf Agrega caso de empresas asociadas a Embotelladoras chilenas
 --03/10/16 jcf Agrega caso de SET de pruebas. Ingresar el valor SET CASO XXXXX en el número de seguimiento de ventas
 --				Agrega caso de nota de débito que aplica a factura
+--19/06/17 jcf Agrega parámetros TPODOCREF2, TPODOCREF3 para caso de docs de referencia genéricos. Ej. Claro
 --
 return(
 			select ROW_NUMBER() OVER(ORDER BY tracking_number) NroLinRef, 
 				case when rtrim(upper(Tracking_Number)) like 'OC%' then '801'
 					when rtrim(upper(Tracking_Number)) like 'NP%' then '802'
-					when rtrim(upper(Tracking_Number)) like 'HES%' then 'HES'	--hoja de entrada de servicio
-					when rtrim(upper(Tracking_Number)) like 'HEM%' then 'HEM'	--recepción de material
 					when rtrim(upper(Tracking_Number)) like 'CT%' then '803'	--contrato
-					when rtrim(upper(Tracking_Number)) like 'OTS%' then 'OTS'	--Orden de trabajo por servicios
-					when rtrim(upper(Tracking_Number)) like 'RS%' then 'RS'		--recepción de servicios
-					when rtrim(upper(Tracking_Number)) like 'PR%' then 'PR'		--presupuesto
-					when rtrim(upper(Tracking_Number)) like 'OS%' then 'OS'		--presupuesto
+					when pr.param2 like '%'+left(rtrim(upper(Tracking_Number)), 3)+'%' then
+						left(rtrim(upper(Tracking_Number)), 3)
+
+					when pr.param1 like '%'+left(rtrim(upper(Tracking_Number)), 2)+'%' then
+						left(rtrim(upper(Tracking_Number)), 2)
+
+					--when rtrim(upper(Tracking_Number)) like 'HES%' then 'HES'	--hoja de entrada de servicio
+					--when rtrim(upper(Tracking_Number)) like 'HEM%' then 'HEM'	--recepción de material
+					--when rtrim(upper(Tracking_Number)) like 'OTS%' then 'OTS'	--Orden de trabajo por servicios
+					--when rtrim(upper(Tracking_Number)) like 'RS%' then 'RS'		--recepción de servicios
+					--when rtrim(upper(Tracking_Number)) like 'PR%' then 'PR'		--presupuesto
+					--when rtrim(upper(Tracking_Number)) like 'OS%' then 'OS'		--presupuesto
+					--when rtrim(upper(Tracking_Number)) like 'NC%' then 'NC'		--Número de conformidad
 					else null
 				end TpoDocRef,
 				
@@ -124,20 +132,26 @@ return(
 					then 'NP'		
 					else '' end
 				else '' end +	
-				case when rtrim(upper(Tracking_Number)) like 'OC%' or
-					rtrim(upper(Tracking_Number)) like 'NP%' or
-					rtrim(upper(Tracking_Number)) like 'CT%' or --contrato
-					rtrim(upper(Tracking_Number)) like 'RS%' or --recepción de servicios
-					rtrim(upper(Tracking_Number)) like 'OS%' or 
-					rtrim(upper(Tracking_Number)) like 'PR%' then 
 
-						SUBSTRING(rtrim(Tracking_Number), 3, 40 )
-					
-					when rtrim(upper(Tracking_Number)) like 'HES%' or	--hoja de entrada de servicio
-					rtrim(upper(Tracking_Number)) like 'HEM%' or	--recepción de material
-					rtrim(upper(Tracking_Number)) like 'OTS%' then 	--Orden de trabajo por servicios
-
+				case when pr.param2 like '%'+left(rtrim(upper(Tracking_Number)), 3)+'%' then
 						SUBSTRING(rtrim(Tracking_Number), 4, 40 )
+
+					when pr.param1 like '%'+left(rtrim(upper(Tracking_Number)), 2)+'%' then
+						SUBSTRING(rtrim(Tracking_Number), 3, 40 )
+
+                --case when rtrim(upper(Tracking_Number)) like 'OC%' or
+				--	rtrim(upper(Tracking_Number)) like 'NP%' or
+				--	rtrim(upper(Tracking_Number)) like 'CT%' or --contrato
+				--	rtrim(upper(Tracking_Number)) like 'RS%' or --recepción de servicios
+				--	rtrim(upper(Tracking_Number)) like 'OS%' or 
+				--	rtrim(upper(Tracking_Number)) like 'NC%' or --número de conformidad
+				--	rtrim(upper(Tracking_Number)) like 'PR%' then 
+					--	SUBSTRING(rtrim(Tracking_Number), 3, 40 )
+					
+					--when rtrim(upper(Tracking_Number)) like 'HES%' or	--hoja de entrada de servicio
+					--rtrim(upper(Tracking_Number)) like 'HEM%' or	--recepción de material
+					--rtrim(upper(Tracking_Number)) like 'OTS%' then 	--Orden de trabajo por servicios
+					--	SUBSTRING(rtrim(Tracking_Number), 4, 40 )
 
 					else null
 				end FolioRef,
@@ -149,6 +163,7 @@ return(
 				null				CodRef,	
 				null				RazonRef
 			from sop10107	--
+		      cross apply dbo.fLcLvParametros('TPODOCREF2', 'TPODOCREF3', 'NA', 'NA', 'NA', 'NA') pr
 			where soptype = 3 
 			AND sopnumbe = @p_sopnumbe
 			and soptype = @soptype

@@ -38,11 +38,13 @@ values('gila\ext-tiiselam4', '87115925', '1/1/14', '12/31/14',
 GO
 
 select *
---update c set ruta_certificado = '\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
---			ruta_clave = '\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
---			contrasenia_clave = '1234'
+--update c set aca_rut = '141475347'
+--			ruta_certificado = '\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.venMay2018.p12',
+--			ruta_clave = '\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.venMay2018.p12',
+--			contrasenia_clave = 'GETTY123'
 from cfd_CER00100 c
-where USERID  = 'gila\priscilla.parra'
+where ruta_clave = '\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\mrebolledo\CERTIFICADO ELECTRONICO MARIANA REBOLLEDO.p12'
+--USERID  = 'gila\priscilla.parra'
 
 ---------------------------------------------------------------------------------------------------------------------------
 --Inserta configuración CAF (folios) por tipo de documento

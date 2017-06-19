@@ -1,4 +1,4 @@
---use gchi;
+use gchi;
 
 --GETTY
 --Pruebas de Factura electrónica México
@@ -31,7 +31,7 @@ select dbo.fCfdGeneraDocumentoDeVentaXML (3, '33-00003641')	--aceptado
 select tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr,
 		dbo.fCfdReferenciaXML(tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr)	'Documento'
 	from vwSopTransaccionesVenta tv
-where tv.sopnumbe like '33-00003641'
+where tv.sopnumbe like '33-00004363'
 and datediff(day, '1/1/1900', usrdat02) = 0
 
 select itemdesc, replace(itemdesc, '’', ''), dbo.fCfdReemplazaCaracteresNI(itemdesc), dbo.fCfdConceptosXML(3, '33-00001446')
@@ -64,19 +64,22 @@ select *
 --				select soptype,'33-3882',estado,estadoActual,noAprobacion,rtrim(mensajeEA) + ' (ajustado)',mensaje,archivoXML,idExterno,'3/31/17'
 
 --update lf set estadoActual = '00000000111100', noAprobacion = 8, mensajeEA = 'EMITIDO. ENVIADO SII. ACEPTADO SII. '
-select sopnumbe, idexterno, * --into _temp_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
+
+select sopnumbe, idexterno, 
+*	--into _temp2_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
 --delete lf
+--UPDATE LF SET IDEXTERNO = 2178342062, ESTADOACTUAL= '00000000011100', NOAPROBACION = 9, MENSAJEEA = 'EMITIDO. ENVIADO SII.'
 from cfdlogfacturaxml lf
 where 
 lf.sopnumbe in 
 (
-'33-00004252',	--      22-May-17 5:02 PM        EDITORIAL TELEVISA CHILE S.A.
-'33-00004253',
-'33-00004240'
+'33-00004364',   --   BBDO PUBLICIDAD S.A.
+'33-00004365' ,   --  EDITORIAL TIEMPO PRESENTE LTDA.
+'33-00004366'  ,   -- BANCO DE CHILE
+'33-00004368'
 )
 and estado = 'emitido'
 
-use gchi;
 
 select sopnumbe, idexterno, * --into _temp_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
 from cfdlogfacturaxml lf
@@ -351,8 +354,8 @@ select *
 --update s set tracking_number = 'OC458928'
 --DELETE s
 from sop10107 s		--números de seguimiento
-where s.sopnumbe = '33-00003745'
-AND TRACKING_NUMBER = 'NP'
+where s.sopnumbe = '33-00004264'
+AND TRACKING_NUMBER = 'OC'
 
 --update rm set txrgnnum = '765102340'
 select *
