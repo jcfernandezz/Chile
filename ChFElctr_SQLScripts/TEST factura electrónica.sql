@@ -268,15 +268,15 @@ and cab.docid = 'NC'
 AND ID.LOCHDOCCOD != '61'
 
 ----------------------------------------------------------
+
 --actualiza rut de clientes con guión
---update cl set cl.rutclieprovee = '97036000K'  --replace(cl.rutClieProvee, '-', '')
+--update cl set cl.rutclieprovee = '76163495K'  --replace(cl.rutClieProvee, '-', '')
 --update cl set RutClieProvee =	ltrim(RutClieProvee)	--, razonSocial = 'VTR BANDA ANCHA CHILE S.A.'	--correcto: '761141430', razonSocial = 'VTR COMUNICACIONES SPA'
 --insert into cllc0002 (CUSTVNDR,RutClieProvee,TipClieProvee,GiroEmpresa,RazonSocial,RutRepLegal,NomRepLeg,Activo)
 select CUSTVNDR,RutClieProvee,TipClieProvee,GiroEmpresa,RazonSocial,RutRepLegal,NomRepLeg,Activo
 from cllc0002 CL	--razón social de clientes y proveedores (localización chilena)
-where --cl.rutclieprovee like '%.%'
-cl.custvndr in ('000011447', '000019226')
-like '%11447%' --= '000005844'
+where cl.rutclieprovee like '%76163495%'
+--cl.custvndr in ('000011447', '000019226')
 
 SELECT TXRGNNUM, *
 --UPDATE RM SET TXRGNNUM = '767357702'
