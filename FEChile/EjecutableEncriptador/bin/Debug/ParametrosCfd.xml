@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <listaParametros>
-  <servidor>10.1.1.18</servidor>
+  <servidor>10.1.1.24</servidor>
   <seguridadIntegrada>0</seguridadIntegrada>
   <usuariosql>sa</usuariosql>
-  <passwordsql>davinci05</passwordsql>
+  <passwordsql>-</passwordsql>
   <ingresoPredeterminado>GCHI</ingresoPredeterminado>
   <compannia bd="GCHI">
 	<encoding>ISO-8859-1</encoding>
-	<URLArchivoLibroCVXSD>\\10.1.1.18\GettyCh_FacturaElectronicaXml\fePlantillas\LibroCV_v10.xsd</URLArchivoLibroCVXSD>
-    <URLArchivoEnvioXSD>\\10.1.1.18\GettyCh_FacturaElectronicaXml\fePlantillas\EnvioDTE_v10.xsd</URLArchivoEnvioXSD>
-    <URLArchivoXSD>\\10.1.1.18\GettyCh_FacturaElectronicaXml\fePlantillas\DTE_v10.xsd</URLArchivoXSD>
+	<URLArchivoLibroCVXSD>\\10.1.1.24\GettyCh_FacturaElectronicaXml\fePlantillas\LibroCV_v10.xsd</URLArchivoLibroCVXSD>
+    <URLArchivoEnvioXSD>\\10.1.1.24\GettyCh_FacturaElectronicaXml\fePlantillas\EnvioDTE_v10.xsd</URLArchivoEnvioXSD>
+    <URLArchivoXSD>\\10.1.1.24\GettyCh_FacturaElectronicaXml\fePlantillas\DTE_v10.xsd</URLArchivoXSD>
     <URLArchivoXSLT>na</URLArchivoXSLT>
-	<RutaArchivosTemp>\\10.1.1.18\GettyCh_FacturaElectronicaXml\intercambio\</RutaArchivosTemp>
+	<RutaArchivosTemp>\\10.1.1.24\GettyCh_FacturaElectronicaXml\intercambio\</RutaArchivosTemp>
     <PAC>
       <urlWebService>https://palena.sii.cl/cgi_dte/UPL/DTEUpload</urlWebService>
     </PAC>
     <reporteador>CRYSTAL</reporteador>
     <rutaReporteCrystal tipo="default">
-      <Ruta>\\10.1.1.18\Integraciones Getty\Factura Chile\GCHI_FACTURA_DTE.rpt</Ruta>
+      <Ruta>\\10.1.1.24\Integraciones Getty\Factura Chile\GCHI_FACTURA_DTE.rpt</Ruta>
       <Margenes>
         <bottomMargin>0</bottomMargin>
         <topMargin>0</topMargin>

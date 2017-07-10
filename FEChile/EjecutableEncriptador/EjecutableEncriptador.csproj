@@ -116,6 +116,7 @@
       <HintPath>..\..\..\..\_DevLibrary\Reporteador\bin\Release\Reporteador.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -174,6 +175,7 @@
     </Compile>
     <BaseApplicationManifest Include="Properties\app.manifest" />
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\vwCfdTransaccionesDeVenta.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,7 +1,7 @@
 --Inserta datos de certificados de personas en producción
 --
 
-use gchi
+use chi10
 go
 --atención: los ids de usuario deben estar guardados con minúsculas incluyendo el dominio. Ejemplo: gila\priscilla.parra
 insert into cfd_CER00100 
