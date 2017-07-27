@@ -5,7 +5,7 @@
     <Setting Name="FEChile_WebRefGetToken_GetTokenFromSeedService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://palena.sii.cl/DTEWS/GetTokenFromSeed.jws?WSDL</Value>
     </Setting>
-    <Setting Name="FEChile_WebRefCrSeed_CrSeedService" Type="(Web Service URL)" Scope="Application">
+    <Setting Name="FEChile_wRefCrsSeed_CrSeedService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://palena.sii.cl/DTEWS/CrSeed.jws?WSDL</Value>
     </Setting>
   </Settings>

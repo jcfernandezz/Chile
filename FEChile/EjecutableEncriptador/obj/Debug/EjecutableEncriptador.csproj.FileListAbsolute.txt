@@ -153,3 +153,5 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\o
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\obj\Debug\RdlCompile.compiled
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\obj\Debug\EjecutableEncriptador.exe
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\obj\Debug\EjecutableEncriptador.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Debug\envioDTE.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Debug\envioDTE.pdb

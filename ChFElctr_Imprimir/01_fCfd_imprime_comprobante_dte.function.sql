@@ -8,6 +8,7 @@ as
 --Propósito. Obtiene las facturas a imprimir
 --3/10/14 jcf Creación
 --10/11/16 jcf corrige user_id
+--27/07/17 jcf cambia ruta de código de barras
 --
 return (
 SELECT 1 LINEA, A.SOPNUMBE, A.SOPTYPE, isnull(dte.FchEmis, A.docdate) DOCDATE, A.SUBTOTAL, A.TAXAMNT, A.DOCAMNT, 
@@ -49,7 +50,8 @@ SELECT 1 LINEA, A.SOPNUMBE, A.SOPTYPE, isnull(dte.FchEmis, A.docdate) DOCDATE, A
 	ISNULL((select TOP 1 CHEKBKID from SOP10103 WHERE SOPTYPE = A.SOPTYPE AND SOPNUMBE = A.SOPNUMBE), '') CHEKBKID,
 	A.PYMTRCVD, A.ACCTAMNT, ISNULL((select TOP 1 CHEKNMBR from SOP10103 WHERE SOPTYPE = A.SOPTYPE AND SOPNUMBE = A.SOPNUMBE), '') CHEKNMBR,
 	A.REFRENCE, dte.docType, dte.nombreTipoDoc, dte.TpoDocRef, dte.FolioRef,  dte.FchRef, dte.nombreTipoDocRef,
-	dbo.fCfdObtieneImagenCruda('file://C:\GETTY' + Stuff(rutaYNomArchivoNet, 1, 14, '')) codigoBarras,
+	--dbo.fCfdObtieneImagenCruda('file://C:\GETTY' + Stuff(rutaYNomArchivoNet, 1, 14, '')) codigoBarras,
+	dbo.fCfdObtieneImagenCruda(dte.rutaYNomArchivoNet) codigoBarras,
 	dte.nroResol, dte.fchResol,
 	'SOP30200' sTabla
 FROM

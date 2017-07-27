@@ -73,10 +73,7 @@ from cfdlogfacturaxml lf
 where 
 lf.sopnumbe in 
 (
-'33-00004364',   --   BBDO PUBLICIDAD S.A.
-'33-00004365' ,   --  EDITORIAL TIEMPO PRESENTE LTDA.
-'33-00004366'  ,   -- BANCO DE CHILE
-'33-00004368'
+'33-00004438'
 )
 and estado = 'emitido'
 

@@ -2,21 +2,34 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdCertificados\bin\Rel
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\cfdLogFacturaCompra.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaXML\bin\Release\cfdLogFacturaXML.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogLibroCV\bin\Release\cfdLogLibroCV.dll
-C:\jcTii\Desarrollo\_DevTools\DotNetZipLib_DevKit_v1.9\DotNetZip-v1.9-Reduced\Release\Ionic.Zip.Reduced.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\CLConfiguracion.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Ionic.Zip.Reduced.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Comun\bin\Release\Comun.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\G. Deployment_and_Training\Capacitación\Instalación de GP factura electrónica de Chile.pdf
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\bin\Release\dte.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\EjecutableEncriptador.exe
-C:\jcTii\Desarrollo\_DevLibrary\EMailManejador\bin\Release\EMailManejador.dll
-C:\jcTii\Desarrollo\_DevLibrary\Encriptador .net4.6.1\bin\Release\Encriptador.dll
-C:\jcTii\Desarrollo\_DevLibrary\Encriptador .net4.6.1\bin\Release\Encriptador.XmlSerializers.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\EjecutableEncriptador.exe.config
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\EMailManejador.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Encriptador.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Encriptador.XmlSerializers.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\envioDTE\bin\Release\envioDTE.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\EstructuraMensajeEMail.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\bin\Release\FEChile.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\FEChile.XmlSerializers.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\FEMonitoreaMensajes.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\G. Deployment_and_Training\Capacitación\GILA CHILE Instructivo de Usuario GP Factura Electrónica.pdf
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\Release\MaquinaDeEstados.dll
-C:\jcTii\Desarrollo\_DevTools\MyGeneration.dOOdads\bin\Release\MyGeneration.dOOdads_2005.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Microsoft.ReportViewer.WinForms.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\MyGeneration.dOOdads_2005.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\OpenPop.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Comun\ParametrosCfd_plantilla.xml
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\QRCodeLib.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServicios\bin\Release\ReciboMercaderiaServicios.dll
-C:\jcTii\Desarrollo\_DevLibrary\Reporteador\bin\Release\Reporteador.dll
-C:\jcTii\Desarrollo\_DevLibrary\Reporteador\bin\Release\Reporteador.XmlSerializers.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Reporteador.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Reporteador.XmlSerializers.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\bin\Release\respuestaEnvioDTE.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Spire.Barcode.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Spire.Barcode.xml
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\stdole.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\System.Web.Services.dll

@@ -14,6 +14,6 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Comun\bin\Release\Comun
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Comun\bin\Release\CLConfiguracion.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Comun\bin\Release\Ionic.Zip.Reduced.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Comun\bin\Release\CLConfiguracion.pdb
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Comun\obj\Release\Comun.csprojResolveAssemblyReference.cache
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Comun\obj\Release\Comun.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Comun\obj\Release\Comun.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Comun\obj\Release\Comun.csprojResolveAssemblyReference.cache

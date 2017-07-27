@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "envioDTE", "envioDTE\envioDTE.csproj", "{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dte", "dte\dte.csproj", "{BEC0D9EE-D128-40A9-B2E8-D2415FADED22}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comun", "Comun\Comun.csproj", "{D43004BD-E235-41BE-B272-A05FC4FB9A96}"
@@ -29,6 +27,8 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Instalador", "Instalador\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FEChile", "FEChile\FEChile.csproj", "{10DAA069-2B5A-4622-B8A8-F28B8744B704}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "envioDTE", "envioDTE\envioDTE.csproj", "{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}"
+EndProject
 Global
 	GlobalSection(Performance) = preSolution
 		HasPerformanceSessions = true
@@ -42,16 +42,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Release|x86.ActiveCfg = Release|Any CPU
 		{BEC0D9EE-D128-40A9-B2E8-D2415FADED22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BEC0D9EE-D128-40A9-B2E8-D2415FADED22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEC0D9EE-D128-40A9-B2E8-D2415FADED22}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -176,6 +166,18 @@ Global
 		{10DAA069-2B5A-4622-B8A8-F28B8744B704}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{10DAA069-2B5A-4622-B8A8-F28B8744B704}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{10DAA069-2B5A-4622-B8A8-F28B8744B704}.Release|x86.ActiveCfg = Release|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Debug|x86.Build.0 = Debug|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Release|x86.ActiveCfg = Release|Any CPU
+		{1CCFC95C-BA38-4285-90DD-1DFB1C904A56}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

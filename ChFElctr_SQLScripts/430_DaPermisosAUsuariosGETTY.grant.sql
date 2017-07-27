@@ -12,9 +12,27 @@
 -------------------------------------------------------------------------------------------
 --use compañía; 
 use chi10;
-drop schema [GILA\GICHUSERS];
-drop user [GILA\GICHUSERS];
-create user [GILA\GICHUSERS] for login [GILA\GICHUSERS];
+if not exists( SELECT *
+			FROM sysusers
+			where islogin = 1
+			and lower(name) = lower('GILA\GICHUSERS')
+			)
+	create user [GILA\GICHUSERS] for login [GILA\GICHUSERS];
+
+if exists( SELECT *
+			FROM sysusers
+			where islogin = 1
+			and hasdbaccess = 0
+			and lower(name) = lower('GILA\GICHUSERS')
+			)
+begin
+	drop schema [GILA\GICHUSERS];
+	drop user [GILA\GICHUSERS];
+	create user [GILA\GICHUSERS] for login [GILA\GICHUSERS];
+end
+else
+	EXEC sp_addrolemember 'rol_chiLocalizacion', 'GILA\GICHUSERS';
+
 EXEC sp_addrolemember 'rol_cfdigital', 'GILA\GICHUSERS';
 
 EXEC sp_addrolemember 'rol_cfdigital', 'GILA\tiiselam' ;

@@ -82,3 +82,5 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\obj\Release\FEC
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\obj\Release\FEChile.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\obj\Release\FEChile.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\obj\Release\FEChile.XmlSerializers.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\bin\Release\envioDTE.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\bin\Release\envioDTE.pdb
