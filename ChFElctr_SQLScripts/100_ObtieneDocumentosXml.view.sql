@@ -547,6 +547,7 @@ create view dbo.vwCfdTransaccionesDeVenta as
 --10/9/14 jcf Cuando está en lote, el estado actual es cero
 --30/9/14 jcf Agrega dos dígitos a estadoActual
 --16/12/14 jcf Corrige mensaje cuando factura está Anulada
+--10/7/17 jcf Agrega idexterno
 --
 select tv.estadoContabilizado, tv.soptype, tv.docid, tv.sopnumbe, tv.fechahora, 
 	tv.CUSTNMBR, tv.RazonSocial nombreCliente, tv.idImpuestoCliente, tv.total, tv.voidstts, 
@@ -576,14 +577,18 @@ select tv.estadoContabilizado, tv.soptype, tv.docid, tv.sopnumbe, tv.fechahora,
 		isnull(lf.estadoActual, '00000000000100') 
 	end estadoActual, 
 	
-	isnull(lf.mensajeEA, tv.estadoContabilizado) + case when tv.voidstts = 0 then '' else ' ANULADO.' end	 mensajeEA,
+	case when isnull(lf.mensajeEA, '@no_existe') = '@no_existe' then
+		tv.estadoContabilizado
+	else
+		lf.mensajeEA + ' id:' + isnull(lf.idexterno, '')
+	end + 
+	case when tv.voidstts = 0 then '' else ' ANULADO.' end mensajeEA,
 
 	case when tv.estadoContabilizado = 'en lote' then
 		'0'
 	else
 		isnull(lf.noAprobacion, '11')		--indicar el índice del estado inicial
 	end idxSingleStatus,
-	
 	tv.sopUserDef1 USERDEF1
 from vwSopTransaccionesVenta tv
 	cross join dbo.fCfdEmisor() emi

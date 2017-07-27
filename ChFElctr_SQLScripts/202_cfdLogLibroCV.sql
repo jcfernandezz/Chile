@@ -1,7 +1,4 @@
 
-USE [GCHI]
-GO
-
 /****** Object:  StoredProcedure [proc_cfdLogLibroCVLoadByPrimaryKey]    Script Date: 21/07/2014 03:15:07 p.m. ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_cfdLogLibroCVLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_cfdLogLibroCVLoadByPrimaryKey];

@@ -30,3 +30,5 @@
   GILA
   16/9/15 A partir de v.1.2.3 usa instalador
   
+  GETTY 
+  10/7/17 jcf v1.3.3

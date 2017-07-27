@@ -13,7 +13,7 @@
     <TargetZone>LocalIntranet</TargetZone>
     <GenerateManifests>false</GenerateManifests>
     <StartupObject>EjecutableEncriptador.Program</StartupObject>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -83,14 +83,13 @@
     </Reference>
     <Reference Include="Encriptador, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\_DevLibrary\Encriptador .net4.6.1\bin\Release\Encriptador.dll</HintPath>
+      <HintPath>..\..\..\..\_DevLibrary\Encriptador .net4.6\bin\Release\Encriptador.dll</HintPath>
     </Reference>
     <Reference Include="EstructuraMensajeEMail, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\_DevLibrary\EstructuraMensajeEMail\bin\Debug\EstructuraMensajeEMail.dll</HintPath>
     </Reference>
-    <Reference Include="FEMonitoreaMensajes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="FEMonitoreaMensajes">
       <HintPath>..\..\FEMonitoreaMensajes\bin\Release\FEMonitoreaMensajes.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
@@ -116,6 +115,7 @@
       <HintPath>..\..\..\..\_DevLibrary\Reporteador\bin\Release\Reporteador.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -174,6 +174,7 @@
     </Compile>
     <BaseApplicationManifest Include="Properties\app.manifest" />
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\vwCfdTransaccionesDeVenta.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

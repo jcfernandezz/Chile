@@ -2,7 +2,7 @@
 ---------------------------------------------------------------------------------------------
 
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[vwCfdLogFacturaCompra]') AND OBJECTPROPERTY(id,N'IsView') = 1)
-    DROP view vwCfdLogFacturaCompra;
+    DROP view dbo.vwCfdLogFacturaCompra;
 GO
 
 CREATE view dbo.vwCfdLogFacturaCompra as

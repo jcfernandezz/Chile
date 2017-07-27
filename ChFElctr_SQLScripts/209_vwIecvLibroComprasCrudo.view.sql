@@ -24,7 +24,7 @@ IF OBJECT_ID ('dbo.vwIecvLibroComprasCrudo') IS NOT NULL
    DROP view dbo.vwIecvLibroComprasCrudo
 GO
 
-alter view dbo.vwIecvLibroComprasCrudo as
+create view dbo.vwIecvLibroComprasCrudo as
 --Propósito. Vista que obtiene los datos fundamentales para armar el archivo IECV de libro de compras
 --19/12/07 JCF Creación
 --15/5/08 JCF Se quitó el tipo de documento. Ese campo se debe formar en el reporte ya que depende de la configuración de la localización de docs chilenos.

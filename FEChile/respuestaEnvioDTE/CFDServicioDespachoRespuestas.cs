@@ -82,7 +82,7 @@ namespace respuestaEnvioDTE
                 Progreso(iAvance, sMsj);
         }
 
-        public CFDServicioDespachoRespuestas(IConexionAFuenteDatos conex, IParametros param)   //, IParametros param)
+        public CFDServicioDespachoRespuestas(IConexionAFuenteDatos conex, IParametros param)  
         {
             try
             {
@@ -93,7 +93,7 @@ namespace respuestaEnvioDTE
                 _lDocsRecibidos = new List<RespuestaEnvio>();
                 _param = param;
                 preparaCertificado();                                       //carga certificados y _encriptador
-                rutPropio = "76055568-1";
+                rutPropio = "76731982-7";        //gila chile "76055568-1";
             }
             catch (Exception ini)
             {
@@ -571,6 +571,16 @@ namespace respuestaEnvioDTE
             return eventoSII;
         }
 
+        private string Derecha(string Texto, int Cuantos)
+        {
+            if (Texto.Length > Cuantos && Cuantos > 0)
+            {
+                return Texto.Remove(0, Texto.Length - Cuantos);
+            }
+            else
+                return Texto;
+        }
+
         public void GuardaRespuestaDelSII(XDocument xRespuesta, int eventoSII, String uid)
         {
             _iErr = 0;
@@ -594,8 +604,13 @@ namespace respuestaEnvioDTE
 
                             logReceptor.Save(0, logEmisor.Sopnumbe, _sTrackId, "-", DateTime.Now, Maquina.estadoBaseReceptor, "Resultado del SII", 0, "-", _mensajeSii, "", "", uid, _conex.Usuario);
                         }
+                        else
+                        {
+                            _sMsj = "Repetido. Probablemente el SII envió su resultado varias veces. ";
+                            logReceptor.Save(0, logEmisor.Sopnumbe, Derecha(_sTrackId + "-" + uid, 15), "-", DateTime.Now, "ELIMINAR EMAIL", _sMsj, 0, "-", _mensajeSii, "", "", uid, _conex.Usuario);
+                        }
                         _iErr = logEmisor.CicloDeVida.iErr;
-                        _sMsj = logEmisor.CicloDeVida.sMsj;
+                        _sMsj = _sMsj + logEmisor.CicloDeVida.sMsj;
                     }
                     else
                     {

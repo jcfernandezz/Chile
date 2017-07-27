@@ -1,2 +1,2 @@
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\Instalador\bin\Debug\Instalador.msi
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\Instalador\bin\Debug\Instalador.wixpdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Instalador\bin\Debug\Instalador.msi
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Instalador\bin\Debug\Instalador.wixpdb

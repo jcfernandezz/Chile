@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <listaParametros>
-  <servidor>GILABASRDB03</servidor>
+  <servidor>10.1.1.22</servidor>
   <seguridadIntegrada>0</seguridadIntegrada>
   <usuariosql>sa</usuariosql>
-  <passwordsql>sa2</passwordsql>
-  <ingresoPredeterminado>GCHI</ingresoPredeterminado>
-  <compannia bd="GCHI" default="true">
+  <passwordsql>sa22</passwordsql>
+  <ingresoPredeterminado>CHI10</ingresoPredeterminado>
+  <compannia bd="CHI10" default="true">
     <encoding>ISO-8859-1</encoding>
-    <URLArchivoXSD>C:\GPUsuario\GPExpressCfdi\fePlantillas\cfdv32.xsd</URLArchivoXSD>
-    <URLArchivoXSLT>C:\GPUsuario\GPExpressCfdi\fePlantillas\cadenaoriginal_3_2.xslt</URLArchivoXSLT>
-	<RutaArchivosTemp>C:\GPUsuario\GPExpressCfdi\feGilaChiTST\intercambio\</RutaArchivosTemp>
+    <URLArchivoXSD>C:\GPUsuario\GPCfdi\fePlantillas\cfdv32.xsd</URLArchivoXSD>
+    <URLArchivoXSLT>C:\GPUsuario\GPCfdi\fePlantillas\cadenaoriginal_3_2.xslt</URLArchivoXSLT>
+	<RutaArchivosTemp>C:\GPUsuario\GPCfdi\feGilaChiTST\intercambio\</RutaArchivosTemp>
     <PAC>
       <urlWebService>https://qa2.interfactura.com/TimbreServicios/TimbreServicios.asmx</urlWebService>
     </PAC>
     <reporteador>CRYSTAL</reporteador>
     <rutaReporteCrystal tipo="default">
-      <Ruta>\\gilabasrdb03\Integraciones Getty\Factura Chile\GCHI_FACTURA_DTE.rpt</Ruta>
+      <Ruta>\\10.1.1.22\Integraciones Getty\Factura Chile\GCHI_FACTURA_DTE.rpt</Ruta>
       <Margenes>
         <bottomMargin>0</bottomMargin>
         <topMargin>0</topMargin>
@@ -54,14 +54,14 @@
     <envia>1</envia>
     <zip>0</zip>
     <emailSetup>
-		  <smtp>locastillo.webempresario.cl</smtp>
-		  <pop3>locastillo.webempresario.cl</pop3>
-		  <puerto>25</puerto>
-		  <puertoIn>110</puertoIn>
-		  <cuenta>juan-carlos.fernandez@tiiselam.com</cuenta>
-		  <usuario>juan-carlos.fernandez</usuario>
-		  <clave>1201</clave>
-		  <ssl>false</ssl>
+		  <smtp>smtp.office365.com</smtp>
+		  <pop3>outlook.office365.com</pop3>
+		  <puerto>587</puerto>
+		  <puertoIn>995</puertoIn>
+		  <cuenta>facturaelectronicachile@gettyimages.com</cuenta>
+		  <usuario>facturaelectronicachile@gettyimages.com</usuario>
+		  <clave>ry!E923Ukac</clave>
+		  <ssl>true</ssl>
 	      <replyto>jfernandezz@hotmail.com</replyto>
                 <carta>FACTURA_ELECTRONICA</carta>
                 <adjuntoEmite>xml</adjuntoEmite>

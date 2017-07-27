@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FEChile</RootNamespace>
     <AssemblyName>FEChile</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -38,7 +38,7 @@
       <HintPath>..\..\..\..\_DevLibrary\EMailManejador\bin\Release\EMailManejador.dll</HintPath>
     </Reference>
     <Reference Include="Encriptador">
-      <HintPath>..\..\..\..\_DevLibrary\Encriptador .net4.6.1\bin\Release\Encriptador.dll</HintPath>
+      <HintPath>..\..\..\..\_DevLibrary\Encriptador .net4.6\bin\Release\Encriptador.dll</HintPath>
     </Reference>
     <Reference Include="MyGeneration.dOOdads_2005">
       <HintPath>..\..\..\..\_DevTools\MyGeneration.dOOdads\bin\Release\MyGeneration.dOOdads_2005.dll</HintPath>
@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\enviodte_v10Extendido.cs" />
-    <Compile Include="BLL\enviodte_v10_xmldsignature_v10.cs" />
     <Compile Include="BLL\vwCfdCartasReclamacionDeuda.cs" />
     <Compile Include="BLL\vwCfdClienteDireccionesCorreo.cs" />
     <Compile Include="BLL\vwCfdLibroCVLog.cs" />
@@ -88,13 +87,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="TedModel.cs" />
-    <Compile Include="Web References\WebRefCrSeed\Reference.cs">
+    <Compile Include="Web References\WebRefGetToken\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <Compile Include="Web References\WebRefGetToken\Reference.cs">
+    <Compile Include="Web References\WebRefCrSeed\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -120,6 +120,10 @@
     <ProjectReference Include="..\Comun\Comun.csproj">
       <Project>{d43004bd-e235-41be-b272-a05fc4fb9a96}</Project>
       <Name>Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\envioDTE\envioDTE.csproj">
+      <Project>{1ccfc95c-ba38-4285-90dd-1dfb1c904a56}</Project>
+      <Name>envioDTE</Name>
     </ProjectReference>
     <ProjectReference Include="..\MaquinaDeEstados\MaquinaDeEstados.csproj">
       <Project>{3325d053-41aa-48a1-9166-11dc6afea8d7}</Project>
@@ -152,39 +156,39 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\WebRefCrSeed\CrSeed.wsdl" />
-    <None Include="Web References\WebRefCrSeed\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Web References\WebRefGetToken\GetTokenFromSeed.wsdl" />
     <None Include="Web References\WebRefGetToken\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\WebRefCrSeed\CrSeed.wsdl" />
+    <None Include="Web References\WebRefCrSeed\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\FEChile\CrSeed.prodPalena.wsdl">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\WebRefCrSeed\</RelPath>
-      <UpdateFromURL>C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\FEChile\CrSeed.prodPalena.wsdl</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>FEChile_WebRefCrSeed_CrSeedService</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\FEChile\GetTokenFromSeed.prodPalena.wsdl">
+    <WebReferenceUrl Include="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chife\FEChile\FEChile\GetTokenFromSeed.prodPalena.wsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WebRefGetToken\</RelPath>
-      <UpdateFromURL>C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\FEChile\GetTokenFromSeed.prodPalena.wsdl</UpdateFromURL>
+      <UpdateFromURL>C:\jcTii\Desarrollo\CHI_FacturaElectronica\chife\FEChile\FEChile\GetTokenFromSeed.prodPalena.wsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FEChile_WebRefGetToken_GetTokenFromSeedService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\CrSeed.prodPalena.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebRefCrSeed\</RelPath>
+      <UpdateFromURL>C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\CrSeed.prodPalena.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FEChile_wRefCrsSeed_CrSeedService</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

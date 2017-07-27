@@ -78,7 +78,7 @@ IF OBJECT_ID ('dbo.fCfdReferencia') IS NOT NULL
    DROP FUNCTION dbo.fCfdReferencia
 GO
 
-ALTER function dbo.fCfdReferencia(@soptype smallint, @rmdtypal smallint, @p_sopnumbe varchar(21), @p_docdate datetime,
+create function dbo.fCfdReferencia(@soptype smallint, @rmdtypal smallint, @p_sopnumbe varchar(21), @p_docdate datetime,
 									@USRTAB01 varchar(21), @REFRENCE VARCHAR(31), @USERDEF2 varchar(21), @USRDAT02 datetime, @DOCAMNT numeric(21,5),
 									@cliente varchar(15), @CSTPONBR VARCHAR(21))
 returns table

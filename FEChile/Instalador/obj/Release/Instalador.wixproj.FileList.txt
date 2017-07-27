@@ -5,3 +5,5 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\Instalador\b
 obj\Release\Instalador.wixproj.BindContentsFileListnull.txt
 obj\Release\Instalador.wixproj.BindOutputsFileListnull.txt
 obj\Release\Instalador.wixproj.BindBuiltOutputsFileListnull.txt
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Instalador\bin\Release\Instalador.msi
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Instalador\bin\Release\Instalador.wixpdb

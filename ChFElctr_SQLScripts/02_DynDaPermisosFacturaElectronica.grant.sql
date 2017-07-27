@@ -11,6 +11,7 @@ IF DATABASE_PRINCIPAL_ID('rol_cfdigital') IS NULL
 --Objetos que usa factura electrónica
 grant select on dbo.sy01500 to rol_cfdigital, dyngrp;
 grant select on dbo.vwCfdCompannias  to rol_cfdigital, dyngrp;
+grant select on dbo.MC40200  to rol_cfdigital, dyngrp;
 
 
 --use dynamics

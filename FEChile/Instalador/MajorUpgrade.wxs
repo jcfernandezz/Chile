@@ -4,7 +4,7 @@
      xmlns:sql="http://schemas.microsoft.com/wix/SqlExtension">
 
   <Product Id="D2EB3341-8D92-448A-B481-4D5B74B37EFE" Name="GP Chile Factura Electrónica"
-           Language="1033" Version="1.2.3" Manufacturer="JCF" UpgradeCode="44281eba-a31e-4e51-92b8-ff8327561a96">
+           Language="1033" Version="1.3.3" Manufacturer="JCF" UpgradeCode="44281eba-a31e-4e51-92b8-ff8327561a96">
     <Package Id="*" InstallerVersion="200" Compressed="yes" />
 
     <!--Actualiza una versión anterior-->
@@ -55,7 +55,7 @@
 
         <ComponentRef Id="Comun"/>
         <ComponentRef Id="MaquinaDeEstados"/>
-        <ComponentRef Id="EMailManejador"/>
+        <ComponentRef Id="Email"/>
         <ComponentRef Id="Encriptador"/>
         <ComponentRef Id="MyGeneration.dOOdads_2005"/>
         <ComponentRef Id="Compresor"/>
@@ -109,7 +109,7 @@
       <Directory Id="DesktopFolder" Name="Desktop" />
     </Directory>
 
-    <Icon Id="GPChiFE.exe" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\EjecutableEncriptador\bin\Release\EjecutableEncriptador.exe" />
+    <Icon Id="GPChiFE.exe" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\EjecutableEncriptador.exe" />
 
   </Fragment>
 
@@ -117,6 +117,7 @@
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
             <Component Id="EjecutableEncriptador" Guid="EAAB8B07-FB9A-4055-9FE1-39F3B1003500">
               <File Id="EjecutableEncriptador" Name="$(var.EjecutableEncriptador.TargetFileName)" Source="$(var.EjecutableEncriptador.TargetPath)" DiskId="1" KeyPath="yes"/>
+              <File Id="EjecutableEncriptador.exe.config" Name="EjecutableEncriptador.exe.config" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\EjecutableEncriptador.exe.config" DiskId="1" KeyPath="no"/>
               <Shortcut Id="startmenuFDigital" Directory="ProgramMenuDir" Name="GP Chile Factura Electrónica"
                 WorkingDirectory='INSTALLFOLDER' Icon="GPChiFE.exe" IconIndex="0" Advertise="yes" />
               <Shortcut Id="desktopFDigital" Directory="DesktopFolder" Name="GP Chile Factura Electrónica"
@@ -135,49 +136,71 @@
             <Component Id="cfdLogLibroCV" Guid="5C59A43F-BCD8-49A4-A1B3-11E949DE7389">
               <File Id="cfdLogLibroCV" Name="$(var.cfdLogLibroCV.TargetFileName)" Source="$(var.cfdLogLibroCV.TargetPath)" DiskId="1" KeyPath="yes"/>
             </Component>
+            <Component Id="ClConfig" Guid="B1364C56-4045-437A-AAB3-52DD29E4B424">
+              <File Id="ClConfig" Name="CLConfiguracion.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\CLConfiguracion.dll" DiskId="1" KeyPath="no"/>
+            </Component>
+            <Component Id="Comun" Guid="04A9241D-0788-4DE2-9337-EE1E6A5A5F1F">
+              <File Id="Comun" Name="$(var.Comun.TargetFileName)" Source="$(var.Comun.TargetPath)" DiskId="1" KeyPath="yes"/>
+            </Component>
+            <Component Id="Email" Guid="351F8A7A-23D6-48AA-8401-9A4EC9A0A92B">
+              <File Id="EMailManejador" Name="EMailManejador.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\EMailManejador.dll" DiskId="1" KeyPath="no"/>
+              <File Id="OpenPop" Name="OpenPop.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\OpenPop.dll" DiskId="1" KeyPath="no"/>
+            </Component>
+            <Component Id="Encriptador" Guid="0B19DA11-313C-4414-AC92-73FCF2C3B77F">
+              <File Id="Encriptador" Name="Encriptador.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Encriptador.dll" DiskId="1" KeyPath="no"/>
+              <File Id="Encriptador.XmlSerializers" Name="Encriptador.XmlSerializers.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Encriptador.XmlSerializers.dll" DiskId="1" KeyPath="no"/>
+            </Component>
             <Component Id="dte" Guid="A2E95C8D-D962-46BE-A141-4784B9F56B8C">
               <File Id="dte" Name="$(var.dte.TargetFileName)" Source="$(var.dte.TargetPath)" DiskId="1" KeyPath="yes"/>
             </Component>
             <Component Id="envioDTE" Guid="54FCF66D-6448-4E0E-B66F-AE1C98D56AEB">
               <File Id="envioDTE" Name="$(var.envioDTE.TargetFileName)" Source="$(var.envioDTE.TargetPath)" DiskId="1" KeyPath="yes"/>
             </Component>
+            <Component Id="estructuraMensajeEmail" Guid="854EED3A-C972-4883-8D60-6B090AFA2782">
+              <File Id="estructuraMensajeEmail" Name="EstructuraMensajeEMail.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\EstructuraMensajeEMail.dll" DiskId="1" KeyPath="no"/>
+            </Component>
             <Component Id="FEChile" Guid="F515C150-F67E-4D26-AA0E-B1ACAF850BE5">
               <File Id="FEChile" Name="$(var.FEChile.TargetFileName)" Source="$(var.FEChile.TargetPath)" DiskId="1" KeyPath="yes"/>
+              <File Id="FEChile.XmlSerializers" Name="FEChile.XmlSerializers.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\FEChile.XmlSerializers.dll" DiskId="1" KeyPath="no"/>
             </Component>
-            <Component Id="ReciboMercaderiaServicios" Guid="E38B021B-B791-4628-B209-CA9CFAD1571C">
-              <File Id="ReciboMercaderiaServicios" Name="$(var.ReciboMercaderiaServicios.TargetFileName)" Source="$(var.ReciboMercaderiaServicios.TargetPath)" DiskId="1" KeyPath="yes"/>
+            <Component Id="feMonitoreaMensajes" Guid="00A59965-ABBD-42FD-9E1F-002DFF9BA491">
+              <File Id="feMonitoreaMensajes" Name="FEMonitoreaMensajes.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\FEMonitoreaMensajes.dll" DiskId="1" KeyPath="no"/>
             </Component>
-            <Component Id="respuestaEnvioDTE" Guid="DD3A2283-DF18-49F4-B655-F54179C4D976">
-              <File Id="respuestaEnvioDTE" Name="$(var.respuestaEnvioDTE.TargetFileName)" Source="$(var.respuestaEnvioDTE.TargetPath)" DiskId="1" KeyPath="yes"/>
-            </Component>
-
-            <Component Id="Comun" Guid="04A9241D-0788-4DE2-9337-EE1E6A5A5F1F">
-              <File Id="Comun" Name="$(var.Comun.TargetFileName)" Source="$(var.Comun.TargetPath)" DiskId="1" KeyPath="yes"/>
-            </Component>
-            <Component Id="Parametros" Guid="D2EE7D58-E304-4669-A871-56A44B0F88BF">
-              <File Id="ParametrosCfd" Name="ParametrosCfd_plantilla.xml" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\Comun\ParametrosCfd_plantilla.xml" DiskId="1" KeyPath="no"/>
-            </Component>
-            <Component Id="EMailManejador" Guid="B1364C56-4045-437A-AAB3-52DD29E4B424">
-              <File Id="EMailManejador" Name="EMailManejador.dll" Source="C:\jcTii\Desarrollo\_DevLibrary\EMailManejador\bin\Release\EMailManejador.dll" DiskId="1" KeyPath="no"/>
+            <Component Id="Compresor" Guid="CFA3E2AB-C212-470B-B5CB-92E5CB245491">
+              <File Id="Compresor" Name="Ionic.Zip.Reduced.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Ionic.Zip.Reduced.dll" DiskId="1" KeyPath="no"/>
             </Component>
             <Component Id="MaquinaDeEstados" Guid="73595DDD-CA95-4113-A9FC-4878A70AF67B">
               <File Id="MaquinaDeEstados" Name="$(var.MaquinaDeEstados.TargetFileName)" Source="$(var.MaquinaDeEstados.TargetPath)" DiskId="1" KeyPath="yes"/>
             </Component>
-            <Component Id="Encriptador" Guid="0B19DA11-313C-4414-AC92-73FCF2C3B77F">
-              <File Id="Encriptador" Name="Encriptador.dll" Source="C:\jcTii\Desarrollo\_DevLibrary\Encriptador .net4.6.1\bin\Release\Encriptador.dll" DiskId="1" KeyPath="no"/>
-              <File Id="Encriptador.XmlSerializers" Name="Encriptador.XmlSerializers.dll" Source="C:\jcTii\Desarrollo\_DevLibrary\Encriptador .net4.6.1\bin\Release\Encriptador.XmlSerializers.dll" DiskId="1" KeyPath="no"/>
+            <Component Id="microsoft.reportviewer" Guid="B3B7F132-E1C5-4F53-9FC4-AEBAD6507C51">
+              <File Id="microsoft.reportviewer.Common" Name="Microsoft.ReportViewer.Common.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Microsoft.ReportViewer.Common.dll" DiskId="1" KeyPath="no"/>
+              <File Id="microsoft.reportviewer.WinForms" Name="Microsoft.ReportViewer.WinForms.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Microsoft.ReportViewer.WinForms.dll" DiskId="1" KeyPath="no"/>
             </Component>
             <Component Id="MyGeneration.dOOdads_2005" Guid="C5F0F0BD-C552-4475-A504-4C8AE1C66E60">
-              <!--<File Id="MyGeneration.dOOdads_2005" Name="$(var.MyGeneration.dOOdads_2005.TargetFileName)" Source="$(var.MyGeneration.dOOdads_2005.TargetPath)" DiskId="1" KeyPath="yes"/>-->
-              <File Id="MyGeneration.dOOdads_2005" Name="MyGeneration.dOOdads_2005.dll" Source="C:\jcTii\Desarrollo\_DevTools\MyGeneration.dOOdads\bin\Release\MyGeneration.dOOdads_2005.dll" DiskId="1" KeyPath="no"/>
+              <File Id="MyGeneration.dOOdads_2005" Name="MyGeneration.dOOdads_2005.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\MyGeneration.dOOdads_2005.dll" DiskId="1" KeyPath="no"/>
+            </Component>
+            <Component Id="barcode" Guid="5643501F-BAF0-4758-BC87-3640E704EAC3">
+              <File Id="QRCodeLib" Name="QRCodeLib.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\QRCodeLib.dll" DiskId="1" KeyPath="no"/>
+              <File Id="Spire.Barcode" Name="Spire.Barcode.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Spire.Barcode.dll" DiskId="1" KeyPath="no"/>
+              <File Id="Spire.Barcode.xml" Name="Spire.Barcode.xml" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Spire.Barcode.xml" DiskId="1" KeyPath="no"/>
+            </Component>
+            <Component Id="ReciboMercaderiaServicios" Guid="E38B021B-B791-4628-B209-CA9CFAD1571C">
+              <File Id="ReciboMercaderiaServicios" Name="$(var.ReciboMercaderiaServicios.TargetFileName)" Source="$(var.ReciboMercaderiaServicios.TargetPath)" DiskId="1" KeyPath="yes"/>
             </Component>
             <Component Id="Reporteador" Guid="BC67B4E4-FD4C-47A1-94FD-BA0B2BCBD87E">
-              <!--<File Id="Reporteador" Name="$(var.Reporteador.TargetFileName)" Source="$(var.Reporteador.TargetPath)" DiskId="1" KeyPath="yes"/>-->
-              <File Id="Reporteador" Name="Reporteador.dll" Source="C:\jcTii\Desarrollo\_DevLibrary\Reporteador\bin\Release\Reporteador.dll" DiskId="1" KeyPath="no"/>
-              <File Id="Reporteador.XmlSerializers" Name="Reporteador.XmlSerializers.dll" Source="C:\jcTii\Desarrollo\_DevLibrary\Reporteador\bin\Release\Reporteador.XmlSerializers.dll" DiskId="1" KeyPath="no"/>
+              <File Id="Reporteador" Name="Reporteador.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Reporteador.dll" DiskId="1" KeyPath="no"/>
+              <File Id="Reporteador.XmlSerializers" Name="Reporteador.XmlSerializers.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\Reporteador.XmlSerializers.dll" DiskId="1" KeyPath="no"/>
             </Component>
-            <Component Id="Compresor" Guid="CFA3E2AB-C212-470B-B5CB-92E5CB245491">
-              <File Id="Compresor" Name="Ionic.Zip.Reduced.dll" Source="C:\jcTii\Desarrollo\_DevTools\DotNetZipLib_DevKit_v1.9\DotNetZip-v1.9-Reduced\Release\Ionic.Zip.Reduced.dll" DiskId="1" KeyPath="no"/>
+            <Component Id="respuestaEnvioDTE" Guid="DD3A2283-DF18-49F4-B655-F54179C4D976">
+              <File Id="respuestaEnvioDTE" Name="$(var.respuestaEnvioDTE.TargetFileName)" Source="$(var.respuestaEnvioDTE.TargetPath)" DiskId="1" KeyPath="yes"/>
+            </Component>
+            <Component Id="Otros" Guid="CE35BD87-FD39-40AA-B8DE-38B9FD13C2C0">
+              <File Id="stdole" Name="stdole.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\stdole.dll" DiskId="1" KeyPath="yes"/>
+              <File Id="System.Web.Services" Name="System.Web.Services.dll" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Release\System.Web.Services.dll" DiskId="1" KeyPath="no"/>
+            </Component>
+  
+            <Component Id="Parametros" Guid="D2EE7D58-E304-4669-A871-56A44B0F88BF">
+              <File Id="ParametrosCfd" Name="ParametrosCfd_plantilla.xml" Source="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\Comun\ParametrosCfd_plantilla.xml" DiskId="1" KeyPath="no"/>
             </Component>
 
             <Component Id="Documentacion" Guid="33791E65-DEF8-45D8-B9B0-1A8BEA49CF2D">
@@ -206,7 +229,9 @@
                 <sql:SqlScript Id="Createfun50" BinaryKey="Createfun50" ExecuteOnInstall="yes" Sequence="50" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="Createfun53" BinaryKey="Createfun53" ExecuteOnInstall="yes" Sequence="53" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="Createfun55" BinaryKey="Createfun55" ExecuteOnInstall="yes" Sequence="55" ExecuteOnReinstall="yes"/>
+                <sql:SqlScript Id="CreateObj64" BinaryKey="CreateObj64" ExecuteOnInstall="yes" Sequence="64" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="Createtable70" BinaryKey="Createtable70" ExecuteOnInstall="yes" Sequence="70" ExecuteOnReinstall="yes"/>
+                <sql:SqlScript Id="Createfun75" BinaryKey="Createfun75" ExecuteOnInstall="yes" Sequence="75" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="Createsp80" BinaryKey="Createsp80" ExecuteOnInstall="yes" Sequence="80" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="Createfunc85" BinaryKey="Createfunc85" ExecuteOnInstall="yes" Sequence="85" ExecuteOnReinstall="yes"/>
                 <sql:SqlScript Id="Createview90" BinaryKey="Createview90" ExecuteOnInstall="yes" Sequence="90" ExecuteOnReinstall="yes"/>
@@ -233,44 +258,46 @@
             </Component>
 
     </ComponentGroup>
-        <Binary Id="Createview01" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\01_DynObtieneBdsQueEmitenFElectronica.view.sql"/>
-        <Binary Id="Grants02" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\02_DynDaPermisosFacturaElectronica.grant.sql"/>
+        <Binary Id="Createview01" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\01_DynObtieneBdsQueEmitenFElectronica.view.sql"/>
+        <Binary Id="Grants02" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\02_DynDaPermisosFacturaElectronica.grant.sql"/>
 
         <Binary Id="CreateBaseview01" SourceFile="C:\jcTii\GPRelational\pm_fLcPmTax.WorkHist.functions.sql"/>
         <Binary Id="CreateBaseview02" SourceFile="C:\jcTii\GPRelational\rmvwRmTransaccionesTodas.view.sql"/>
         <Binary Id="CreateBaseview03" SourceFile="C:\jcTii\GPRelational\rmVwTrxAplicadas.view.sql"/>
-        <Binary Id="Createfunc05" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\05_fLcLvParametros.function.sql"/>
-        <Binary Id="Createview10" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\10_OPCIONALCreaMaestroDeCertificadosYFolios.table.sql"/>
-        <Binary Id="Createview30" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\30_vwCfdIdDocumentos.view.sql"/>
-        <Binary Id="Createtrig35" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\35_RegistraHoradeFacturaElectronica.trigger.sql"/>
-        <Binary Id="Createview40" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\40_ObtieneConfiguracionCartasEmail.view.sql"/>
-        <Binary Id="Createfun50" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\50_ObtieneDireccionesCorreoClientes.function.sql"/>
-        <Binary Id="Createfun53" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\53_Utiles.functions.sql"/>
-        <Binary Id="Createfun55" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\55_fCfdEmisor_Configuracion.function.sql"/>
-        <Binary Id="Createtable70" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\70_CreaLogFacturaElectronica.table.sql"/>
-        <Binary Id="Createsp80" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\80_ABMcfdLogFacturaXML.sproducedure.sql"/>
-        <Binary Id="Createfunc85" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\85_fCfdDatosAdicionales.function.sql"/>
-        <Binary Id="Createview90" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\90_vwSopTransacionesVenta.GETTYview.sql"/>
-        <Binary Id="Createfunc95" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\95_obtieneFoliosYCertificados.function.sql"/>
-        <Binary Id="Createfunc98" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\98_fCfdVentasObtieneNeto y Exento.functions.sql"/>
-        <Binary Id="Createfunc99" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\99_referenciasYExcepciones.functions.sql"/>
-        <Binary Id="Createview100" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\100_ObtieneDocumentosXml.view.sql"/>
-        <Binary Id="CreateObj201" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\201_cfdLogLibroCV.table.sql"/>
-        <Binary Id="CreateObj202" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\202_cfdLogLibroCV.sql"/>
-        <Binary Id="CreateObj205" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\205_cfdSeccionesLibroVentasXml.view.sql"/>
-        <Binary Id="CreateObj208" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\208_vwIecvDetalleComprasAP.view.sql"/>
-        <Binary Id="CreateObj209" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\209_vwIecvLibroComprasCrudo.view.sql"/>
-        <Binary Id="CreateObj210" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\210_IecvSeccionesLibroComprasXml.view.sql"/>
-        <Binary Id="CreateObj220" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\220_iecv_vwCfdLibroCVLog.view.sql"/>
-        <Binary Id="CreateObj300" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\300_cfdLogFacturaCompra.table.sql"/>
-        <Binary Id="CreateObj310" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\310_cfdLogFacturaCompra.sprocedure.sql"/>
-        <Binary Id="CreateObj320" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\320_vwCfdLogFacturaCompra.view.sql"/>
-        <Binary Id="Grants410" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_SQLScripts\410_DaPermisosFacturaElectronicaCia.grant.sql"/>
+        <Binary Id="Createfunc05" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\05_fLcLvParametros.function.sql"/>
+        <Binary Id="Createview10" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\10_OPCIONALCreaMaestroDeCertificadosYFolios.table.sql"/>
+        <Binary Id="Createview30" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\30_vwCfdIdDocumentos.view.sql"/>
+        <Binary Id="Createtrig35" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\35_RegistraHoradeFacturaElectronica.trigger.sql"/>
+        <Binary Id="Createview40" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\40_ObtieneConfiguracionCartasEmail.view.sql"/>
+        <Binary Id="Createfun50" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\50_ObtieneDireccionesCorreoClientes.function.sql"/>
+        <Binary Id="Createfun53" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\53_Utiles.functions.sql"/>
+        <Binary Id="Createfun55" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\55_fCfdEmisor_Configuracion.function.sql"/>
+        <Binary Id="CreateObj64" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\64_vwCfdCertificados.view.sql"/>
+        <Binary Id="Createtable70" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\70_CreaLogFacturaElectronica.table.sql"/>
+        <Binary Id="Createfun75" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\75_fCfdDatosXmlParaImpresion.function.sql"/>
+        <Binary Id="Createsp80" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\80_ABMcfdLogFacturaXML.sproducedure.sql"/>
+        <Binary Id="Createfunc85" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\85_fCfdDatosAdicionales.function.sql"/>
+        <Binary Id="Createview90" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\90_vwSopTransacionesVenta.GETTYview.sql"/>
+        <Binary Id="Createfunc95" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\95_obtieneFoliosYCertificados.function.sql"/>
+        <Binary Id="Createfunc98" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\98_fCfdVentasObtieneNeto y Exento.functions.sql"/>
+        <Binary Id="Createfunc99" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\99_referenciasYExcepciones.functions.sql"/>
+        <Binary Id="Createview100" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\100_ObtieneDocumentosXml.view.sql"/>
+        <Binary Id="CreateObj201" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\201_cfdLogLibroCV.table.sql"/>
+        <Binary Id="CreateObj202" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\202_cfdLogLibroCV.sql"/>
+        <Binary Id="CreateObj205" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\205_cfdSeccionesLibroVentasXml.view.sql"/>
+        <Binary Id="CreateObj208" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\208_vwIecvDetalleComprasAP.view.sql"/>
+        <Binary Id="CreateObj209" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\209_vwIecvLibroComprasCrudo.view.sql"/>
+        <Binary Id="CreateObj210" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\210_IecvSeccionesLibroComprasXml.view.sql"/>
+        <Binary Id="CreateObj220" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\220_iecv_vwCfdLibroCVLog.view.sql"/>
+        <Binary Id="CreateObj300" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\300_cfdLogFacturaCompra.table.sql"/>
+        <Binary Id="CreateObj310" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\310_cfdLogFacturaCompra.sprocedure.sql"/>
+        <Binary Id="CreateObj320" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\320_vwCfdLogFacturaCompra.view.sql"/>
+        <Binary Id="Grants410" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_SQLScripts\410_DaPermisosFacturaElectronicaCia.grant.sql"/>
       
         <!--Reportes y permisos-->
-        <Binary Id="CreatefuncI01" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_Imprimir\01_fCfd_imprime_comprobante_dte.function.sql"/>
-        <Binary Id="CreateviewI02" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_Imprimir\02_vwCfd_imprime_comprobante_dte.view.sql"/>
-        <Binary Id="GrantsI03" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\ChFElctr_Imprimir\03_imprime_comprobante_dte.grant.sql"/>
+        <Binary Id="CreatefuncI01" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_Imprimir\01_fCfd_imprime_comprobante_dte.function.sql"/>
+        <Binary Id="CreateviewI02" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_Imprimir\02_vwCfd_imprime_comprobante_dte.view.sql"/>
+        <Binary Id="GrantsI03" SourceFile="C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\ChFElctr_Imprimir\03_imprime_comprobante_dte.grant.sql"/>
 
 	</Fragment>
 </Wix>

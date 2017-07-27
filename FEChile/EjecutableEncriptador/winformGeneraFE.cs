@@ -40,7 +40,7 @@ namespace EjecutableEncriptador
         short idxSopnumbe = 3;                  //columna sopnumbe del grid
         short idxEstado = 8;                    //columna estado (en letras) del grid
         short idxMensaje = 9;                   //columna mensaje del grid
-        short idxEstadoContab = 10;             //columna estado contabilizado del grid
+        //short idxEstadoContab = 10;             //columna estado contabilizado del grid
         short idxAnulado = 11;                  //columna anulado del grid
         short idxEstadoDoc = 13;                //columna estado del documento (en números) del grid
         List<SopDocument> LDocsNoSeleccionados = new List<SopDocument>();   //Docs no marcados del grid
@@ -61,16 +61,21 @@ namespace EjecutableEncriptador
         short idxTipoCompra = 2;
         short idxFolioCompra = 3;
         short idxIdProveedor = 4;
-        short idxNomProveedor = 5;
-        short idxMensajeEACompra = 10;
         short idxArchivoPdf = 13;
         short idxEstadoCompra = 7;
         List<LogFacturaCompra> lComprasNoSeleccionadas = new List<LogFacturaCompra>();         //Libros no marcados del grid
+
+        private const string DisableCachingName = @"TestSwitch.LocalAppContext.DisableCaching";
+        private const string DontEnableSchSendAuxRecordName = @"Switch.System.Net.DontEnableSchSendAuxRecord";
 
         delegate void reportaProgresoCallback(int i, string s);
 
         public winformGeneraFE()
         {
+            ///Workaround de microsoft para evitar error al usar los servicios web del SII: https://support.microsoft.com/en-us/help/3155464/ms16-065-description-of-the-tls-ssl-protocol-information-disclosure-vu
+            AppContext.SetSwitch(DisableCachingName, true);
+            AppContext.SetSwitch(DontEnableSchSendAuxRecordName, true);
+
             InitializeComponent();
             dgridTrxFacturas.AutoGenerateColumns = false;
         }
