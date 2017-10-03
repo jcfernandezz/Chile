@@ -1,0 +1,6 @@
+*.cache
+*.pdb
+*.exe
+*.tlog
+*.force
+*.msi

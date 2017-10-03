@@ -1,4 +1,4 @@
-use gchi;
+use chi10;
 
 --GETTY
 --Pruebas de Factura electrónica México
@@ -71,9 +71,9 @@ select sopnumbe, idexterno,
 --UPDATE LF SET IDEXTERNO = 2178342062, ESTADOACTUAL= '00000000011100', NOAPROBACION = 9, MENSAJEEA = 'EMITIDO. ENVIADO SII.'
 from cfdlogfacturaxml lf
 where 
-lf.sopnumbe in 
+lf.sopnumbe like 
 (
-'33-00004438'
+'33-00000068'
 )
 and estado = 'emitido'
 
@@ -142,10 +142,11 @@ order by secuencia
 --LIBRO DE COMPRAS Y VENTAS
 
 --tabla LOG LIBROS DE COMPRA Y VENTA
-select * 
-from cfdlogLibroCV 
-where tipo = 'LV'
-and periodo = 201609
+select *
+--delete c 
+from cfdlogLibroCV  c
+where c.tipo = 'LV'
+and c.periodo = 201708
 
 select *
 from vwCfdLibroCVLog
@@ -217,10 +218,10 @@ SELECT *
 FROM sop10100
 WHERE SOPNUMBE in ( '33-0000101', '33-0000102', '33-0000103', 'FV 00000082')
 
-SELECT voidstts, *
+SELECT custnmbr, voidstts, *
 FROM SOP30200
 --update sop30200 set docdate = '7/7/2013'
-WHERE SOPNUMBE = '33-00003671'
+WHERE SOPNUMBE = '33-00000068'
 year(docdate) = 2014
 and month(docdate) = 7
 and day(docdate) <= 22
@@ -241,15 +242,25 @@ SELECT IVITMTXB, TAXAMNT, *
 FROM SOP30300
 WHERE SOPNUMBE in ( '33-00000101', '33-00000102', '33-00000103', 'FV 00000082')
 ------------------------------------------------
---update id set id.lochdoccod = '33'
-select id.lochdoccod, cab.docid , cab.*
-from sop10100 cab
+
+select top 100 *
+from loch0004
+--where lochtrxno = '61-00000005          '
+--and custvndr = '000002208      '
+order by 1
+
+sp_statistics loch0004
+
+
+--update id set id.custvndr = cab.custnmbr	--id.lochdoccod = '33'
+select id.lochdoccod, cab.docid, id.custvndr, cab.custnmbr, cab.*
+from sop30200 cab
 inner join loch0004 id
-             on id.custvndr = cab.custnmbr
+             on id.custvndr != cab.custnmbr
             and id.lochtrxno = cab.sopnumbe
 			and id.module1 = 2					--2:ventas
-where datediff(day, '8/1/14', cab.docdate) >= 0
-and cab.soptype = 3
+where --datediff(day, '8/1/14', cab.docdate) >= 0
+cab.soptype = 3
 and cab.docid = 'FV'
 
 --update id set id.lochdoccod = '61'
@@ -267,13 +278,13 @@ AND ID.LOCHDOCCOD != '61'
 ----------------------------------------------------------
 
 --actualiza rut de clientes con guión
---update cl set cl.rutclieprovee = '76163495K'  --replace(cl.rutClieProvee, '-', '')
+--update cl set cl.rutclieprovee = '761649280'  --replace(cl.rutClieProvee, '-', '')
 --update cl set RutClieProvee =	ltrim(RutClieProvee)	--, razonSocial = 'VTR BANDA ANCHA CHILE S.A.'	--correcto: '761141430', razonSocial = 'VTR COMUNICACIONES SPA'
 --insert into cllc0002 (CUSTVNDR,RutClieProvee,TipClieProvee,GiroEmpresa,RazonSocial,RutRepLegal,NomRepLeg,Activo)
 select CUSTVNDR,RutClieProvee,TipClieProvee,GiroEmpresa,RazonSocial,RutRepLegal,NomRepLeg,Activo
 from cllc0002 CL	--razón social de clientes y proveedores (localización chilena)
-where cl.rutclieprovee like '%76163495%'
---cl.custvndr in ('000011447', '000019226')
+where --cl.rutclieprovee like '%76163495%'
+cl.custvndr in ('000023934')
 
 SELECT TXRGNNUM, *
 --UPDATE RM SET TXRGNNUM = '767357702'
@@ -313,12 +324,14 @@ where --lo.giroEmpresa = lo.razonsocial
 --insert into loch0004 (LOCHTRXNO,DOCTYPE,LOCHDOCCOD,CUSTVNDR,VNDDOCNM,DOCDATE,MODULE1,DOCAMNT,RPRTTYPE,USERID,DOCCLTYP)
 select s.sopnumbe, case when soptype = 3 then 1 else 8 end, 
 	left(s.sopnumbe, 2), s.custnmbr, '', s.docdate, 2, s.docamnt, 1, 'sa', 1
+--select id.*, s.custnmbr, s.sopnumbe
 from sop30200 s
 left join loch0004 id 
 	on id.lochtrxno = s.sopnumbe
+	and id.custvndr = s.custnmbr
 where id.lochtrxno is null
 and year(s.docdate) >= 2016
-and s.sopnumbe = '33-00002142'
+and s.sopnumbe = '33-00000009'
 
 
 --update s set refrence = 'Facturar a otra empresa'

@@ -49,11 +49,18 @@ from cfd_CER00100 c
 --Inserta configuración CAF (folios) por tipo de documento
 ---------------------------------------------------------------------------------------------------------------------------
 
-insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
-values(3, 'FACTURA ELCTRN', 1, 20, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198233120177201921.xml');
+select *
+--delete f
+from  cfd_FOL00100 f
+where f.soptype = 4
+and f.docid = 'NCREDIT ELECTRN'	--'NCREDIT ELECTRN'	--'NCREDIT ELECTRN'	--
+
 
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
-values(4, 'NCREDIT ELECTRN', 1, 4, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198261120177211542.xml');
+values(3, 'FACTURA ELCTRN', 61, 106, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII767319823361201798845.xml');
+
+insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+values(4, 'NCREDIT ELECTRN', 16, 19, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII76731982611620179141454.xml');
 
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
 values(3, 'FAC ELEC EXENTA', 1, 20, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198234120177211538.xml');
@@ -70,11 +77,6 @@ where s.adrscode = 'FELECTRONICA'
 and master_id = 'CHI10'
 
 ----------------------------------------------------------------------------------
-select *
---delete f
-from  cfd_FOL00100 f
-where f.soptype = 3
-and f.docid = 'FACTURA ELCTRN'	--'NCREDIT ELECTRN'	--'NCREDIT ELECTRN'
 
 --update cfd_fol00100 set ruta_codigo_autorizacion = REPLACE(ruta_codigo_autorizacion, 'gilabasrap05', 'gilabasrap05')
 select docid, max(sopnumbe)		--3882 no es real
