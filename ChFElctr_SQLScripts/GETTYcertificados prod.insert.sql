@@ -52,21 +52,30 @@ from cfd_CER00100 c
 select *
 --delete f
 from  cfd_FOL00100 f
-where f.soptype = 4
-and f.docid = 'NCREDIT ELECTRN'	--'NCREDIT ELECTRN'	--'NCREDIT ELECTRN'	--
+where --f.soptype = 4
+ f.docid = 'NCREDIT ELECTRN'	--'NCREDIT ELECTRN'	--'FACTURA ELCTRN'	--
+
+select max(sopnumbe) from sop30200 where soptype = 3
+
+--insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+--values(3, 'FACTURA ELCTRN', 61, 106, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII767319823361201798845.xml');
+
+insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+values(3, 'FACTURA ELCTRN', 343, 608, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII767319823334320171212958.xml');
+
+--insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+--values(3, 'FACTURA ELCTRN', 192, 342, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198233192201710301041.xml');
 
 
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
-values(3, 'FACTURA ELCTRN', 61, 106, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII767319823361201798845.xml');
-
-insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
-values(4, 'NCREDIT ELECTRN', 16, 19, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII76731982611620179141454.xml');
+values(4, 'NCREDIT ELECTRN', 43, 63, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII76731982614320171212959.xml');
 
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
 values(3, 'FAC ELEC EXENTA', 1, 20, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198234120177211538.xml');
 
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
 values(3, 'NDEBITO ELECTRN', 1, 20, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\??.xml');
+
 
 ----------------------------------------------------------------------------------
 --Ruta donde se guardan las facturas

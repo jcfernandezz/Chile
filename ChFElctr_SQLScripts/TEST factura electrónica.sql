@@ -10,12 +10,9 @@ use chi10;
 --OBJETOS DTE
 use gchi;
 
-select * from fCfdEmisor()
-select dbo.fCfdDescuentosXML(100, 1)
-
 select * 
 from vwCfdTransaccionesDeVenta 
-where sopnumbe like '33-00001368'
+where sopnumbe like '61-00000046'
 --where sopnumbe >= '33-00001158'	-- '33%26%'	--'61%15%'	--
 order by sopnumbe
 
@@ -26,7 +23,7 @@ select * from dbo.fCfdCertificadoVigente('1/1/14', 'sa')
 select dbo.fCfdConceptosXML(3, '33-00001446')
 select dbo.fCfdImpuestosXML(3, 'FV 00003929', 'V-IVA DF')
 select * FROM dbo.fCfdImpuestos(3, 'FV 00003929', 'V-IVA DF')
-select dbo.fCfdGeneraDocumentoDeVentaXML (3, '33-00003641')	--aceptado
+select dbo.fCfdGeneraDocumentoDeVentaXML (4, '61-00000020')	--aceptado
 
 select tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr,
 		dbo.fCfdReferenciaXML(tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr)	'Documento'
@@ -41,20 +38,16 @@ where sopnumbe = '33-00001446'
 --update s set refrence = 'DEVOLUCION DE MERCADERIAS' --docncorr = '13:30:00:000'
 select docncorr, *
 from sop30200 s
-where s.sopnumbe = '61-0000108'
+where s.sopnumbe = '61-00000046'
 datediff(day, '8/14/14', docdate) = 0
 order by 1
 
---insert into loch0004 (LOCHTRXNO,DOCTYPE,LOCHDOCCOD,CUSTVNDR,VNDDOCNM,DOCDATE,MODULE1,DOCAMNT,RPRTTYPE,USERID,DOCCLTYP)
-select '61-0000109',DOCTYPE,LOCHDOCCOD,CUSTVNDR,VNDDOCNM,DOCDATE,MODULE1, 1592082, RPRTTYPE,USERID,DOCCLTYP
-from loch0004 id 
-where id.lochtrxno = '33-00000262'
 
 --update ctrl set userdef2 = '33-0109' -- usrdat02 = '8/12/14'
 select *
 	from SOP10106 ctrl					--campos def. por el usuario.
 	where --ctrl.soptype = @soptype
-	ctrl.sopnumbe in ('61-0000104', '56-0000101')
+	ctrl.sopnumbe in ('61-0000679')	--, '56-0000101')
 	
 -----------------------------------------------------------------------------------------------------
 --LOG FACTURA XML venta
@@ -65,15 +58,15 @@ select *
 
 --update lf set estadoActual = '00000000111100', noAprobacion = 8, mensajeEA = 'EMITIDO. ENVIADO SII. ACEPTADO SII. '
 
-select sopnumbe, idexterno, 
-*	--into _temp2_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
+	--into _temp2_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
 --delete lf
 --UPDATE LF SET IDEXTERNO = 2178342062, ESTADOACTUAL= '00000000011100', NOAPROBACION = 9, MENSAJEEA = 'EMITIDO. ENVIADO SII.'
+select sopnumbe, idexterno, *
 from cfdlogfacturaxml lf
 where 
-lf.sopnumbe like 
+lf.sopnumbe in 
 (
-'33-00000068'
+'61-00000046'
 )
 and estado = 'emitido'
 
@@ -87,29 +80,12 @@ and estado = 'emitido'
 --update so set refrence = 'Razón social distinta'
 select custnmbr, custname, *
 from sop30200 so
-where datediff(day, '8/1/16', docdate) >=0
-order by 2
-so.sopnumbe in ('33-00002248') --, '33-00000523', '33-00000532')
+where --datediff(day, '8/1/16', docdate) >=0
+so.sopnumbe in ('33-00000301') --, '33-00000523', '33-00000532')
 
 select *
 from sop30300 so
 where so.sopnumbe in ('33-00000651') --, '33-00000523', '33-00000532')
-
-select top 1 1 NroLinRef, id.lochdoccod TpoDocRef, dbo.fCfdGetSegmento2(rtrim(ta.aptodcnm), '-') apdcnm,	--el espacio en el caso de facturas manuales de Getty
-	convert(varchar(10), ta.aptodcdt, 102) apdcdt 
-	--left(@USRTAB01, 1) CodRef,		--1: sólo en NC o ND para anular un doc
-	--rtrim(@REFRENCE) RazonRef
-from vwRmTrxAplicadas ta 
-inner join sop30200 sp
-	on sp.sopnumbe = ta.aptodcnm
-	and sp.soptype = 3			--aplica a una ND o Factura
-inner join loch0004 id 
-	on id.custvndr = sp.custnmbr
-	and id.lochtrxno = sp.sopnumbe
-	and id.module1 = 2			--2:ventas
-where --@soptype = 4				--devolución
- ta.apfrdcnm = '33-00003641'
-and ta.apfrdcty = 8		--nc
 
 --update du set usrtab01 = '1-Anula documento'
 select *
@@ -126,7 +102,7 @@ where du.sopnumbe like '33-00003745'
 
 select * --into tmp_cfdLogFacturaCompra141113
 from cfdLogFacturaCompra
-where folio like '%3924%'
+where folio like '%456977%'
 --where secuencia in (152, 153, 158)
 where idimpuestotercero = '76833750-0'	--en el caso de ventas es el id del SII
 order by secuencia
@@ -157,6 +133,42 @@ select dbo.fCfdLibroVentasXML('LV', 2017, 3)
 ------------------------------------------------------------------------------------------------------
 --docs sin código de documento de loc Chile
 --
+sp_statistics loch0004
+
+--actualiza tipo de documento de localización de compras
+select *
+from loch0004	--CUSTVNDR VNDDOCNM LOCHTRXNO
+where lochtrxno = '61-00000046'
+
+custvndr like '%23427%' 
+and MODULE1 = 1	--1:compras, 2:ventas
+and YEAR(docdate ) = 2014
+
+--Actualiza lochdoccod cuando es diferente al tipo en sopnumbe
+--update id set id.lochdoccod = left(cab.sopnumbe,2)
+select id.lochdoccod, cab.docid , cab.*
+from sop30200 cab
+inner join loch0004 id
+             on id.custvndr = cab.custnmbr
+            and id.lochtrxno = cab.sopnumbe
+			and id.module1 = 2					--2:ventas
+where datediff(day, '12/1/17', cab.docdate) >= 0
+and left(cab.sopnumbe,2) != id.lochdoccod
+
+
+--agregar código de documento del SII a factura
+--insert into loch0004 (LOCHTRXNO,DOCTYPE,LOCHDOCCOD,CUSTVNDR,VNDDOCNM,DOCDATE,MODULE1,DOCAMNT,RPRTTYPE,USERID,DOCCLTYP)
+select s.sopnumbe, case when soptype = 3 then 1 else 8 end, 
+	left(s.sopnumbe, 2), s.custnmbr, '', s.docdate, 2, s.docamnt, 1, 'sa', 1
+select id.*, s.custnmbr, s.sopnumbe
+from sop30200 s
+left join loch0004 id 
+	on id.lochtrxno = s.sopnumbe
+	and id.custvndr = s.custnmbr
+where id.lochtrxno is null
+and year(s.docdate) >= 2016
+and s.sopnumbe = '61-00000046'
+
 --revisa docs sin código de documento en AP
 --insert into loch0004 (LOCHTRXNO,DOCTYPE,LOCHDOCCOD,CUSTVNDR,VNDDOCNM,DOCDATE,MODULE1,DOCAMNT,RPRTTYPE,USERID,DOCCLTYP)
 select a.poprctnm, 1, '33', a.vendorId, a.docnumbr, a.docdate, 1, a.docamnt, 1, 'sa', 1 -- *
@@ -189,6 +201,7 @@ where
 lochtrxno like '33%'
 and year(docdate) >= 2016
 
+
 -------------------------------------------------------------------------------------
 --PARA IMPRIMIR
 select soptype, docid, sopnumbe, fechaHoraEmision, regimenFiscal, rfcReceptor, nombreCliente, total, formaDePago, folioFiscal,
@@ -201,18 +214,6 @@ from fCfdDatosXmlParaImpresion(@archivoXml)
 --------------------------------------------------------------------------------------------------------------------
 --TABLAS GP Y LOCALIZACION
 
---actualiza tipo de documento de localización de compras
-select *
-from loch0004	--CUSTVNDR VNDDOCNM LOCHTRXNO
-where 
-custvndr like '%23427%' 
-and MODULE1 = 1	--1:compras, 2:ventas
-and YEAR(docdate ) = 2014
-
---update loch0004 set lochdoccod = 60, RPRTTYPE = 2	--1:electrónica, 2:no electrónica
-where VNDDOCNM = '10992296K-211'
-and MODULE1 = 1
-and custvndr like '109922%'
 
 SELECT *
 FROM sop10100
@@ -243,53 +244,25 @@ FROM SOP30300
 WHERE SOPNUMBE in ( '33-00000101', '33-00000102', '33-00000103', 'FV 00000082')
 ------------------------------------------------
 
-select top 100 *
-from loch0004
---where lochtrxno = '61-00000005          '
---and custvndr = '000002208      '
-order by 1
-
-sp_statistics loch0004
-
-
---update id set id.custvndr = cab.custnmbr	--id.lochdoccod = '33'
-select id.lochdoccod, cab.docid, id.custvndr, cab.custnmbr, cab.*
-from sop30200 cab
-inner join loch0004 id
-             on id.custvndr != cab.custnmbr
-            and id.lochtrxno = cab.sopnumbe
-			and id.module1 = 2					--2:ventas
-where --datediff(day, '8/1/14', cab.docdate) >= 0
-cab.soptype = 3
-and cab.docid = 'FV'
-
---update id set id.lochdoccod = '61'
-select id.lochdoccod, cab.docid , cab.*
-from sop30200 cab
-inner join loch0004 id
-             on id.custvndr = cab.custnmbr
-            and id.lochtrxno = cab.sopnumbe
-			and id.module1 = 2					--2:ventas
-where datediff(day, '5/1/15', cab.docdate) >= 0
-and cab.soptype = 4
-and cab.docid = 'NC'
-AND ID.LOCHDOCCOD != '61'
 
 ----------------------------------------------------------
 
 --actualiza rut de clientes con guión
---update cl set cl.rutclieprovee = '761649280'  --replace(cl.rutClieProvee, '-', '')
+--update cl set cl.rutclieprovee = '765035260'  --replace(cl.rutClieProvee, '-', '')
 --update cl set RutClieProvee =	ltrim(RutClieProvee)	--, razonSocial = 'VTR BANDA ANCHA CHILE S.A.'	--correcto: '761141430', razonSocial = 'VTR COMUNICACIONES SPA'
 --insert into cllc0002 (CUSTVNDR,RutClieProvee,TipClieProvee,GiroEmpresa,RazonSocial,RutRepLegal,NomRepLeg,Activo)
 select CUSTVNDR,RutClieProvee,TipClieProvee,GiroEmpresa,RazonSocial,RutRepLegal,NomRepLeg,Activo
-from cllc0002 CL	--razón social de clientes y proveedores (localización chilena)
+--update cl set rutclieprovee = '761151320'
+from cllc0002 cl	--razón social de clientes y proveedores (localización chilena)
 where --cl.rutclieprovee like '%76163495%'
-cl.custvndr in ('000023934')
+cl.custvndr in ('000019226')
 
 SELECT TXRGNNUM, *
---UPDATE RM SET TXRGNNUM = '767357702'
+--UPDATE RM SET TXRGNNUM = '762966190'
 FROM RM00101 RM
-WHERE RM.CUSTNMBR = '000018253'
+WHERE rm.custnmbr in ('000005992      ')
+custname like '%COLMENA%'
+RM.CUSTNMBR = '000024069'
 
 --Indicar rut del SII como receptor
 --update ru set rutclieprovee = '968069802' -- rutreplegal = '60803000K', nomrepleg = 'SII'
@@ -297,7 +270,7 @@ select *
 --delete ru
 from cllc0002 ru --razón social de clientes y proveedores (localización chilena)
 where --ru.custvndr like '%761871%'
-rutclieprovee like '%761871%' --= '000005844'
+rutclieprovee like '%000019226%' --= '000005844'
 and tipclieprovee = 2
 
 	select *
@@ -320,35 +293,22 @@ where --lo.giroEmpresa = lo.razonsocial
  and cl.comment1 != lo.giroEmpresa
 
 ------------------------------------------------------------------------------------------------------------------
---agregar código de documento del SII a factura
---insert into loch0004 (LOCHTRXNO,DOCTYPE,LOCHDOCCOD,CUSTVNDR,VNDDOCNM,DOCDATE,MODULE1,DOCAMNT,RPRTTYPE,USERID,DOCCLTYP)
-select s.sopnumbe, case when soptype = 3 then 1 else 8 end, 
-	left(s.sopnumbe, 2), s.custnmbr, '', s.docdate, 2, s.docamnt, 1, 'sa', 1
---select id.*, s.custnmbr, s.sopnumbe
-from sop30200 s
-left join loch0004 id 
-	on id.lochtrxno = s.sopnumbe
-	and id.custvndr = s.custnmbr
-where id.lochtrxno is null
-and year(s.docdate) >= 2016
-and s.sopnumbe = '33-00000009'
-
 
 --update s set refrence = 'Facturar a otra empresa'
-select refrence, *
+select refrence, custnmbr, *
 from sop30200 s
 where soptype = 3
 and sopnumbe in (
-'33-00000644'
+'61-00000046'
 )
 
 --insert into sop10106 (soptype, sopnumbe, usrtab01, cmmttext)
 values (4, '61-0000060', '1-Anula documento', '')
---update ctrl set usrdat02 = '10/30/15', userdef2 = '33-1611'		-- usrtab01 = '1-Anula documento'
+--update ctrl set usrtab01 = '1-Anula documento'	--userdef2 = '61-00000046'		--usrdat02 = '10/30/15', -- 
 select *
 from SOP10106 ctrl	--campos def. por el usuario.
-where ctrl.soptype = 3
-and ctrl.sopnumbe = '33-00003745'	--'61-0000303'
+where ctrl.soptype = 4
+and ctrl.sopnumbe = '61-00000046'	--'61-0000303'
 and ctrl.usrtab01 = ''
 
 --update sl set subtotal = 4609656, orsubtot= 4609656, remsubto= 4609656, oremsubt= 4609656
@@ -361,11 +321,11 @@ where sl.sopnumbe in (
 
 
 select *
---update s set tracking_number = 'OC458928'
+--update s set tracking_number = 'OC4600034011'
 --DELETE s
 from sop10107 s		--números de seguimiento
-where s.sopnumbe = '33-00004264'
-AND TRACKING_NUMBER = 'OC'
+where s.sopnumbe = '61-00000046'
+AND TRACKING_NUMBER = 'OC                                       '
 
 --update rm set txrgnnum = '765102340'
 select *
