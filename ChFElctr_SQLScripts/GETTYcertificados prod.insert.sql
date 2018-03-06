@@ -53,7 +53,7 @@ select *
 --delete f
 from  cfd_FOL00100 f
 where --f.soptype = 4
- f.docid = 'NCREDIT ELECTRN'	--'NCREDIT ELECTRN'	--'FACTURA ELCTRN'	--
+ f.docid = 'FACTURA ELCTRN'	--'NCREDIT ELECTRN'	--'FACTURA ELCTRN'	--
 
 select max(sopnumbe) from sop30200 where soptype = 3
 
@@ -63,8 +63,8 @@ select max(sopnumbe) from sop30200 where soptype = 3
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
 values(3, 'FACTURA ELCTRN', 343, 608, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII767319823334320171212958.xml');
 
---insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
---values(3, 'FACTURA ELCTRN', 192, 342, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198233192201710301041.xml');
+insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+values(3, 'FACTURA ELCTRN', 609, 1081, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII767319823360920182261151.xml');
 
 
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)

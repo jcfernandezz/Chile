@@ -12,7 +12,7 @@ use gchi;
 
 select * 
 from vwCfdTransaccionesDeVenta 
-where sopnumbe like '61-00000046'
+where sopnumbe like '33-00000632'
 --where sopnumbe >= '33-00001158'	-- '33%26%'	--'61%15%'	--
 order by sopnumbe
 
@@ -23,17 +23,17 @@ select * from dbo.fCfdCertificadoVigente('1/1/14', 'sa')
 select dbo.fCfdConceptosXML(3, '33-00001446')
 select dbo.fCfdImpuestosXML(3, 'FV 00003929', 'V-IVA DF')
 select * FROM dbo.fCfdImpuestos(3, 'FV 00003929', 'V-IVA DF')
-select dbo.fCfdGeneraDocumentoDeVentaXML (4, '61-00000020')	--aceptado
+select dbo.fCfdGeneraDocumentoDeVentaXML (3, '33-00000632')	--aceptado
 
 select tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr,
 		dbo.fCfdReferenciaXML(tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr)	'Documento'
 	from vwSopTransaccionesVenta tv
-where tv.sopnumbe like '33-00004363'
+where tv.sopnumbe like '33-00000632'
 and datediff(day, '1/1/1900', usrdat02) = 0
 
 select itemdesc, replace(itemdesc, '’', ''), dbo.fCfdReemplazaCaracteresNI(itemdesc), dbo.fCfdConceptosXML(3, '33-00001446')
 from vwSopLineasTrxVentas 
-where sopnumbe = '33-00001446'
+where sopnumbe = '33-00000632'
 
 --update s set refrence = 'DEVOLUCION DE MERCADERIAS' --docncorr = '13:30:00:000'
 select docncorr, *
@@ -66,7 +66,8 @@ from cfdlogfacturaxml lf
 where 
 lf.sopnumbe in 
 (
-'61-00000046'
+'33-00000632'
+--'61-00000046'
 )
 and estado = 'emitido'
 

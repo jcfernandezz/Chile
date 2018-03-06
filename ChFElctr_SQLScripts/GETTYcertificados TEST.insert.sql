@@ -61,7 +61,7 @@ insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codi
 values(3, 'FACTURA ELCTRN', 1, 10, '\\GILABASRDB06\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198233120177211552.xml');
 
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
-values(4, 'NCREDIT ELECTRN', 1, 5, '\\GILABASRDB06\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198261120177211557.xml');
+values(4, 'NCREDIT ELECTRN', 64, 106, '\\GILABASRDB06\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198261642018321616.xml');
 
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
 values(3, 'FAC ELEC EXENTA', 1, 10, '\\GILABASRDB06\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198234120177211555.xml');
@@ -74,10 +74,11 @@ sp_statistics cfd_FOL00100
 
 select *
 --update f set ruta_codigo_autorizacion = '\\10.1.1.22\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198233120177211552.xml'
+--delete f
 from  cfd_FOL00100 f
 where 
-f.soptype = 3
-and f.docid = 'FACTURA ELCTRN'	--'NCREDIT ELECTRN'	--'NCREDIT ELECTRN'
+f.soptype = 4
+and f.docid = 'NCREDIT ELECTRN'	--'FACTURA ELCTRN'	--'NCREDIT ELECTRN'
 
 --update cfd_fol00100 set ruta_codigo_autorizacion = REPLACE(ruta_codigo_autorizacion, 'gilabasrap05', 'gilabasrap05')
 select docid, max(sopnumbe)		--3882 no es real

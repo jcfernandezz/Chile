@@ -126,7 +126,7 @@ namespace FEChile
                 if (existeCert)
                 {
                     _encriptador.PreparaEncriptacion("", _certificados.clave.Trim(), _certificados.Ruta_certificado.Trim(), "");
-                    //_encriptador.PreparaEncriptacion("", _certificados.clave.Trim(), @"C:\GPUsuario\GPCfdi\feGilaChiTST\certificado\CERTIFICADO ELECTRONICO MARIANA REBOLLEDO.p12", "");
+                    //_encriptador.PreparaEncriptacion("", _certificados.clave.Trim(), @"C:\GPUsuario\GPCfdi\feGettyChile\Certificados\pparra\Certificado_PriscillaParra.VenMay18.p12", "");
                     
                 }
                 else
