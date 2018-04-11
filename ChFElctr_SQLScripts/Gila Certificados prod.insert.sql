@@ -23,6 +23,14 @@ GO
 insert into cfd_CER00100 
 ( USERID,ACA_RUT,fecha_vig_desde,fecha_vig_hasta,ruta_certificado,ruta_clave,
 	contrasenia_clave,ACA_SolicitaFolio,ACA_AnulaDocumentos,ACA_EnviaDocumentos,ACA_FirmaDocumentos,ACTIVE)
+values('gila\natalia.pino', '141475347', '5/29/17', '5/29/18', 
+		'\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
+		'\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
+		'1234', 1, 1, 1, 1, 1)
+GO
+insert into cfd_CER00100 
+( USERID,ACA_RUT,fecha_vig_desde,fecha_vig_hasta,ruta_certificado,ruta_clave,
+	contrasenia_clave,ACA_SolicitaFolio,ACA_AnulaDocumentos,ACA_EnviaDocumentos,ACA_FirmaDocumentos,ACTIVE)
 values('gila\tiiselam', '87115925', '1/1/14', '12/31/14', 
 		'\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\mrebolledo\CERTIFICADO ELECTRONICO MARIANA REBOLLEDO.p12',
 		'\\gilabasrap05\GettyCh_FacturaElectronicaCertificados\mrebolledo\CERTIFICADO ELECTRONICO MARIANA REBOLLEDO.p12',

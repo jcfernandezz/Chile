@@ -12,7 +12,7 @@ use gchi;
 
 select * 
 from vwCfdTransaccionesDeVenta 
-where sopnumbe like '33-00000632'
+where sopnumbe like '33-00000683'
 --where sopnumbe >= '33-00001158'	-- '33%26%'	--'61%15%'	--
 order by sopnumbe
 
@@ -23,22 +23,22 @@ select * from dbo.fCfdCertificadoVigente('1/1/14', 'sa')
 select dbo.fCfdConceptosXML(3, '33-00001446')
 select dbo.fCfdImpuestosXML(3, 'FV 00003929', 'V-IVA DF')
 select * FROM dbo.fCfdImpuestos(3, 'FV 00003929', 'V-IVA DF')
-select dbo.fCfdGeneraDocumentoDeVentaXML (3, '33-00000632')	--aceptado
+select dbo.fCfdGeneraDocumentoDeVentaXML (3, '33-00000683')	--aceptado
 
 select tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr,
 		dbo.fCfdReferenciaXML(tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr)	'Documento'
 	from vwSopTransaccionesVenta tv
-where tv.sopnumbe like '33-00000632'
+where tv.sopnumbe like '33-00000683'
 and datediff(day, '1/1/1900', usrdat02) = 0
 
 select itemdesc, replace(itemdesc, '’', ''), dbo.fCfdReemplazaCaracteresNI(itemdesc), dbo.fCfdConceptosXML(3, '33-00001446')
 from vwSopLineasTrxVentas 
-where sopnumbe = '33-00000632'
+where sopnumbe = '33-00000683'
 
 --update s set refrence = 'DEVOLUCION DE MERCADERIAS' --docncorr = '13:30:00:000'
 select docncorr, *
 from sop30200 s
-where s.sopnumbe = '61-00000046'
+where s.sopnumbe = '33-00000683'
 datediff(day, '8/14/14', docdate) = 0
 order by 1
 
@@ -63,14 +63,15 @@ select *
 --UPDATE LF SET IDEXTERNO = 2178342062, ESTADOACTUAL= '00000000011100', NOAPROBACION = 9, MENSAJEEA = 'EMITIDO. ENVIADO SII.'
 select sopnumbe, idexterno, *
 from cfdlogfacturaxml lf
-where 
+where --idExterno like '%55161940%'
 lf.sopnumbe in 
 (
-'33-00000632'
---'61-00000046'
+'61-00000071',
+'61-00000069'
 )
 and estado = 'emitido'
 
+sp_statistics cfdlogfacturaxml
 
 select sopnumbe, idexterno, * --into _temp_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
 from cfdlogfacturaxml lf
@@ -91,7 +92,7 @@ where so.sopnumbe in ('33-00000651') --, '33-00000523', '33-00000532')
 --update du set usrtab01 = '1-Anula documento'
 select *
 from sop10106 du
-where du.sopnumbe like '33-00003745'
+where du.sopnumbe like '33-00000683'
 
 ----------------------------------------------------------------------------------------------------
 --LOG FACTURAS DE COMPRA
@@ -101,8 +102,11 @@ where du.sopnumbe like '33-00003745'
 --from tmp_cfdLogFacturaCompra141113
 --where idimpuestotercero = '76833750-0'
 
-select * --into tmp_cfdLogFacturaCompra141113
+select count(*) --into tmp_cfdLogFacturaCompra141113
 from cfdLogFacturaCompra
+
+SP_COLUMNS cfdLogFacturaCompra
+
 where folio like '%456977%'
 --where secuencia in (152, 153, 158)
 where idimpuestotercero = '76833750-0'	--en el caso de ventas es el id del SII
@@ -139,7 +143,7 @@ sp_statistics loch0004
 --actualiza tipo de documento de localización de compras
 select *
 from loch0004	--CUSTVNDR VNDDOCNM LOCHTRXNO
-where lochtrxno = '61-00000046'
+where lochtrxno = '33-00000683'
 
 custvndr like '%23427%' 
 and MODULE1 = 1	--1:compras, 2:ventas
@@ -168,7 +172,7 @@ left join loch0004 id
 	and id.custvndr = s.custnmbr
 where id.lochtrxno is null
 and year(s.docdate) >= 2016
-and s.sopnumbe = '61-00000046'
+and s.sopnumbe = '33-00000683'
 
 --revisa docs sin código de documento en AP
 --insert into loch0004 (LOCHTRXNO,DOCTYPE,LOCHDOCCOD,CUSTVNDR,VNDDOCNM,DOCDATE,MODULE1,DOCAMNT,RPRTTYPE,USERID,DOCCLTYP)
@@ -253,10 +257,10 @@ WHERE SOPNUMBE in ( '33-00000101', '33-00000102', '33-00000103', 'FV 00000082')
 --update cl set RutClieProvee =	ltrim(RutClieProvee)	--, razonSocial = 'VTR BANDA ANCHA CHILE S.A.'	--correcto: '761141430', razonSocial = 'VTR COMUNICACIONES SPA'
 --insert into cllc0002 (CUSTVNDR,RutClieProvee,TipClieProvee,GiroEmpresa,RazonSocial,RutRepLegal,NomRepLeg,Activo)
 select CUSTVNDR,RutClieProvee,TipClieProvee,GiroEmpresa,RazonSocial,RutRepLegal,NomRepLeg,Activo
---update cl set rutclieprovee = '761151320'
+--update cl set rutclieprovee = '881639009'
 from cllc0002 cl	--razón social de clientes y proveedores (localización chilena)
 where --cl.rutclieprovee like '%76163495%'
-cl.custvndr in ('000019226')
+cl.custvndr in ('000002105')
 
 SELECT TXRGNNUM, *
 --UPDATE RM SET TXRGNNUM = '762966190'
@@ -294,22 +298,23 @@ where --lo.giroEmpresa = lo.razonsocial
  and cl.comment1 != lo.giroEmpresa
 
 ------------------------------------------------------------------------------------------------------------------
-
+--Referencia en campos definidos por el usuario
 --update s set refrence = 'Facturar a otra empresa'
 select refrence, custnmbr, *
 from sop30200 s
 where soptype = 3
 and sopnumbe in (
-'61-00000046'
+'33-00000683'
 )
+
 
 --insert into sop10106 (soptype, sopnumbe, usrtab01, cmmttext)
 values (4, '61-0000060', '1-Anula documento', '')
---update ctrl set usrtab01 = '1-Anula documento'	--userdef2 = '61-00000046'		--usrdat02 = '10/30/15', -- 
+--update ctrl set usrtab01 = '1-Anula documento'	--userdef2 = '33-00000683'		--usrdat02 = '10/30/15', -- 
 select *
 from SOP10106 ctrl	--campos def. por el usuario.
 where ctrl.soptype = 4
-and ctrl.sopnumbe = '61-00000046'	--'61-0000303'
+and ctrl.sopnumbe = '33-00000683'	--'61-0000303'
 and ctrl.usrtab01 = ''
 
 --update sl set subtotal = 4609656, orsubtot= 4609656, remsubto= 4609656, oremsubt= 4609656
@@ -322,11 +327,12 @@ where sl.sopnumbe in (
 
 
 select *
---update s set tracking_number = 'OC4600034011'
+--update s set tracking_number = 'OC70555'
 --DELETE s
 from sop10107 s		--números de seguimiento
-where s.sopnumbe = '61-00000046'
-AND TRACKING_NUMBER = 'OC                                       '
+where s.sopnumbe = '33-00000683'
+--AND TRACKING_NUMBER = 'NR5001471013                             '
+
 
 --update rm set txrgnnum = '765102340'
 select *

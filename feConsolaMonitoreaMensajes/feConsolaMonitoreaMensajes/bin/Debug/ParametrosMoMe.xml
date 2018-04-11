@@ -62,7 +62,7 @@
 		  <usuario>facturaelectronicachile@gettyimages.com</usuario>
 		  <clave>ry!E923Ukac</clave>
 		  <ssl>true</ssl>
-	      <replyto>jfernandezz@hotmail.com</replyto>
+	      <replyto>facturaelectronicachile@gettyimages.com</replyto>
                 <carta>FACTURA_ELECTRONICA</carta>
                 <adjuntoEmite>xml</adjuntoEmite>
                 <adjuntoImprime>pdf</adjuntoImprime>

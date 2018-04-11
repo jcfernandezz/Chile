@@ -287,6 +287,7 @@ namespace respuestaEnvioDTE
             {
                 _sMsj = "Excepción al recibir los mensajes del correo. " + mr.Message + " [CFDServicioDespachoRespuestas.Recepciona]";
                 _iErr++;
+                MuestraAvance(100, _sMsj);
             }
         }
 
@@ -306,76 +307,78 @@ namespace respuestaEnvioDTE
 
             _param.imprime = false;
             CFDReglasEmailRespuesta envio = new CFDReglasEmailRespuesta(_conex, _param);
-            _iErr = envio.iErr;
-            _sMsj = envio.sMsj;
 
-            if (_iErr != 0)
+            if (envio.iErr != 0)
+            {
+                MuestraAvance(100, "Envío de mensajes a proveedores finalizado. " + envio.sMsj);
                 return;
-            //if (envio.iErr != 0 || !envio.ObtieneSeccionesEmail(_param.emailCarta))
-            //{
-            //    MuestraAvance(2, "No puede enviar e-mails. ");
-            //    MuestraAvance(0, envio.sMsj);
-            //    return;
-            //}
+            }
 
             foreach (RespuestaEnvio rcb in _lDocsRecibidos)
             {
-                LogFacturaCompraService logReceptor = new LogFacturaCompraService(_conex.ConnStr, rcb.Folio, Convert.ToInt16(rcb.tipoDTE), rcb.rutEmisor, Maquina.estadoBaseReceptor);
-                //Obtiene el status del documento, verifica la transición y guarda en el log del receptor.
-                if (logReceptor.CicloDeVida.Transiciona(rcb.Evento, _certificados.envia))
+                try
                 {
-                    if (rcb.Evento == Maquina.eventoRecibidoConforme)
+                    LogFacturaCompraService logReceptor = new LogFacturaCompraService(_conex.ConnStr, rcb.Folio, Convert.ToInt16(rcb.tipoDTE), rcb.rutEmisor, Maquina.estadoBaseReceptor);
+                    //Obtiene el status del documento, verifica la transición y guarda en el log del receptor.
+                    if (logReceptor.CicloDeVida.Transiciona(rcb.Evento, _certificados.envia))
                     {
-                        rcb.GuardaArchivoDelProveedor();            //archivo xml enviado por el proveedor
-                        _iErr = rcb.IErr;
-                        _sMsj = rcb.archivoRecibido + " " + rcb.SMsj;
-                    }
+                        if (rcb.Evento == Maquina.eventoRecibidoConforme)
+                        {
+                            rcb.GuardaArchivoDelProveedor();            //archivo xml enviado por el proveedor
+                            _iErr = rcb.IErr;
+                            _sMsj = rcb.archivoRecibido + " " + rcb.SMsj;
+                        }
 
-                    if (_iErr == 0)
+                        if (_iErr == 0)
+                        {
+                            rcb.SaveFile();                             //archivo xml que indica la recepción de la factura
+                            _iErr = rcb.IErr;
+                            _sMsj = rcb.RutaYNomArchivo + " " + rcb.SMsj;
+                        }
+
+                        if (_iErr == 0)
+                        {
+                            envio.Asunto = "Getty Chile - " + rcb.TipoRespuestaResultado + " Dte: ";
+                            envio.Cuerpo = "Esta es una respuesta automática. \n\nAtte. \nGetty Images Chile.";
+                            envio.EmailTo = rcb.EmailProveedor;
+
+                            envio.ProcesaMensaje(rcb.tipoDTE + "-" + rcb.Folio, rcb.RutaYNomArchivo + ".xml");
+                            _iErr = envio.iErr;
+                            _sMsj = envio.sMsj;
+                        }
+
+                        if (_iErr == 0)
+                        {
+                            logReceptor.Tipo = Convert.ToInt16(rcb.tipoDTE);
+                            logReceptor.Folio = rcb.Folio;
+                            logReceptor.IdImpuestoTercero = rcb.rutEmisor;
+                            logReceptor.NombreTercero = rcb.NomEmisor;
+                            logReceptor.FechaRecepcion = DateTime.Now;
+                            logReceptor.Mensaje = rcb.EmailProveedor;
+                            logReceptor.SDocXml = rcb.xDocXml.InnerXml;
+                            logReceptor.Pdf = rcb.archivoRecibido;
+                            logReceptor.IdExterno = rcb.Uid;
+                            logReceptor.IdUsuario = rcb.Usuario;
+
+                            logReceptor.GuardaYActualiza();
+
+                            _iErr = logReceptor.IErr;
+                            _sMsj = logReceptor.SMsj;
+                        }
+                        MuestraAvance(100 / numDocs, "Doc: " + rcb.tipoDTE + "-" + rcb.Folio + " Respuesta enviada. " + _sMsj);
+                    }
+                    else
                     {
-                        rcb.SaveFile();                             //archivo xml que indica la recepción de la factura
-                        _iErr = rcb.IErr;
-                        _sMsj = rcb.RutaYNomArchivo + " " + rcb.SMsj;
+                        if (logReceptor.ExisteDoc && rcb.Evento == Maquina.eventoRecibidoConforme)
+                            logReceptor.Save(0, rcb.Folio, rcb.rutEmisor, rcb.NomEmisor, rcb.fechaRecepcion, rcb.Uid, "correo repetido", 0, "0", "procesado", "-", "-", rcb.Uid, rcb.Usuario);
+                        _iErr = logReceptor.CicloDeVida.iErr;
+                        _sMsj = logReceptor.CicloDeVida.sMsj + " " + logReceptor.SMsj;
+                        MuestraAvance(100 / numDocs, "Doc: " + rcb.tipoDTE + "-" + rcb.Folio + " " + _sMsj);
                     }
-
-                    if (_iErr == 0)
-                    {
-                        envio.Asunto = "Getty Chile - "+ rcb.TipoRespuestaResultado +" Dte: ";
-                        envio.Cuerpo = "Esta es una respuesta automática. \n\nAtte. \nGetty Images Chile.";
-                        envio.EmailTo = rcb.EmailProveedor;
-                        
-                        envio.ProcesaMensaje(rcb.tipoDTE + "-" + rcb.Folio, rcb.RutaYNomArchivo + ".xml");
-                        _iErr = envio.iErr;
-                        _sMsj = envio.sMsj;
-                    }
-
-                    if (_iErr == 0)
-                    {
-                        logReceptor.Tipo = Convert.ToInt16(rcb.tipoDTE);
-                        logReceptor.Folio = rcb.Folio;
-                        logReceptor.IdImpuestoTercero = rcb.rutEmisor;
-                        logReceptor.NombreTercero = rcb.NomEmisor;
-                        logReceptor.FechaRecepcion = DateTime.Now;
-                        logReceptor.Mensaje = rcb.EmailProveedor;
-                        logReceptor.SDocXml = rcb.xDocXml.InnerXml;
-                        logReceptor.Pdf = rcb.archivoRecibido;
-                        logReceptor.IdExterno = rcb.Uid;
-                        logReceptor.IdUsuario = rcb.Usuario;
-
-                        logReceptor.GuardaYActualiza();
-
-                        _iErr = logReceptor.IErr;
-                        _sMsj = logReceptor.SMsj;
-                    }
-                    MuestraAvance(100 / numDocs, "Doc: " + rcb.tipoDTE + "-" + rcb.Folio + " Respuesta enviada. " + _sMsj);
                 }
-                else
+                catch (Exception re)
                 {
-                    if (logReceptor.ExisteDoc && rcb.Evento == Maquina.eventoRecibidoConforme)
-                        logReceptor.Save(0, rcb.Folio, rcb.rutEmisor, rcb.NomEmisor, rcb.fechaRecepcion, rcb.Uid, "correo repetido", 0, "0", "procesado", "-", "-", rcb.Uid, rcb.Usuario);
-                    _iErr = logReceptor.CicloDeVida.iErr;
-                    _sMsj = logReceptor.CicloDeVida.sMsj + " " +logReceptor.SMsj;
-                    MuestraAvance(100 / numDocs, "Doc: " + rcb.tipoDTE + "-" + rcb.Folio + " " + _sMsj);
+                    MuestraAvance(100 / numDocs, "Doc: " + rcb.tipoDTE + "-" + rcb.Folio + " Excepción desconocida. No se pudo enviar respuesta al proveedor. " + re.Message);
                 }
             }
 

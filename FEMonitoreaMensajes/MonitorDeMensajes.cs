@@ -80,25 +80,12 @@ namespace FEMonitoreaMensajes
                 if (!primeraVez)
                 {
                     ObtieneMensajesXmlNoLeidos();
-
-                    if (iErr == 0)
-                    {
-                        respuesta.NewXmlMessages = _newXmlMessages;
-                        respuesta.Recepciona();         //Recibe _newXmlMessages. 
-                        iErr = respuesta.IErr;
-                        sMsj = respuesta.SMsj;
-                    }
-
-                    if (iErr == 0)
-                    {
-                        respuesta.EnviaRespuestaAlProveedor();   //En el caso de facturas de proveedor finaliza guardando la factura en estado publicado y recibido con el uid incluido
-                        iErr = respuesta.IErr;
-                        sMsj = respuesta.SMsj;
-                    }
+                    respuesta.NewXmlMessages = _newXmlMessages;
+                    respuesta.Recepciona();                 //Recibe _newXmlMessages. 
+                    respuesta.EnviaRespuestaAlProveedor();  //En el caso de facturas de proveedor finaliza guardando la factura en estado publicado y recibido con el uid incluido
                 }
 
-                if (iErr == 0)
-                    GuardaUidsNoLeidos(estado); //Guarda el resto de los uids que no tienen xml adjunto
+                GuardaUidsNoLeidos(estado);          //Guarda el resto de los uids que no tienen xml adjunto
 
             }
         }
@@ -180,13 +167,15 @@ namespace FEMonitoreaMensajes
             try
             {
                 LogFacturaCompraService log = new LogFacturaCompraService(_ConResEnvio.ConnStr);
+                //var notSeenUids = uids.Except(_seenUids).Where(x => int.Parse(x)<= 19674); //Antes de este Id de correo no se toman en cuenta para factura electrónica
                 var notSeenUids = uids.Except(_seenUids);
 
                 foreach (var r in notSeenUids)
                 {
                     try
                     {
-                        log.Save(0, r.ToString(), "0", "-", DateTime.Now, estado, "email no tiene xml adjunto", 0, "-", "Carga inicial", String.Empty, String.Empty, r.ToString(), "-");
+                        log.Save(0, r.ToString(), "Carga inicial", "-", DateTime.Now, estado, "email no tiene xml adjunto", 0, "-", "Carga inicial", String.Empty, String.Empty, r.ToString(), "-");
+                        MuestraAvance(100, "Guardando otros correos... " + r.ToString());
                     }
                     catch (Exception l)
                     {
@@ -198,7 +187,9 @@ namespace FEMonitoreaMensajes
             catch (Exception nl)
             {
                 iErr++;
-                sMsj = "Excepción al guardar emails no leídos. [MonitorDeMensajes.GuardaUidsNoLeidos()] " + nl.Message;
+                sMsj = "Excepción al guardar emails no leídos. [MonitorDeMensajes.GuardaUidsNoLeidos()] Status: "+ estado +" " + nl.Message;
+                MuestraAvance(100, sMsj);
+
             }
         }
 
@@ -233,6 +224,7 @@ namespace FEMonitoreaMensajes
                     // Authenticate ourselves towards the server
                     client.Authenticate(_Param.emailUser, _Param.emailPwd);
                     var notSeenUids = uids.Except(_seenUids);
+                    //notSeenUids = notSeenUids.Where(x => int.Parse(x) > 19674); //test
                     int numCorreos = notSeenUids.Count();
                     foreach (var unv in notSeenUids)
                     {
@@ -256,17 +248,17 @@ namespace FEMonitoreaMensajes
                                 // Add the uid to the seen uids, as it has now been seen
                                 _seenUids.Add(currentUidOnServer);
 
-                                MuestraAvance(100 / numCorreos, "Correo recibido con el adjunto " + mensajeRecibido.nombreArchivoXml);
+                                MuestraAvance(100 / numCorreos, "Correo recibido el " +mensajeRecibido.dateSent.ToString()+ " Adjunto: " + mensajeRecibido.nombreArchivoXml);
                             }
                             else
                             {
                                 //_newNotXmlMessages.Add(currentUidOnServer);
-                                MuestraAvance(100 / numCorreos, "Correo recibido. ");
+                                MuestraAvance(100 / numCorreos, "Correo recibido sin adjunto el " + mensajeRecibido.dateSent.ToString());
                             }
                         }
-                        catch
+                        catch(Exception em)
                         {
-                            sMsj = "Excepción desconocida al abrir este correo. " + currentUidOnServer + "[MonitorDeMensajes.ObtieneMensajesXmlNoLeidos]";
+                            sMsj = "Excepción desconocida al abrir el correo con Id: " + currentUidOnServer + "[MonitorDeMensajes.ObtieneMensajesXmlNoLeidos] " + em.Message;
                             //_seenUids.Add(currentUidOnServer);
                             MuestraAvance(100 / numCorreos, sMsj);
                         }
