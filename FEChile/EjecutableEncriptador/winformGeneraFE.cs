@@ -807,7 +807,7 @@ namespace EjecutableEncriptador
             if (facturasProveedor.iErr == 0)
             {
                 facturasProveedor.Progreso += new CFDFacturasCompraFabrica.LogHandler(reportaProgreso);  //suscribe a reporte de progreso
-                facturasProveedor.EnsamblaLote(vwLogFacturaCompra, Maquina.eventoAcuse, String.Empty);
+                facturasProveedor.EnsamblaLote(vwLogFacturaCompra, Maquina.eventoAcuseProducto, String.Empty);
             }
             else
             {

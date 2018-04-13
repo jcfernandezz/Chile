@@ -57,4 +57,3 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\obj\D
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\obj\Debug\respuestaEnvioDTE.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\bin\Debug\envioDTE.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\bin\Debug\envioDTE.pdb
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\obj\Debug\respuestaEnvioDTE.csprojResolveAssemblyReference.cache

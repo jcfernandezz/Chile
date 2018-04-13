@@ -105,7 +105,7 @@ namespace respuestaEnvioDTE
         /// <summary>
         /// Prepara la firma electrónica del usuario
         /// </summary>
-        void preparaCertificado()
+        private void preparaCertificado()
         {
             try
             {
@@ -291,7 +291,125 @@ namespace respuestaEnvioDTE
             }
         }
 
-        public void EnviaRespuestaAlProveedor()
+        /// <summary>
+        /// Si el evento es mensaje recibido, sólo guarda el log.
+        /// Si el evento es acuse o recibido con error, adicionalmente envía la respuesta al proveedor
+        /// </summary>
+        /// <param name="evento"></param>
+        /// <param name="rcb"></param>
+        /// <param name="envio"></param>
+        private void ProcesaMensajeRecibidoDelProveedor(int evento, RespuestaEnvio rcb, CFDReglasEmailRespuesta envio)
+        {
+            LogFacturaCompraService logReceptor = new LogFacturaCompraService(_conex.ConnStr, rcb.Folio, Convert.ToInt16(rcb.tipoDTE), rcb.rutEmisor, Maquina.estadoBaseReceptor);
+
+            //Obtiene el status del documento, verifica la transición y guarda en el log del receptor.
+            if (logReceptor.CicloDeVida.Transiciona(evento, _certificados.envia))
+            {
+                if (evento == Maquina.eventoAcuseDocumento)
+                {
+                    rcb.GuardaArchivoDelProveedor();            //archivo xml enviado por el proveedor
+                    _sMsj = rcb.archivoRecibido + " " + rcb.SMsj;
+                    if (rcb.IErr > 0)
+                        throw new Exception(_sMsj);
+                }
+
+                if (evento == Maquina.eventoAcuseDocumento || evento == Maquina.eventoRecibidoConError)
+                {
+                    rcb.SaveFile();                             //archivo xml que indica la recepción de la factura
+                    _sMsj = rcb.RutaYNomArchivo + " " + rcb.SMsj;
+                    if (rcb.IErr > 0)
+                       throw new Exception(_sMsj);
+                }
+
+                if (evento == Maquina.eventoAcuseDocumento || evento == Maquina.eventoRecibidoConError)
+                {
+                    envio.Asunto = "Getty Chile - " + rcb.TipoRespuestaResultado + " Dte: ";
+                    envio.Cuerpo = "Esta es una respuesta automática. \n\nAtte. \nGetty Images Chile.";
+                    envio.EmailTo = rcb.EmailProveedor;
+
+                    envio.ProcesaMensaje(rcb.tipoDTE + "-" + rcb.Folio, rcb.RutaYNomArchivo + ".xml");
+                    if (envio.iErr > 0)
+                        throw new Exception(envio.sMsj);
+                    _sMsj = " Respuesta enviada. ";
+                }
+
+                logReceptor.Tipo = Convert.ToInt16(rcb.tipoDTE);
+                logReceptor.Folio = rcb.Folio;
+                logReceptor.IdImpuestoTercero = rcb.rutEmisor;
+                logReceptor.NombreTercero = rcb.NomEmisor;
+                logReceptor.FechaRecepcion = DateTime.Now;
+                logReceptor.Mensaje = rcb.EmailProveedor;
+                logReceptor.SDocXml = rcb.xDocXml.InnerXml;
+                logReceptor.Pdf = rcb.archivoRecibido;
+                logReceptor.IdExterno = rcb.Uid;
+                logReceptor.IdUsuario = rcb.Usuario;
+
+                logReceptor.GuardaYActualiza();
+
+                if (logReceptor.IErr > 0)
+                    throw new Exception(logReceptor.SMsj);
+                _sMsj += "Log registrado. ";
+
+            }
+            else
+            {
+                if (logReceptor.ExisteDoc && rcb.Evento == Maquina.eventoAcuseDocumento)
+                    logReceptor.Save(0, rcb.Folio, rcb.rutEmisor, rcb.NomEmisor, rcb.fechaRecepcion, rcb.Uid, "correo repetido", 0, "0", "procesado", "-", "-", rcb.Uid, rcb.Usuario);
+
+                _sMsj = logReceptor.CicloDeVida.sMsj + " " + logReceptor.SMsj;
+            }
+
+        }
+
+        /// <summary>
+        /// Envía las respuestas guardadas en _ldocsRecibidos y registra el log
+        /// </summary>
+        public void ProcesaRespuestasAlProveedor()
+        {
+            _iErr = 0;
+            _sMsj = String.Empty;
+
+            int numDocs = _lDocsRecibidos.Count();
+            if (numDocs == 0)
+            {
+                MuestraAvance(0, "Mensajes para enviar a los proveedores: 0");
+                return;
+            }
+            else
+                MuestraAvance(1, "Iniciando el envío de mensajes a proveedores...");
+
+            _param.imprime = false;
+            CFDReglasEmailRespuesta envio = new CFDReglasEmailRespuesta(_conex, _param);
+
+            if (envio.iErr != 0)
+            {
+                MuestraAvance(100, "Envío de mensajes a proveedores finalizado. " + envio.sMsj);
+                return;
+            }
+
+            foreach (RespuestaEnvio rcb in _lDocsRecibidos)
+            {
+                try
+                {
+                    ProcesaMensajeRecibidoDelProveedor(rcb.Evento, rcb, envio);
+                    MuestraAvance(100 / numDocs, "Doc: " + rcb.tipoDTE + "-" + rcb.Folio + _sMsj);
+
+                }
+                catch (Exception re)
+                {
+                    MuestraAvance(100 / numDocs, "Doc: " + rcb.tipoDTE + "-" + rcb.Folio + " Excepción desconocida. No se pudo procesar la respuesta al proveedor. " + re.Message);
+                }
+            }
+
+            if (numDocs > 0)
+                MuestraAvance(100, "Envío de mensajes finalizado. ");
+            MuestraAvance(100, "");
+        }
+
+        /// <summary>
+        /// deprecated
+        /// </summary>
+        private void EnviaRespuestaAlProveedor()
         {
             _iErr = 0;
             _sMsj = String.Empty;
@@ -322,7 +440,7 @@ namespace respuestaEnvioDTE
                     //Obtiene el status del documento, verifica la transición y guarda en el log del receptor.
                     if (logReceptor.CicloDeVida.Transiciona(rcb.Evento, _certificados.envia))
                     {
-                        if (rcb.Evento == Maquina.eventoRecibidoConforme)
+                        if (rcb.Evento == Maquina.eventoAcuseDocumento)
                         {
                             rcb.GuardaArchivoDelProveedor();            //archivo xml enviado por el proveedor
                             _iErr = rcb.IErr;
@@ -369,7 +487,7 @@ namespace respuestaEnvioDTE
                     }
                     else
                     {
-                        if (logReceptor.ExisteDoc && rcb.Evento == Maquina.eventoRecibidoConforme)
+                        if (logReceptor.ExisteDoc && rcb.Evento == Maquina.eventoAcuseDocumento)
                             logReceptor.Save(0, rcb.Folio, rcb.rutEmisor, rcb.NomEmisor, rcb.fechaRecepcion, rcb.Uid, "correo repetido", 0, "0", "procesado", "-", "-", rcb.Uid, rcb.Usuario);
                         _iErr = logReceptor.CicloDeVida.iErr;
                         _sMsj = logReceptor.CicloDeVida.sMsj + " " + logReceptor.SMsj;
@@ -752,128 +870,7 @@ namespace respuestaEnvioDTE
                 _iErr++;
             }
         }
-        /// <summary>
-        /// deprecated. Identifica la factura de un proveedor y ensambla la respuesta de recepción.
-        /// </summary>
-        /// <param name="xPosibleRespuesta"></param>
-        /// <param name="xmlAdjunto"></param>
-        public void DaUnaRespuestaPorDTEDeProveedor(XDocument xPosibleRespuesta, IMensajeEMail xmlAdjunto)
-        {
-            _iErr = 0;
-            _sMsj = String.Empty;
-            _continuarBusqueda = "NO";
 
-            try
-            {
-                var xSet = xPosibleRespuesta.Elements(_xNameSpace + "EnvioDTE").Elements(_xNameSpace + "SetDTE").Elements();
-                RespuestaEnvio respuesta = new RespuestaEnvio(_conex.ConnStr, _encoding, _conex.Usuario, _certificados.envia);
-                respuesta.criptografo = _encriptador;
-                respuesta.idResultado = "RECIBEDOC";
-                respuesta.EnvioDTEID = xPosibleRespuesta.Element(_xNameSpace + "EnvioDTE").Element(_xNameSpace + "SetDTE").Attribute("ID").Value;
-                respuesta.Uid = xmlAdjunto.Uid;
-                //Revisar esquema
-                //Revisar firma
-
-                foreach (var dte in xSet)                                                     //Revisar cada DTE
-                {
-                    if (dte.Name.ToString().Equals(_xNameSpace + "Caratula"))
-                    {
-                        foreach (XElement id in dte.Elements())
-                        {
-                            if (id.Name.ToString().Equals(_xNameSpace + "RutEnvia"))          //persona que envía el doc.
-                                respuesta.RutRecibe = id.Value;
-                            if (id.Name.ToString().Equals(_xNameSpace + "RutEmisor"))         //empresa que envía (según carátula)
-                                respuesta.rutEmisor = id.Value;
-                            if (id.Name.ToString().Equals(_xNameSpace + "RutReceptor"))       //empresa que recibe el envío (según carátula)
-                                respuesta.rutReceptor = id.Value;
-                        }
-                        respuesta.RutResponde = _certificados.idImpuesto;
-                        respuesta.archivoRecibido = xmlAdjunto.nombreArchivoXml;
-                        respuesta.fechaRecepcion = xmlAdjunto.dateSent;
-                        respuesta.EstadoRecepEnv = 0;                                         //envío recibido conforme
-                    }
-
-                    if (dte.Name.ToString().Equals(_xNameSpace + "DTE"))
-                    {
-                        //Averiguar en el SII si el dte es válido
-                        RespuestaSII respuestaSii = new RespuestaSII();
-                        respuesta.EstadoRecepDTE = respuestaSii.VerificaEstadoDTE();
-                        if (respuestaSii.RespHdrEstado.Equals("0"))
-                        {
-                            if (respuestaSii.RespBodyRecibido.Equals("NO"))
-                            {
-                                //Esperar a que sea recibido por el SII
-                            }
-
-                            if (respuestaSii.RespBodyRecibido.Equals("SI"))
-                            {
-                                foreach (XElement id in dte.Elements(_xNameSpace + "Documento").Elements(_xNameSpace + "Encabezado").Elements(_xNameSpace + "IdDoc").Elements()) //obtener el id del DTE
-                                {
-                                    //Obtener datos del documento
-                                    if (id.Name.ToString().Equals(_xNameSpace + "TipoDTE"))
-                                        respuesta.tipoDTE = id.Value;
-                                    if (id.Name.ToString().Equals(_xNameSpace + "Folio"))
-                                        respuesta.Folio = id.Value;
-                                    if (id.Name.ToString().Equals(_xNameSpace + "FchEmis"))
-                                    {
-                                        respuesta.fchEmis = DateTime.ParseExact(id.Value, "yyyy-M-d", null);
-                                    }
-                                }
-                                foreach (XElement id in dte.Elements(_xNameSpace + "Documento").Elements(_xNameSpace + "Encabezado").Elements(_xNameSpace + "Emisor").Elements())
-                                {
-                                    if (id.Name.ToString().Equals(_xNameSpace + "RUTEmisor"))        //empresa que envía el dte (según DTE)
-                                        respuesta.rutEmisor = id.Value;
-                                    if (id.Name.ToString().Equals(_xNameSpace + "RznSoc"))           //empresa que envía el dte (según DTE)
-                                        respuesta.NomEmisor = id.Value;
-                                }
-                                foreach (XElement id in dte.Elements(_xNameSpace + "Documento").Elements(_xNameSpace + "Encabezado").Elements(_xNameSpace + "Receptor").Elements())
-                                {
-                                    if (id.Name.ToString().Equals(_xNameSpace + "RUTRecep"))         //empresa que recibe el dte (según DTE)
-                                        respuesta.rutReceptor = id.Value;
-                                }
-                                foreach (XElement id in dte.Elements(_xNameSpace + "Documento").Elements(_xNameSpace + "Encabezado").Elements(_xNameSpace + "Totales").Elements())
-                                {
-                                    if (id.Name.ToString().Equals(_xNameSpace + "MntTotal"))
-                                        respuesta.sMntTotal = id.Value;
-                                }
-
-                                respuesta.EnsamblaRecepcionCab(1);
-                                respuesta.EnsamblaRecepcionDet(0);
-                                respuesta.EnsamblaRecepcionPie();
-
-                                respuesta.Serializa(_encoding);
-                                respuesta.Canonicaliza();
-                                respuesta.reAjustaAtributos();
-                                respuesta.firma(respuesta.idResultado);
-
-                                //Registrar respuesta en la bitácora
-                                //if (respuesta.EstadoRecepDTE.Equals("0"))
-                                //    respuesta.Guarda(10);                                             //recibido conforme
-                                //else
-                                //    respuesta.Guarda(9);                                              //recibido con error
-
-                                //Enviar respuesta de documento recibido conforme o recibido con error
-                                //EnviaAlProveedor();
-                            }
-
-                            _sMsj = respuestaSii.RespBodyGlosa;
-
-                        }
-                    }
-
-                }
-            }
-            catch (NullReferenceException nr)
-            {
-                _sMsj = "No se encuentra el id del envío. " + nr.Message + " [CFDServicioDespachoRespuestas.DarUnaRespuestaPorDTEDeProveedor]";
-                _continuarBusqueda = "SI";
-            }
-            catch (Exception re)
-            {
-                _sMsj = "Excepción desconocida al revisar la respuesta del Proveedor. " + re.Message + " [CFDServicioDespachoRespuestas.DarUnaRespuestaPorDTEDeProveedor]";
-                _iErr++;
-            }
-        }
         /// <summary>
         /// Identifica la factura de un proveedor y ensambla la respuesta de recepción.
         /// </summary>
@@ -920,6 +917,7 @@ namespace respuestaEnvioDTE
                         respuesta.fechaRecepcion = xmlAdjunto.dateSent;
 
                         //Verificar en el SII si el dte es válido
+
                         respuesta.EstadoRecepEnv = 99;                      //envío recibido con error
                         respuesta.Evento = Maquina.eventoRecibidoConError;
                         RespuestaSII respuestaSii = new RespuestaSII();
@@ -930,7 +928,7 @@ namespace respuestaEnvioDTE
                             if (respuestaSii.RespBodyRecibido.Equals("SI"))
                             {
                                 respuesta.EstadoRecepEnv = 0;               //envío recibido conforme
-                                respuesta.Evento = Maquina.eventoRecibidoConforme;
+                                respuesta.Evento = Maquina.eventoAcuseDocumento;
                             }
                         }
 
@@ -961,6 +959,7 @@ namespace respuestaEnvioDTE
                         if (_iErr == 0)
                         {
                             _lDocsRecibidos.Add(respuesta);
+                            ProcesaMensajeRecibidoDelProveedor(Maquina.eventoRecibidoConforme, respuesta, null);
                         }
 
                         _sMsj += " " + respuestaSii.RespBodyGlosa;
@@ -974,12 +973,13 @@ namespace respuestaEnvioDTE
             }
             catch (Exception re)
             {
-                _sMsj = "Excepción desconocida al revisar la respuesta del Proveedor. " + re.Message + " [CFDServicioDespachoRespuestas.RevisaYFormaRespuestaPorDTEDeProveedor]";
+                _sMsj = "Excepción al revisar el mensaje del Proveedor. " + re.Message + " [CFDServicioDespachoRespuestas.RevisaYFormaRespuestaPorDTEDeProveedor]";
                 _iErr++;
             }
         }
+
         /// <summary>
-        /// Identifica el resultado del cliente: aceptado o rechazado
+        /// Identifica el resultado comercial del cliente. Hace dos transiciones: Mensaje recibido y factura aceptada o rechazada
         /// </summary>
         /// <param name="xPosibleRespuesta"></param>
         /// <param name="uid">Id del email a guardar en el log receptor</param>
@@ -1000,10 +1000,13 @@ namespace respuestaEnvioDTE
 
                 var xRecepcionEnvio = xPosibleRespuesta.Element(_xNameSpace + "RespuestaDTE").Elements(_xNameSpace + "Resultado").Elements(_xNameSpace + "ResultadoDTE");
 
-                //envío aceptado o rechazado
                 foreach (var rcp in xRecepcionEnvio)
                 {
+                    RegistrarRespuestaDelCliente(Maquina.eventoRecibidoConforme, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte,
+                                        "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeDte + "(" + estadoDte + ") del:" + xmlAdjunto.Mensaje.Headers.Date,
+                                        xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
                     _continuarBusqueda = "NO";
+
                     estadoDte = rcp.Element(_xNameSpace + "EstadoDTE").Value;
                     mensajeDte = rcp.Element(_xNameSpace + "EstadoDTEGlosa").Value;
                     tipoDte = rcp.Element(_xNameSpace + "TipoDTE").Value;
@@ -1014,10 +1017,9 @@ namespace respuestaEnvioDTE
                     else
                         eventoCliente = Maquina.eventoResultadoRechazado;
 
-                    //si transiciona guardar resultado recepción envío
-                    GuardaRespuestaDelCliente(xPosibleRespuesta, eventoCliente, xmlAdjunto.Uid, folio, tipoDte,
-                        "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeDte + "(" + estadoDte + ") del:" + xmlAdjunto.Mensaje.Headers.Date,
-                        xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
+                    RegistrarRespuestaDelCliente( eventoCliente, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte,
+                                        "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeDte + "(" + estadoDte + ") del:" + xmlAdjunto.Mensaje.Headers.Date,
+                                        xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
 
                     MuestraAvance(100, "Folio: "+ tipoDte +"-"+ folio + " " + _sMsj);
                 }
@@ -1033,8 +1035,9 @@ namespace respuestaEnvioDTE
                 _iErr++;
             }
         }
+
         /// <summary>
-        /// Revisa si la respuesta es un acuse de recepción de producto. Luego guarda el resultado.
+        /// Revisa si la respuesta es un acuse de recepción de producto. Hace dos transiciones: Mensaje recibido y acuse de recepción de producto.
         /// </summary>
         /// <param name="xPosibleRespuesta"></param>
         /// <param name="uid">Id del email a guardar en el log receptor</param>
@@ -1044,7 +1047,6 @@ namespace respuestaEnvioDTE
             _iErr = 0;
             _sMsj = String.Empty;
             _continuarBusqueda = "SI";
-            int eventoCliente = 0;
             String folio = String.Empty;
             String tipoDte = String.Empty;
             String mensajeDte = String.Empty;
@@ -1062,16 +1064,17 @@ namespace respuestaEnvioDTE
                 //acuse de recibo
                 foreach (var rcb in xRecibo)
                 {
+                    RegistrarRespuestaDelCliente (Maquina.eventoRecibidoConforme, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte, "Acuse:" + _sTrackId + " Dte:" + mensajeDte + " del " + xmlAdjunto.Mensaje.Headers.Date,
+                                                  xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
                     _continuarBusqueda = "NO";
+
                     _sTrackId = rcb.Element(xNameSpaceTmp + "DocumentoRecibo").Attribute("ID").Value;
                     tipoDte = rcb.Element(xNameSpaceTmp + "DocumentoRecibo").Element(xNameSpaceTmp + "TipoDoc").Value;
                     folio = rcb.Element(xNameSpaceTmp + "DocumentoRecibo").Element(xNameSpaceTmp + "Folio").Value;
                     mensajeDte = tipoDte + "-" + folio;
-                    eventoCliente = Maquina.eventoAcuse;
 
-                    //si transiciona guardar acuse de recibo del producto
-                    GuardaRespuestaDelCliente(xPosibleRespuesta, eventoCliente, xmlAdjunto.Uid, folio, tipoDte, "Acuse:" + _sTrackId + " Dte:" + mensajeDte + " del " + xmlAdjunto.Mensaje.Headers.Date,
-                        xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
+                    RegistrarRespuestaDelCliente(Maquina.eventoAcuseProducto, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte, "Acuse:" + _sTrackId + " Dte:" + mensajeDte + " del " + xmlAdjunto.Mensaje.Headers.Date,
+                                                 xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
 
                     MuestraAvance(100, "Folio: " + tipoDte + "-" + folio + " " + _sMsj);
 
@@ -1088,8 +1091,9 @@ namespace respuestaEnvioDTE
                 _iErr++;
             }
         }
+
         /// <summary>
-        /// Identifica la respuesta del cliente: recibido conforme o con error
+        /// Identifica la respuesta del cliente y hace dos transiciones: Mensaje recibido y acuse de documento conforme o con error. 
         /// </summary>
         /// <param name="xPosibleRespuesta"></param>
         /// <param name="uid">Id del email a guardar en el log receptor</param>
@@ -1122,21 +1126,24 @@ namespace respuestaEnvioDTE
                     {
                         if (dte.Name.ToString().Equals(_xNameSpace + "RecepcionDTE"))
                         {
+                            RegistrarRespuestaDelCliente(Maquina.eventoRecibidoConforme, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte,
+                                                "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeDte + "(" + estadoDte + ") del " + xmlAdjunto.Mensaje.Headers.Date + " " + mensajeEnvio,
+                                                xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
                             _continuarBusqueda = "NO";
+
                             tipoDte = dte.Element(_xNameSpace + "TipoDTE").Value;
                             folio = dte.Element(_xNameSpace + "Folio").Value;
                             estadoDte = dte.Element(_xNameSpace + "EstadoRecepDTE").Value;
                             mensajeDte = dte.Element(_xNameSpace + "RecepDTEGlosa").Value;
 
                             if (estadoEnvio.Equals("0") && estadoDte.Equals("0"))
-                                eventoCliente = Maquina.eventoRecibidoConforme;
+                                eventoCliente = Maquina.eventoAcuseDocumento;
                             else
                                 eventoCliente = Maquina.eventoRecibidoConError;
 
-                            //si transiciona, guardar resultado recepción envío
-                            GuardaRespuestaDelCliente(xPosibleRespuesta, eventoCliente, xmlAdjunto.Uid, folio, tipoDte,
-                                "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeDte + "(" + estadoDte + ") del " + xmlAdjunto.Mensaje.Headers.Date + " " + mensajeEnvio, 
-                                xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
+                            RegistrarRespuestaDelCliente(eventoCliente, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte,
+                                                "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeDte + "(" + estadoDte + ") del " + xmlAdjunto.Mensaje.Headers.Date + " " + mensajeEnvio, 
+                                                xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
 
                             MuestraAvance(100, "Folio: " + tipoDte + "-" + folio + " " + _sMsj);
                         }
@@ -1152,10 +1159,9 @@ namespace respuestaEnvioDTE
 
                         _continuarBusqueda = "NO";
 
-                        //si transiciona, guardar resultado recepción envío
-                        GuardaRespuestaDelCliente(xPosibleRespuesta, Maquina.eventoRecibidoConError, xmlAdjunto.Uid, folio, tipoDte,
-                            "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeEnvio + "(" + estadoEnvio + ") del " + xmlAdjunto.Mensaje.Headers.Date + " " + mensajeEnvio,
-                            xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
+                        RegistrarRespuestaDelCliente(Maquina.eventoRecibidoConError, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte,
+                                            "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeEnvio + "(" + estadoEnvio + ") del " + xmlAdjunto.Mensaje.Headers.Date + " " + mensajeEnvio,
+                                            xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
 
                         MuestraAvance(100, "Folio: " + tipoDte + "-" + folio + " " + _sMsj);
                     }
@@ -1173,7 +1179,63 @@ namespace respuestaEnvioDTE
             }
         }
 
-        public void GuardaRespuestaDelCliente(XDocument xRespuesta, int eventoCliente, String uid, String folio, String tipo, String mensajeResultado, String nomArchivoRecibido, String rutClienteXml, String direccionRemitente)
+        /// <summary>
+        /// Si existe una transición para el evento, la factura cambia al siguiente estado y registra la respuesta del cliente en el log
+        /// </summary>
+        /// <param name="eventoCliente"></param>
+        /// <param name="xRespuesta"></param>
+        /// <param name="uid"></param>
+        /// <param name="folio"></param>
+        /// <param name="tipo"></param>
+        /// <param name="mensajeResultado"></param>
+        /// <param name="nomArchivoRecibido"></param>
+        /// <param name="rutClienteXml"></param>
+        /// <param name="direccionRemitente"></param>
+        private void RegistrarRespuestaDelCliente(int eventoCliente, XDocument xRespuesta, String uid, String folio, String tipo, String mensajeResultado, String nomArchivoRecibido, String rutClienteXml, String direccionRemitente)
+        {
+            try
+            {
+                LogFacturaCompraService logReceptor = new LogFacturaCompraService(_conex.ConnStr);
+                bool existeDoc = TraeDatosDocVentas(folio, tipo, Maquina.estadoBaseEmisor);
+                if (!existeDoc)
+                    _sopnumbe = uid;
+
+                LogFacturaXMLService logEmisor = new LogFacturaXMLService(_conex, _compoundedBinStatus, _idxSingleStatus, _sopnumbe, _sopType, tipo);
+
+                if (!_idImpuestoCliente.Equals(rutClienteXml))
+                {
+                    _sMsj = "El remitente envió este archivo por error. El documento de referencia con RUT: " + rutClienteXml + " no está en GP. Este correo ha sido procesado. [CFDServicioDespachoRespuestas.GuardaRespuestaDelCliente()]";
+                    logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, uid, nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
+                    return;
+                }
+
+                if (logEmisor.CicloDeVida.Transiciona(eventoCliente, _certificados.envia))
+                {
+                    logEmisor.Save("Resultado del cliente. " + mensajeResultado, _conex.Usuario, xRespuesta.ToString(), uid);
+                    logEmisor.Update(_conex.Usuario, Maquina.estadoBaseEmisor, Maquina.estadoBaseEmisor);
+                    logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, uid, nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
+                }
+                else
+                    if (logEmisor.CicloDeVida.iErr < 0)
+                    {
+                        bool yaRecorrido = logEmisor.CicloDeVida.transicionRecorrida(eventoCliente, _compoundedBinStatus);
+                        if (yaRecorrido)
+                            _sMsj = "Este correo ya fue procesado anteriormente. [CFDServicioDespachoRespuestas.GuardaLogRespuestaDelCliente()]";
+                        else
+                            _sMsj += "\nVerifique el " + mensajeResultado + " Este es un nuevo tipo de documento para el que no hay una transición. Se guardará en el log sin procesar.";
+
+                        logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, uid, nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
+                    }
+            }
+            catch (Exception pr)
+            {
+                _sMsj = "Folio: " + tipo + "-" + folio + " uid: " + uid + " evento: " + eventoCliente.ToString() + " rut cliente: " + rutClienteXml + " respuesta: " + mensajeResultado +
+                    " Excepción al guardar el log de la respuesta del cliente. [CFDServicioDespachoRespuestas.GuardaLogRespuestaDelCliente] " + pr.Message;
+                throw new Exception(_sMsj);
+            }
+        }
+
+        private void GuardaRespuestaDelCliente(XDocument xRespuesta, int eventoCliente, String uid, String folio, String tipo, String mensajeResultado, String nomArchivoRecibido, String rutClienteXml, String direccionRemitente)
         {
             _iErr = 0;
             _sMsj = String.Empty;
@@ -1194,20 +1256,17 @@ namespace respuestaEnvioDTE
                 {
                     _iErr++;
                     _sMsj = "El remitente envió este archivo por error. El documento de referencia con RUT: " + rutClienteXml + " no está en GP. Este correo ha sido procesado. [CFDServicioDespachoRespuestas.GuardaRespuestaDelCliente()]";
-                    //logReceptor.Delete(logEmisor.Sopnumbe, 0, rutClienteXml, uid);
                     logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, uid, nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
                 }
 
                 if (_iErr == 0)
                 {
-                    //logEmisor.CicloDeVida.TipoDoc = tipo;
                     if (logEmisor.CicloDeVida.Transiciona(eventoCliente, _certificados.envia))
                     {
                         logEmisor.Save("Resultado del cliente. " + mensajeResultado, _conex.Usuario, xRespuesta.ToString(), uid);
 
                         logEmisor.Update(_conex.Usuario, Maquina.estadoBaseEmisor, Maquina.estadoBaseEmisor);
 
-                        //logReceptor.Delete(logEmisor.Sopnumbe, 0, rutClienteXml, uid);
                         logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, uid, nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
                     }
                     _iErr = logEmisor.CicloDeVida.iErr;
@@ -1220,7 +1279,6 @@ namespace respuestaEnvioDTE
                     if (yaRecorrido)
                     {
                         _sMsj = "Este correo ya fue procesado anteriormente. [CFDServicioDespachoRespuestas.GuardaRespuestaDelCliente()]";
-                        //logReceptor.Delete(logEmisor.Sopnumbe, 0, rutClienteXml, uid);
                         logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, uid, nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
                     }
                     else
@@ -1235,7 +1293,7 @@ namespace respuestaEnvioDTE
             }
         }
 
-        public bool TraeDatosDocVentas(String folio, String tipo, String estadoBase)
+        private bool TraeDatosDocVentas(String folio, String tipo, String estadoBase)
         {
             try
             {
@@ -1272,9 +1330,8 @@ namespace respuestaEnvioDTE
             }
             catch (Exception ePla)
             {
-                _sMsj = "Contacte al administrador. Error al obtener log de facturas filtrado por llave. " + ePla.Message + "[LogFacturaXMLService.GetStatus()]";
-                _iErr++;
-                return false;
+                _sMsj = "Excepción al leer el log de facturas de venta filtrado por llave: folio, tipo, estado. " + ePla.Message + "[CFDServicioDespachoRespuestas.TraeDatosDocVentas]";
+                throw new Exception(_sMsj);
             }
         }
 

@@ -81,8 +81,8 @@ namespace FEMonitoreaMensajes
                 {
                     ObtieneMensajesXmlNoLeidos();
                     respuesta.NewXmlMessages = _newXmlMessages;
-                    respuesta.Recepciona();                 //Recibe _newXmlMessages. 
-                    respuesta.EnviaRespuestaAlProveedor();  //En el caso de facturas de proveedor finaliza guardando la factura en estado publicado y recibido con el uid incluido
+                    respuesta.Recepciona();                     //Recibe _newXmlMessages. 
+                    respuesta.ProcesaRespuestasAlProveedor();    //En el caso de facturas de proveedor finaliza guardando la factura en estado publicado y recibido con el uid incluido
                 }
 
                 GuardaUidsNoLeidos(estado);          //Guarda el resto de los uids que no tienen xml adjunto
