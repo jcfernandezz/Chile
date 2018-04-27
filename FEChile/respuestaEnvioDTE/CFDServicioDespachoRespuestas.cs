@@ -313,7 +313,7 @@ namespace respuestaEnvioDTE
                         throw new Exception(_sMsj);
                 }
 
-                if (evento == Maquina.eventoAcuseDocumento || evento == Maquina.eventoRecibidoConError)
+                if (evento != Maquina.eventoRecibidoConforme)
                 {
                     rcb.SaveFile();                             //archivo xml que indica la recepción de la factura
                     _sMsj = rcb.RutaYNomArchivo + " " + rcb.SMsj;
@@ -321,7 +321,7 @@ namespace respuestaEnvioDTE
                        throw new Exception(_sMsj);
                 }
 
-                if (evento == Maquina.eventoAcuseDocumento || evento == Maquina.eventoRecibidoConError)
+                if (evento != Maquina.eventoRecibidoConforme)
                 {
                     envio.Asunto = "Getty Chile - " + rcb.TipoRespuestaResultado + " Dte: ";
                     envio.Cuerpo = "Esta es una respuesta automática. \n\nAtte. \nGetty Images Chile.";

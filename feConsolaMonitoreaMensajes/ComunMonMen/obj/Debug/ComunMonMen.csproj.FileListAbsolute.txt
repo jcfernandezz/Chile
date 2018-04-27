@@ -11,4 +11,3 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\feConsolaMonitoreaMensajes\Comu
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\feConsolaMonitoreaMensajes\ComunMonMen\bin\Debug\CLConfiguracion.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\feConsolaMonitoreaMensajes\ComunMonMen\obj\Debug\ComunMonMen.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\feConsolaMonitoreaMensajes\ComunMonMen\obj\Debug\ComunMonMen.pdb
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\feConsolaMonitoreaMensajes\ComunMonMen\obj\Debug\ComunMonMen.csprojResolveAssemblyReference.cache

@@ -35,7 +35,7 @@ namespace MaquinaDeEstados
         public const String binStatusBaseEmisor   = "00000000000100";
         public const String binStatusBaseReceptor = "00001000000000";
         //public const String binStatusBaseEPaso2   = "00000000001100";
-        private string[] _estados = { "anulado", "rechazado", "aceptado", "recibido", "publicado", "excepcional", "rechazado SII", "con reparos SII", "aceptado SII", "enviado SII", "emitido", "no emitido", "prod recibido", "con error" };
+        private string[] _estados = { "anulado", "rechazado", "aceptado", "doc recibido", "publicado", "recibido", "rechazado SII", "con reparos SII", "aceptado SII", "enviado SII", "emitido", "no emitido", "prod recibido", "con error" };
         //                                0           1         2              3           4            5               6                   7               8              9             10         11              12             13
         private Estado[] _Estados;
 
@@ -133,9 +133,9 @@ namespace MaquinaDeEstados
                 new Estado("anulado", 0, -1),
                 new Estado("rechazado", 1, -1),
                 new Estado("aceptado", 2, -1),
-                new Estado("recibido", 3, -1),
+                new Estado("doc recibido", 3, -1),
                 new Estado("publicado", 4, -1),
-                new Estado("excepcional", 5, -1),
+                new Estado("recibido", 5, -1),
                 new Estado("rechazado SII", 6, -1),
                 new Estado("con reparos SII", 7, -1),
                 new Estado("aceptado SII", 8, -1),
@@ -182,9 +182,9 @@ namespace MaquinaDeEstados
                 new Estado("anulado", 0, -1),
                 new Estado("rechazado", 1, -1),
                 new Estado("aceptado", 2, -1),
-                new Estado("recibido", 3, -1),
+                new Estado("doc recibido", 3, -1),
                 new Estado("publicado", 4, -1),
-                new Estado("excepcional", 5, -1),
+                new Estado("recibido", 5, -1),
                 new Estado("rechazado SII", 6, -1),
                 new Estado("con reparos SII", 7, -1),
                 new Estado("aceptado SII", 8, -1),
@@ -231,9 +231,9 @@ namespace MaquinaDeEstados
                 new Estado("anulado", 0, -1),
                 new Estado("rechazado", 1, -1),
                 new Estado("aceptado", 2, -1),
-                new Estado("recibido", 3, -1),
+                new Estado("doc recibido", 3, -1),
                 new Estado("publicado", 4, -1),
-                new Estado("excepcional", 5, -1),
+                new Estado("recibido", 5, -1),
                 new Estado("rechazado SII", 6, -1),
                 new Estado("con reparos SII", 7, -1),
                 new Estado("aceptado SII", 8, -1),

@@ -469,7 +469,7 @@
             // 
             this.genFacturaElectrónicaV10ToolStripMenuItem.Name = "genFacturaElectrónicaV10ToolStripMenuItem";
             this.genFacturaElectrónicaV10ToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.genFacturaElectrónicaV10ToolStripMenuItem.Text = "Factura Electrónica Chile v. 1.3.5";
+            this.genFacturaElectrónicaV10ToolStripMenuItem.Text = "Factura Electrónica Chile v. 1.3.6";
             // 
             // toolStripMenuItem2
             // 

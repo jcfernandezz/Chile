@@ -849,7 +849,7 @@ namespace EjecutableEncriptador
             {
                 cfdDespachador.Progreso += new CFDServicioDespachoRespuestas.reportaProgreso(reportaProgreso);
                 cfdDespachador.LDocsRecibidos = facturasProveedor.LRespuestas;
-                cfdDespachador.EnviaRespuestaAlProveedor();
+                cfdDespachador.ProcesaRespuestasAlProveedor();
             }
             else
             {
