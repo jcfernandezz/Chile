@@ -17,14 +17,16 @@ use chi10;
 	--into _temp2_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
 --delete lf
 --UPDATE lf SET noAprobacion = 5
---select top 1000 sopnumbe, idexterno, *
+select top 1000 sopnumbe, idexterno, *
 from cfdlogfacturaxml lf
-where --
+where --idexterno = '20294'
 lf.sopnumbe in 
 (
-'61-00000070'
+'33-00000745'	--33-00000657 
 --'61-00000080'
 )
+order by secuencia
+
 and estado = 'emitido'
 
 select sopnumbe, idexterno, * --into _temp_cfdlogfacturaxml	--soptype, sopnumbe, estado, mensaje, estadoActual, mensajeEA, noAprobacion indice, idExterno, secuencia
@@ -100,7 +102,9 @@ select *
 select top 1000 *
 from cfdLogFacturaCompra
 --where estado = 'publicado'
-where folio like '%456977%'
+where --idexterno = '28742'
+folio like '%28742' --idexterno = '20288'	--'20276'	--33-657
+folio like '%28742%'
 --where secuencia in (152, 153, 158)
 --where idimpuestotercero = '76833750-0'	--en el caso de ventas es el id del SII
 order by secuencia
@@ -111,6 +115,7 @@ order by secuencia
 --and tipo >0
 --and sopnumbe = 'FV 00008205'
 
+sp_statistics cfdLogFacturaCompra
 
 ------------------------------------------------------------------------------------------------------
 --LIBRO DE COMPRAS Y VENTAS

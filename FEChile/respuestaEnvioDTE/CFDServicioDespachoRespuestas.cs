@@ -300,6 +300,7 @@ namespace respuestaEnvioDTE
         /// <param name="envio"></param>
         private void ProcesaMensajeRecibidoDelProveedor(int evento, RespuestaEnvio rcb, CFDReglasEmailRespuesta envio)
         {
+            _iErr = 0;
             LogFacturaCompraService logReceptor = new LogFacturaCompraService(_conex.ConnStr, rcb.Folio, Convert.ToInt16(rcb.tipoDTE), rcb.rutEmisor, Maquina.estadoBaseReceptor);
 
             //Obtiene el status del documento, verifica la transición y guarda en el log del receptor.
@@ -356,7 +357,8 @@ namespace respuestaEnvioDTE
                 if (logReceptor.ExisteDoc && rcb.Evento == Maquina.eventoAcuseDocumento)
                     logReceptor.Save(0, rcb.Folio, rcb.rutEmisor, rcb.NomEmisor, rcb.fechaRecepcion, rcb.Uid, "correo repetido", 0, "0", "procesado", "-", "-", rcb.Uid, rcb.Usuario);
 
-                _sMsj = logReceptor.CicloDeVida.sMsj + " " + logReceptor.SMsj;
+                _sMsj = "Tipo: " + logReceptor.Tipo.ToString() + " " + logReceptor.CicloDeVida.sMsj + " " + logReceptor.SMsj;
+                _iErr++;
             }
 
         }
@@ -1002,15 +1004,17 @@ namespace respuestaEnvioDTE
 
                 foreach (var rcp in xRecepcionEnvio)
                 {
-                    RegistrarRespuestaDelCliente(Maquina.eventoRecibidoConforme, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte,
-                                        "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeDte + "(" + estadoDte + ") del:" + xmlAdjunto.Mensaje.Headers.Date,
-                                        xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
                     _continuarBusqueda = "NO";
 
                     estadoDte = rcp.Element(_xNameSpace + "EstadoDTE").Value;
                     mensajeDte = rcp.Element(_xNameSpace + "EstadoDTEGlosa").Value;
                     tipoDte = rcp.Element(_xNameSpace + "TipoDTE").Value;
                     folio = rcp.Element(_xNameSpace + "Folio").Value;
+
+                    RegistrarRespuestaDelCliente(Maquina.eventoRecibidoConforme, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte,
+                                        "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeDte + "(" + estadoDte + ") del:" + xmlAdjunto.Mensaje.Headers.Date,
+                                        xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
+                    MuestraAvance(100, "Folio: " + tipoDte + "-" + folio + " " + _sMsj);
 
                     if (estadoDte.Equals("0") || estadoDte.Equals("1"))
                         eventoCliente = Maquina.eventoResultadoAceptado;
@@ -1064,14 +1068,16 @@ namespace respuestaEnvioDTE
                 //acuse de recibo
                 foreach (var rcb in xRecibo)
                 {
-                    RegistrarRespuestaDelCliente (Maquina.eventoRecibidoConforme, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte, "Acuse:" + _sTrackId + " Dte:" + mensajeDte + " del " + xmlAdjunto.Mensaje.Headers.Date,
-                                                  xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
                     _continuarBusqueda = "NO";
 
                     _sTrackId = rcb.Element(xNameSpaceTmp + "DocumentoRecibo").Attribute("ID").Value;
                     tipoDte = rcb.Element(xNameSpaceTmp + "DocumentoRecibo").Element(xNameSpaceTmp + "TipoDoc").Value;
                     folio = rcb.Element(xNameSpaceTmp + "DocumentoRecibo").Element(xNameSpaceTmp + "Folio").Value;
                     mensajeDte = tipoDte + "-" + folio;
+
+                    RegistrarRespuestaDelCliente(Maquina.eventoRecibidoConforme, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte, "Acuse:" + _sTrackId + " Dte:" + mensajeDte + " del " + xmlAdjunto.Mensaje.Headers.Date,
+                                                  xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
+                    MuestraAvance(100, "Folio: " + tipoDte + "-" + folio + " " + _sMsj);
 
                     RegistrarRespuestaDelCliente(Maquina.eventoAcuseProducto, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte, "Acuse:" + _sTrackId + " Dte:" + mensajeDte + " del " + xmlAdjunto.Mensaje.Headers.Date,
                                                  xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
@@ -1126,15 +1132,17 @@ namespace respuestaEnvioDTE
                     {
                         if (dte.Name.ToString().Equals(_xNameSpace + "RecepcionDTE"))
                         {
-                            RegistrarRespuestaDelCliente(Maquina.eventoRecibidoConforme, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte,
-                                                "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeDte + "(" + estadoDte + ") del " + xmlAdjunto.Mensaje.Headers.Date + " " + mensajeEnvio,
-                                                xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
                             _continuarBusqueda = "NO";
 
                             tipoDte = dte.Element(_xNameSpace + "TipoDTE").Value;
                             folio = dte.Element(_xNameSpace + "Folio").Value;
                             estadoDte = dte.Element(_xNameSpace + "EstadoRecepDTE").Value;
                             mensajeDte = dte.Element(_xNameSpace + "RecepDTEGlosa").Value;
+
+                            RegistrarRespuestaDelCliente(Maquina.eventoRecibidoConforme, xPosibleRespuesta, xmlAdjunto.Uid, folio, tipoDte,
+                                                "Id:" + _sTrackId + " Dte:" + tipoDte + "-" + folio + " " + mensajeDte + "(" + estadoDte + ") del " + xmlAdjunto.Mensaje.Headers.Date + " " + mensajeEnvio,
+                                                xmlAdjunto.nombreArchivoXml, sIdCliente, xmlAdjunto.Mensaje.Headers.From.Address);
+                            MuestraAvance(100, "Folio: " + tipoDte + "-" + folio + " " + _sMsj);
 
                             if (estadoEnvio.Equals("0") && estadoDte.Equals("0"))
                                 eventoCliente = Maquina.eventoAcuseDocumento;
@@ -1195,6 +1203,7 @@ namespace respuestaEnvioDTE
         {
             try
             {
+                _sMsj = string.Empty;
                 LogFacturaCompraService logReceptor = new LogFacturaCompraService(_conex.ConnStr);
                 bool existeDoc = TraeDatosDocVentas(folio, tipo, Maquina.estadoBaseEmisor);
                 if (!existeDoc)
@@ -1205,7 +1214,7 @@ namespace respuestaEnvioDTE
                 if (!_idImpuestoCliente.Equals(rutClienteXml))
                 {
                     _sMsj = "El remitente envió este archivo por error. El documento de referencia con RUT: " + rutClienteXml + " no está en GP. Este correo ha sido procesado. [CFDServicioDespachoRespuestas.GuardaRespuestaDelCliente()]";
-                    logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, uid, nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
+                    logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, string.Concat(uid, "-", eventoCliente.ToString()), nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
                     return;
                 }
 
@@ -1213,7 +1222,7 @@ namespace respuestaEnvioDTE
                 {
                     logEmisor.Save("Resultado del cliente. " + mensajeResultado, _conex.Usuario, xRespuesta.ToString(), uid);
                     logEmisor.Update(_conex.Usuario, Maquina.estadoBaseEmisor, Maquina.estadoBaseEmisor);
-                    logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, uid, nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
+                    logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, string.Concat(uid, "-", eventoCliente.ToString()), nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
                 }
                 else
                     if (logEmisor.CicloDeVida.iErr < 0)
@@ -1222,9 +1231,9 @@ namespace respuestaEnvioDTE
                         if (yaRecorrido)
                             _sMsj = "Este correo ya fue procesado anteriormente. [CFDServicioDespachoRespuestas.GuardaLogRespuestaDelCliente()]";
                         else
-                            _sMsj += "\nVerifique el " + mensajeResultado + " Este es un nuevo tipo de documento para el que no hay una transición. Se guardará en el log sin procesar.";
+                            _sMsj += "\nVerifique el " + mensajeResultado + " No hay una transición para el evento " +eventoCliente.ToString() + " desde el estado " + _idxSingleStatus.ToString() + " Se guardará en el log sin procesar.";
 
-                        logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, uid, nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
+                        logReceptor.Save(0, logEmisor.Sopnumbe, rutClienteXml, "-", DateTime.Now, string.Concat(uid, "-", eventoCliente.ToString()), nomArchivoRecibido, 0, "-", mensajeResultado, "", "", uid, _conex.Usuario);
                     }
             }
             catch (Exception pr)
