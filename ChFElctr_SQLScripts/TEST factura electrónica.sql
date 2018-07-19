@@ -20,9 +20,11 @@ use chi10;
 select top 1000 sopnumbe, idexterno, *
 from cfdlogfacturaxml lf
 where --idexterno = '20294'
-lf.sopnumbe in 
+lf.sopnumbe > '33-00000900'
+
+in 
 (
-'33-00000745'	--33-00000657 
+'33-00000972'	--33-00000657 
 --'61-00000080'
 )
 order by secuencia
@@ -39,12 +41,12 @@ and estado = 'emitido'
 select refrence, custnmbr, custname, *
 from sop30200 so
 where --datediff(day, '8/1/16', docdate) >=0
-so.sopnumbe in ('61-00000070') --, '33-00000523', '33-00000532')
+so.sopnumbe in ('33-00000972') --, '33-00000523', '33-00000532')
 
 --update du set usrtab01 = '1-Anula documento'
 select *
 from sop10106 du
-where du.sopnumbe like '61-00000070'
+where du.sopnumbe like '33-00000972'
 
 -------------------------------------------------------------------------------------------------------
 --OBJETOS DTE
@@ -52,7 +54,7 @@ use gchi;
 
 select * 
 from vwCfdTransaccionesDeVenta 
-where sopnumbe like '61-00000070'
+where sopnumbe like '33-00000972'
 --where sopnumbe >= '33-00001158'	-- '33%26%'	--'61%15%'	--
 order by sopnumbe
 
@@ -63,22 +65,22 @@ select * from dbo.fCfdCertificadoVigente('1/1/14', 'sa')
 select dbo.fCfdConceptosXML(3, '33-00001446')
 select dbo.fCfdImpuestosXML(3, 'FV 00003929', 'V-IVA DF')
 select * FROM dbo.fCfdImpuestos(3, 'FV 00003929', 'V-IVA DF')
-select dbo.fCfdGeneraDocumentoDeVentaXML (3, '61-00000070')	--aceptado
+select dbo.fCfdGeneraDocumentoDeVentaXML (3, '33-00000972')	--aceptado
 
 select tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr,
 		dbo.fCfdReferenciaXML(tv.soptype, tv.rmdtypal, tv.sopnumbe, tv.docdate, tv.sopUserTab01, tv.refrence, tv.sopUserDef2, tv.usrdat02, tv.total, rtrim(tv.CUSTNMBR), tv.cstponbr)	'Documento'
 	from vwSopTransaccionesVenta tv
-where tv.sopnumbe like '61-00000070'
+where tv.sopnumbe like '33-00000972'
 and datediff(day, '1/1/1900', usrdat02) = 0
 
 select itemdesc, replace(itemdesc, '’', ''), dbo.fCfdReemplazaCaracteresNI(itemdesc), dbo.fCfdConceptosXML(3, '33-00001446')
 from vwSopLineasTrxVentas 
-where sopnumbe = '61-00000070'
+where sopnumbe = '33-00000972'
 
 --update s set refrence = 'DEVOLUCION DE MERCADERIAS' --docncorr = '13:30:00:000'
 select docncorr, *
 from sop30200 s
-where s.sopnumbe = '61-00000070'
+where s.sopnumbe = '33-00000972'
 datediff(day, '8/14/14', docdate) = 0
 order by 1
 
@@ -141,7 +143,7 @@ sp_statistics loch0004
 --actualiza tipo de documento de localización de compras
 select *
 from loch0004	--CUSTVNDR VNDDOCNM LOCHTRXNO
-where lochtrxno = '61-00000070'
+where lochtrxno = '33-00000972'
 
 custvndr like '%23427%' 
 and MODULE1 = 1	--1:compras, 2:ventas
@@ -170,7 +172,7 @@ left join loch0004 id
 	and id.custvndr = s.custnmbr
 where id.lochtrxno is null
 and year(s.docdate) >= 2016
-and s.sopnumbe = '61-00000070'
+and s.sopnumbe = '33-00000972'
 
 --revisa docs sin código de documento en AP
 --insert into loch0004 (LOCHTRXNO,DOCTYPE,LOCHDOCCOD,CUSTVNDR,VNDDOCNM,DOCDATE,MODULE1,DOCAMNT,RPRTTYPE,USERID,DOCCLTYP)
@@ -220,7 +222,7 @@ from fCfdDatosXmlParaImpresion(@archivoXml)
 
 SELECT *
 FROM sop10100
-WHERE SOPNUMBE in ( '61-00000070')
+WHERE SOPNUMBE in ( '33-00000972')
 
 SELECT custnmbr, voidstts, *
 FROM SOP30200
@@ -302,17 +304,17 @@ select refrence, custnmbr, *
 from sop30200 s
 where soptype = 3
 and sopnumbe in (
-'61-00000070'
+'33-00000972'
 )
 
 
 --insert into sop10106 (soptype, sopnumbe, usrtab01, cmmttext)
 values (4, '61-0000060', '1-Anula documento', '')
---update ctrl set usrtab01 = '1-Anula documento'	--userdef2 = '61-00000070'		--usrdat02 = '10/30/15', -- 
+--update ctrl set usrtab01 = '1-Anula documento'	--userdef2 = '33-00000972'		--usrdat02 = '10/30/15', -- 
 select *
 from SOP10106 ctrl	--campos def. por el usuario.
 where ctrl.soptype = 4
-and ctrl.sopnumbe = '61-00000070'	--'61-0000303'
+and ctrl.sopnumbe = '33-00000972'	--'61-0000303'
 and ctrl.usrtab01 = ''
 
 --update sl set subtotal = 4609656, orsubtot= 4609656, remsubto= 4609656, oremsubt= 4609656
@@ -325,10 +327,10 @@ where sl.sopnumbe in (
 
 
 select *
---update s set tracking_number = 'OC70555'
+--update s set tracking_number = 'OC'+tracking_number
 --DELETE s
 from sop10107 s		--números de seguimiento
-where s.sopnumbe = '61-00000070'
+where s.sopnumbe = '33-00000972'
 --AND TRACKING_NUMBER = 'NR5001471013                             '
 
 
@@ -354,3 +356,9 @@ from cfdlogfacturaxml lf
 where estado = 'emitido'
 group by soptype, sopnumbe
 having count(*) > 1
+
+
+select *
+from sop30300
+where sopnumbe = '33-00000868          '
+
