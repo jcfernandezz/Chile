@@ -146,7 +146,7 @@ namespace FEChile
                 {
                     //RespuestaEnvio cfdCompra = new RespuestaEnvio() ;
                     //CFDReciboMercaServicio cfdRecibo = new CFDReciboMercaServicio() ;
-                    if (evento == Maquina.eventoAcuse)
+                    if (evento == Maquina.eventoAcuseProducto)
                     {
                         ArmaRecepcionProducto(loteFacturasCompra, evento, _Param.RutaArchivosTemp);
                         sTipo = "RECIBO";

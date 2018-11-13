@@ -345,9 +345,9 @@ namespace FEChile
             try
             {
                 XElement xRespuestaSII = XElement.Parse(respuesta);
+                status = xRespuestaSII.Element("STATUS").Value;
                 String sArchivo = xRespuestaSII.Element("FILE").Value;
                 trackId = xRespuestaSII.Element("TRACKID").Value;
-                status = xRespuestaSII.Element("STATUS").Value;
                 var errores = xRespuestaSII.Elements("DETAIL").Elements();
 
                 if (!status.Equals("0"))
@@ -361,7 +361,9 @@ namespace FEChile
             catch (NullReferenceException nr)
             {
                 string res = respuesta == null ? "" : respuesta;
-                SMsj = "No se encuentra el trackId del SII. " + nr.Message + " [CFDServicioDespachoSII.RevisaRespuestaUploadDelSII] " + res ;
+                if (status.Equals("5"))
+                    res += " No está autenticado. Revise si el certificado está vigente. ";
+                SMsj = string.Concat("No se encuentra el trackId del SII. " , nr.Message , " [CFDServicioDespachoSII.RevisaRespuestaUploadDelSII] " , res) ;
                 
                 IErr++;
             }

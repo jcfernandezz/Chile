@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <listaParametros>
-  <servidor>GILABASRDB03</servidor>
+  <servidor>10.1.1.24</servidor>
   <seguridadIntegrada>0</seguridadIntegrada>
   <usuariosql>sa</usuariosql>
-  <passwordsql>sa2</passwordsql>
-  <ingresoPredeterminado>GCHI</ingresoPredeterminado>
-  <compannia bd="GCHI" default="true">
-    <encoding>ISO-8859-1</encoding>
-    <URLArchivoXSD>C:\GPUsuario\GPExpressCfdi\fePlantillas\cfdv32.xsd</URLArchivoXSD>
-    <URLArchivoXSLT>C:\GPUsuario\GPExpressCfdi\fePlantillas\cadenaoriginal_3_2.xslt</URLArchivoXSLT>
-	<RutaArchivosTemp>C:\GPUsuario\GPExpressCfdi\feGilaChiTST\intercambio\</RutaArchivosTemp>
+  <passwordsql>imagenes24</passwordsql>
+  <ingresoPredeterminado>CHI10</ingresoPredeterminado>
+  <compannia bd="CHI10">
+	<encoding>ISO-8859-1</encoding>
+	<URLArchivoLibroCVXSD>\\10.1.1.24\GettyCh_FacturaElectronicaXml\fePlantillas\LibroCV_v10.xsd</URLArchivoLibroCVXSD>
+    <URLArchivoEnvioXSD>\\10.1.1.24\GettyCh_FacturaElectronicaXml\fePlantillas\EnvioDTE_v10.xsd</URLArchivoEnvioXSD>
+    <URLArchivoXSD>\\10.1.1.24\GettyCh_FacturaElectronicaXml\fePlantillas\DTE_v10.xsd</URLArchivoXSD>
+    <URLArchivoXSLT>na</URLArchivoXSLT>
+	<RutaArchivosTemp>\\10.1.1.24\GettyCh_FacturaElectronicaXml\intercambio\</RutaArchivosTemp>
     <PAC>
-      <urlWebService>https://qa2.interfactura.com/TimbreServicios/TimbreServicios.asmx</urlWebService>
+      <urlWebService>https://palena.sii.cl/cgi_dte/UPL/DTEUpload</urlWebService>
     </PAC>
     <reporteador>CRYSTAL</reporteador>
     <rutaReporteCrystal tipo="default">
-      <Ruta>\\gilabasrdb03\Integraciones Getty\Factura Chile\GCHI_FACTURA_DTE.rpt</Ruta>
+      <Ruta>\\10.1.1.24\Integraciones Getty\Factura Chile\CHI10_FACTURA_DTE.rpt</Ruta>
       <Margenes>
         <bottomMargin>0</bottomMargin>
         <topMargin>0</topMargin>
@@ -49,21 +51,22 @@
     </ReporteSSRS>
     <emite>1</emite>
     <anula>1</anula>
-    <imprime>1</imprime>
+    <imprime>0</imprime>
     <publica>0</publica>
     <envia>1</envia>
     <zip>0</zip>
     <emailSetup>
-		  <smtp>locastillo.webempresario.cl</smtp>
-		  <pop3>locastillo.webempresario.cl</pop3>
-		  <puerto>25</puerto>
-		  <puertoIn>110</puertoIn>
-		  <cuenta>juan-carlos.fernandez@tiiselam.com</cuenta>
-		  <usuario>juan-carlos.fernandez</usuario>
-		  <clave>1201</clave>
-		  <ssl>false</ssl>
-	      <replyto>jfernandezz@hotmail.com</replyto>
+		  <smtp>smtp.gmail.com</smtp>
+		  <pop3>pop.gmail.com</pop3>
+		  <puerto>587</puerto>
+		  <puertoIn>995</puertoIn>
+		  <cuenta>facturaelectronicachile@gettyimageslatam.com</cuenta>
+		  <usuario>facturaelectronicachile@gettyimageslatam.com</usuario>
+		  <clave>facturagetty2014</clave>
+		  <ssl>true</ssl>
+	      <replyto>facturaelectronicachile@gettyimageslatam.com</replyto>
                 <carta>FACTURA_ELECTRONICA</carta>
+				<cartaProveedor>RESPUESTA_PROVEEDOR</cartaProveedor>
                 <adjuntoEmite>xml</adjuntoEmite>
                 <adjuntoImprime>pdf</adjuntoImprime>
     </emailSetup>

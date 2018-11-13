@@ -133,7 +133,7 @@ namespace MaquinaDeEstados
                     sMsj = "No tiene permisos para enviar el libro. Verifique los permisos en la ventana de mantenimiento de Certificados de GP. (Transicion.CondicionDeGuarda)";
             }
 
-            if (_evento == Maquina.eventoResultadoRechazado || _evento == Maquina.eventoAcuse || _evento == Maquina.eventoResultadoAceptado || _evento == Maquina.eventoRecibidoConforme || _evento == Maquina.eventoRecibidoConError )
+            if (_evento == Maquina.eventoResultadoRechazado || _evento == Maquina.eventoAcuseDocumento || _evento == Maquina.eventoAcuseProducto || _evento == Maquina.eventoResultadoAceptado || _evento == Maquina.eventoRecibidoConforme || _evento == Maquina.eventoRecibidoConError )
             {
                 if (conAcceso == 1)
                     ok = true;

@@ -245,6 +245,8 @@ GO
 IF OBJECT_ID ('dbo.fCfdConceptosSumaExentos') IS NOT NULL
    DROP FUNCTION dbo.fCfdConceptosSumaExentos
 GO
+
+--ATENCIÓN! se debería reemplazar por el monto exento de la sección impuestos totales de la factura. 
 create function dbo.fCfdConceptosSumaExentos(@p_soptype smallint, @p_sopnumbe varchar(21))
 returns TABLE 
 as

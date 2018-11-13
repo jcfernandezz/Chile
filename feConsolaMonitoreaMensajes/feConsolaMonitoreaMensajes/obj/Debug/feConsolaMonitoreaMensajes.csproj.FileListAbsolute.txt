@@ -70,3 +70,5 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\feConsolaMonitoreaMensajes\feCo
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\feConsolaMonitoreaMensajes\feConsolaMonitoreaMensajes\bin\Debug\Encriptador.XmlSerializers.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\feConsolaMonitoreaMensajes\feConsolaMonitoreaMensajes\obj\Debug\feConsolaMonitoreaMensajes.exe
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\feConsolaMonitoreaMensajes\feConsolaMonitoreaMensajes\obj\Debug\feConsolaMonitoreaMensajes.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\feConsolaMonitoreaMensajes\feConsolaMonitoreaMensajes\bin\Debug\envioDTE.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\feConsolaMonitoreaMensajes\feConsolaMonitoreaMensajes\bin\Debug\envioDTE.pdb

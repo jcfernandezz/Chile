@@ -24,7 +24,8 @@ namespace MaquinaDeEstados
         public const int eventoResultadoRechazado = 13;
         public const int eventoCambiaAPublicado = 14;
         public const int eventoReceptorExcepcional = 15;
-        public const int eventoAcuse = 11;
+        public const int eventoAcuseProducto = 11;
+        public const int eventoAcuseDocumento = 16;
         public const int eventoEnviaMailACliente = 6;
         public const int eventoEmiteLibro = 20;
         public const int eventoCorrigeLibro =21;
@@ -34,7 +35,7 @@ namespace MaquinaDeEstados
         public const String binStatusBaseEmisor   = "00000000000100";
         public const String binStatusBaseReceptor = "00001000000000";
         //public const String binStatusBaseEPaso2   = "00000000001100";
-        private string[] _estados = { "anulado", "rechazado", "aceptado", "recibido", "publicado", "excepcional", "rechazado SII", "con reparos SII", "aceptado SII", "enviado SII", "emitido", "no emitido", "prod recibido", "con error" };
+        private string[] _estados = { "anulado", "rechazado", "aceptado", "doc recibido", "publicado", "recibido", "rechazado SII", "con reparos SII", "aceptado SII", "enviado SII", "emitido", "no emitido", "prod recibido", "con error" };
         //                                0           1         2              3           4            5               6                   7               8              9             10         11              12             13
         private Estado[] _Estados;
 
@@ -132,9 +133,9 @@ namespace MaquinaDeEstados
                 new Estado("anulado", 0, -1),
                 new Estado("rechazado", 1, -1),
                 new Estado("aceptado", 2, -1),
-                new Estado("recibido", 3, -1),
+                new Estado("doc recibido", 3, -1),
                 new Estado("publicado", 4, -1),
-                new Estado("excepcional", 5, -1),
+                new Estado("recibido", 5, -1),
                 new Estado("rechazado SII", 6, -1),
                 new Estado("con reparos SII", 7, -1),
                 new Estado("aceptado SII", 8, -1),
@@ -149,9 +150,15 @@ namespace MaquinaDeEstados
                                     new Transicion(eventoCambiaAPublicado, "FEChile reenviar email de factura", "std", 13, 4),
                                     new Transicion(eventoResultadoRechazado, "FEChile recibir/enviar email factura rechazada", "std", 3, 1),
                                     new Transicion(eventoResultadoRechazado, "FEChile recibir email factura rechazada", "std", 4, 1),
-                                    new Transicion(eventoResultadoAceptado, "FEChile recibir/enviar email factura aceptada", "sco", 3, 2),
-                                    new Transicion(eventoAcuse, "FEChile recibir email acuse de recibo de producto", "sco", 3, 12),
-                                    new Transicion(eventoRecibidoConforme, "FEChile recibir email factura recibida conforme", "std", 4, 3),
+
+                                    //new Transicion(eventoRecibidoConforme, "FEChile recibir email factura recibida conforme", "std", 4, 3),
+                                    //new Transicion(eventoResultadoAceptado, "FEChile recibir/enviar email factura aceptada", "sco", 3, 2),
+                                    //new Transicion(eventoAcuse, "FEChile recibir email acuse de recibo de producto", "sco", 3, 12),
+                                    new Transicion(eventoRecibidoConforme, "FEChile recibir email - mensaje recibido", "std", 4, 5),
+                                    new Transicion(eventoResultadoAceptado, "FEChile recibir/enviar email factura aceptada", "sco", 5, 2),
+                                    new Transicion(eventoAcuseProducto, "FEChile recibir email acuse de recibo de producto", "sco", 5, 12),
+                                    new Transicion(eventoAcuseDocumento, "FEChile recibir email acuse de recibo de documento", "sco", 5, 3),
+
                                     new Transicion(eventoRecibidoConError, "FEChile recibir email factura recibida con error", "std", 4, 13),
                                     new Transicion(eventoEnviaMailACliente, "FEChile enviar email factura con reparos", "std", 7, 4),
                                     new Transicion(eventoEnviaMailACliente, "FEChile enviar email factura aceptada", "std", 8, 4),
@@ -175,9 +182,9 @@ namespace MaquinaDeEstados
                 new Estado("anulado", 0, -1),
                 new Estado("rechazado", 1, -1),
                 new Estado("aceptado", 2, -1),
-                new Estado("recibido", 3, -1),
+                new Estado("doc recibido", 3, -1),
                 new Estado("publicado", 4, -1),
-                new Estado("excepcional", 5, -1),
+                new Estado("recibido", 5, -1),
                 new Estado("rechazado SII", 6, -1),
                 new Estado("con reparos SII", 7, -1),
                 new Estado("aceptado SII", 8, -1),
@@ -192,8 +199,14 @@ namespace MaquinaDeEstados
                                     //Eventos de nc/nd electrónica DTE
                                     new Transicion(eventoCambiaAPublicado, "FEChile reenviar email de factura", "std", 13, 4),
                                     new Transicion(eventoResultadoRechazado, "FEChile recibir/enviar email factura rechazada", "std", 3, 1),
-                                    new Transicion(eventoResultadoAceptado, "FEChile recibir/enviar email factura aceptada", "std", 3, 2),
-                                    new Transicion(eventoRecibidoConforme, "FEChile recibir email factura recibida conforme", "std", 4, 3),
+
+                                    //new Transicion(eventoRecibidoConforme, "FEChile recibir email factura recibida conforme", "std", 4, 3),
+                                    //new Transicion(eventoResultadoAceptado, "FEChile recibir/enviar email factura aceptada", "std", 3, 2),
+
+                                    new Transicion(eventoRecibidoConforme, "FEChile recibir email - mensaje recibido", "std", 4, 5),
+                                    new Transicion(eventoResultadoAceptado, "FEChile recibir/enviar email factura aceptada", "sco", 5, 2),
+                                    new Transicion(eventoAcuseDocumento, "FEChile recibir email acuse de recibo de documento", "sco", 5, 3),
+
                                     new Transicion(eventoRecibidoConError, "FEChile recibir email factura recibida con error", "std", 4, 13),
                                     new Transicion(eventoEnviaMailACliente, "FEChile enviar email factura con reparos", "std", 7, 4),
                                     new Transicion(eventoEnviaMailACliente, "FEChile enviar email factura aceptada", "std", 8, 4),
@@ -218,9 +231,9 @@ namespace MaquinaDeEstados
                 new Estado("anulado", 0, -1),
                 new Estado("rechazado", 1, -1),
                 new Estado("aceptado", 2, -1),
-                new Estado("recibido", 3, -1),
+                new Estado("doc recibido", 3, -1),
                 new Estado("publicado", 4, -1),
-                new Estado("excepcional", 5, -1),
+                new Estado("recibido", 5, -1),
                 new Estado("rechazado SII", 6, -1),
                 new Estado("con reparos SII", 7, -1),
                 new Estado("aceptado SII", 8, -1),

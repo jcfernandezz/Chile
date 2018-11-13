@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <listaParametros>
-  <servidor>10.1.1.22</servidor>
+  <servidor>10.1.1.24</servidor>
   <seguridadIntegrada>0</seguridadIntegrada>
   <usuariosql>sa</usuariosql>
-  <passwordsql>sa22</passwordsql>
+  <passwordsql>imagenes24</passwordsql>
   <ingresoPredeterminado>CHI10</ingresoPredeterminado>
   <compannia bd="CHI10" default="true">
     <encoding>ISO-8859-1</encoding>
@@ -15,7 +15,7 @@
     </PAC>
     <reporteador>CRYSTAL</reporteador>
     <rutaReporteCrystal tipo="default">
-      <Ruta>\\10.1.1.22\Integraciones Getty\Factura Chile\GCHI_FACTURA_DTE.rpt</Ruta>
+      <Ruta>\\10.1.1.24\Integraciones Getty\Factura Chile\GCHI_FACTURA_DTE.rpt</Ruta>
       <Margenes>
         <bottomMargin>0</bottomMargin>
         <topMargin>0</topMargin>
@@ -62,7 +62,7 @@
 		  <usuario>facturaelectronicachile@gettyimages.com</usuario>
 		  <clave>ry!E923Ukac</clave>
 		  <ssl>true</ssl>
-	      <replyto>jfernandezz@hotmail.com</replyto>
+	      <replyto>facturaelectronicachile@gettyimages.com</replyto>
                 <carta>FACTURA_ELECTRONICA</carta>
                 <adjuntoEmite>xml</adjuntoEmite>
                 <adjuntoImprime>pdf</adjuntoImprime>

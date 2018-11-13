@@ -41,7 +41,7 @@ namespace feConsolaMonitoreaMensajes
             _sMsj = monitor.sMsj;
             if (monitor.iErr == 0)
             {
-                reportaProgreso(100, "Chile - Factura electrónica recepción de documentos v. 1.0.3");
+                reportaProgreso(100, "Chile - Factura electrónica recepción de documentos v. 1.1.0");
 
                 monitor.Progreso += new MonitorDeMensajes.reportaProgreso(reportaProgreso);
                 monitor.MonitoreaComunicacionesInbound(false, Maquina.estadoBaseReceptor);

@@ -105,10 +105,10 @@ namespace FEChile
 
                 if (sopnumbe.Equals(string.Empty))
                     _nomArchivo = Utiles.FormatoNombreArchivo(_ts.ToString("yyMMddHHmmss"),
-                                                         _modeloDte.dteDoc.Encabezado.Receptor.RznSocRecep.Replace('%', '_'), 20);
+                                                         _modeloDte.dteDoc.Encabezado.Receptor.RznSocRecep.Replace('%', '_').Replace('+', '_'), 20);
                 else
                     _nomArchivo = Utiles.FormatoNombreArchivo(sopnumbe + "_" + _modeloDte.dteDoc.Encabezado.Receptor.RUTRecep + "_",
-                                                         _modeloDte.dteDoc.Encabezado.Receptor.RznSocRecep.Replace('%', '_'), 20);
+                                                         _modeloDte.dteDoc.Encabezado.Receptor.RznSocRecep.Replace('%', '_').Replace('+', '_'), 20);
                 _setId = "E" + _nomArchivo;
             }
             catch (Exception ed)
@@ -355,9 +355,9 @@ namespace FEChile
             }
             catch (Exception fr)
             {
-                sMsj = "Excepción al firmar el envío DTE. " + fr.Message + " [EnvioDteModel.firma]";
+                sMsj = "Excepción al firmar el envío DTE. Uri: "+ sUri+" " + fr.Message + " [EnvioDteModel.firma]";
                 iErr++;
-                throw;
+                throw new InvalidOperationException(sMsj);
             }
         }
 
