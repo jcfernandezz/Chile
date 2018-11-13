@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(winformGeneraFE));
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.cFDFacturaCompraCabBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cFDFacturaCompraCabBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dgridTrxFacturas = new System.Windows.Forms.DataGridView();
             this.Mark = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.vwCfdTransaccionesDeVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -175,8 +177,8 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.binSourceVwCfdLibroCVLog = new System.Windows.Forms.BindingSource(this.components);
             this.binSourceVwCfdLogFacCompra = new System.Windows.Forms.BindingSource(this.components);
-            this.cFDFacturaCompraCabBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cFDFacturaCompraCabBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgridTrxFacturas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwCfdTransaccionesDeVentaBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -215,9 +217,15 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.binSourceVwCfdLibroCVLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.binSourceVwCfdLogFacCompra)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // cFDFacturaCompraCabBindingSource
+            // 
+            this.cFDFacturaCompraCabBindingSource.DataSource = typeof(FEChile.CFDFacturaCompraCab);
+            // 
+            // cFDFacturaCompraCabBindingSource1
+            // 
+            this.cFDFacturaCompraCabBindingSource1.DataSource = typeof(FEChile.CFDFacturaCompraCab);
             // 
             // dgridTrxFacturas
             // 
@@ -469,7 +477,7 @@
             // 
             this.genFacturaElectrónicaV10ToolStripMenuItem.Name = "genFacturaElectrónicaV10ToolStripMenuItem";
             this.genFacturaElectrónicaV10ToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.genFacturaElectrónicaV10ToolStripMenuItem.Text = "Factura Electrónica Chile v. 1.3.6";
+            this.genFacturaElectrónicaV10ToolStripMenuItem.Text = "Factura Electrónica Chile v. 1.4.6";
             // 
             // toolStripMenuItem2
             // 
@@ -1773,14 +1781,6 @@
             this.panel7.Size = new System.Drawing.Size(1099, 490);
             this.panel7.TabIndex = 81;
             // 
-            // cFDFacturaCompraCabBindingSource
-            // 
-            this.cFDFacturaCompraCabBindingSource.DataSource = typeof(FEChile.CFDFacturaCompraCab);
-            // 
-            // cFDFacturaCompraCabBindingSource1
-            // 
-            this.cFDFacturaCompraCabBindingSource1.DataSource = typeof(FEChile.CFDFacturaCompraCab);
-            // 
             // winformGeneraFE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1796,6 +1796,8 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "GP Factura Electrónica";
             this.Load += new System.EventHandler(this.winformGeneraFE_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgridTrxFacturas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwCfdTransaccionesDeVentaBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -1859,8 +1861,6 @@
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.binSourceVwCfdLibroCVLog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.binSourceVwCfdLogFacCompra)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
