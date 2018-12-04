@@ -20,39 +20,52 @@ values('gila\andrea.gomez', '141475347', '5/29/17', '5/29/18',
 		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
 		'GETTY123', 1, 1, 1, 1, 1)
 GO
+
+--insert into cfd_CER00100 
+--( USERID,ACA_RUT,fecha_vig_desde,fecha_vig_hasta,ruta_certificado,ruta_clave,
+--	contrasenia_clave,ACA_SolicitaFolio,ACA_AnulaDocumentos,ACA_EnviaDocumentos,ACA_FirmaDocumentos,ACTIVE)
+--values('gila\natalia.pino', '141475347', '5/29/17', '11/11/18', 
+--		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
+--		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
+--		'1234', 1, 1, 1, 1, 1)
+--GO
+
 insert into cfd_CER00100 
 ( USERID,ACA_RUT,fecha_vig_desde,fecha_vig_hasta,ruta_certificado,ruta_clave,
 	contrasenia_clave,ACA_SolicitaFolio,ACA_AnulaDocumentos,ACA_EnviaDocumentos,ACA_FirmaDocumentos,ACTIVE)
-values('gila\natalia.pino', '141475347', '5/29/17', '5/29/18', 
-		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
-		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
-		'1234', 1, 1, 1, 1, 1)
+values('gila\natalia.pino', '190024784', '11/15/2018', '11/14/2021', 
+		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\npino\certNPino.p12',
+		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\npino\certNPino.p12',
+		'Getty-2018', 1, 1, 1, 1, 1)
 GO
 
 insert into cfd_CER00100 
 ( USERID,ACA_RUT,fecha_vig_desde,fecha_vig_hasta,ruta_certificado,ruta_clave,
 	contrasenia_clave,ACA_SolicitaFolio,ACA_AnulaDocumentos,ACA_EnviaDocumentos,ACA_FirmaDocumentos,ACTIVE)
-values('gila\tiiselam', '141475347', '5/29/17', '5/29/18', 
-		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
-		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
-		'GETTY123', 1, 1, 1, 1, 1)
+values('gila\ext-tiiselam4', '190024784', '11/15/2018', '11/14/2021', 
+		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\npino\certNPino.p12',
+		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\npino\certNPino.p12',
+		'Getty-2018', 1, 1, 1, 1, 1)
 GO
+
 insert into cfd_CER00100 
 ( USERID,ACA_RUT,fecha_vig_desde,fecha_vig_hasta,ruta_certificado,ruta_clave,
 	contrasenia_clave,ACA_SolicitaFolio,ACA_AnulaDocumentos,ACA_EnviaDocumentos,ACA_FirmaDocumentos,ACTIVE)
-values('gila\ext-tiiselam4', '141475347', '5/29/17', '5/29/18', 
-		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
-		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
-		'GETTY123', 1, 1, 1, 1, 1)
+values('gila\tiiselam', '190024784', '11/15/2018', '11/14/2021', 
+		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\npino\certNPino.p12',
+		'\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\npino\certNPino.p12',
+		'Getty-2018', 1, 1, 1, 1, 1)
 GO
+
 
 select *
 --update c set --aca_rut = '141475347'
 --			ruta_certificado = '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
 --			ruta_clave =       '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\pparra\Certificado_PriscillaParra.p12',
 --			contrasenia_clave = '1234'
+--delete c
 from cfd_CER00100 c
-WHERE USERID  = 'gila\ext-tiiselam4'
+WHERE USERID  = 'gila\tiiselam'
 
 ---------------------------------------------------------------------------------------------------------------------------
 --Inserta configuración CAF (folios) por tipo de documento
@@ -63,7 +76,7 @@ select *
 --delete f
 from  cfd_FOL00100 f
 where --f.soptype = 4
- f.docid = 'FACTURA ELCTRN'	--'NCREDIT ELECTRN'	--'FACTURA ELCTRN'	--
+ f.docid = 'NCREDIT ELECTRN'	--'FACTURA ELCTRN'	--'FACTURA ELCTRN'	--
 
 select max(sopnumbe) from sop30200 where soptype = 3
 
@@ -77,13 +90,31 @@ select max(sopnumbe) from sop30200 where soptype = 3
 --values(3, 'FACTURA ELCTRN', 609, 1081, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII767319823360920182261151.xml');
 
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
-values(3, 'FACTURA ELCTRN', 1082, 1925, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII767319823310822018820959.xml');
+values(3, 'FACTURA ELCTRN', 1082, 1925, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII767319826118220181126126.xml');
 
 --insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
 --values(4, 'NCREDIT ELECTRN', 64, 106, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198261642018321616.xml');
 
+--insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+--values(4, 'NCREDIT ELECTRN', 107, 176, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII76731982611072018741744.xml');
+
+--insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+--values(4, 'NCREDIT ELECTRN', 178, 178, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198261178201811211227.xml');
+
+--insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+--values(4, 'NCREDIT ELECTRN', 179, 179, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198261179201811211229.xml');
+
+--insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+--values(4, 'NCREDIT ELECTRN', 180, 180, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198261180201811211231.xml');
+
+--insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+--values(4, 'NCREDIT ELECTRN', 181, 181, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198261181201811211232.xml');
+
+--insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
+--values(4, 'NCREDIT ELECTRN', 182, 182, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII767319826118220181126126.xml');
+
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
-values(4, 'NCREDIT ELECTRN', 107, 176, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII76731982611072018741744.xml');
+values(4, 'NCREDIT ELECTRN', 183, 183, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198261183201811281159.xml');
 
 insert into cfd_fol00100(SOPTYPE,DOCID,num_folio_desde,num_folio_hasta,ruta_codigo_autorizacion)
 values(3, 'FAC ELEC EXENTA', 1, 20, '\\GILABASRDB07\GettyCh_FacturaElectronicaCertificados\FoliosSII7673198234120177211538.xml');

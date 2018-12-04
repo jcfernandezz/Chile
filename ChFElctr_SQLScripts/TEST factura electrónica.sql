@@ -22,7 +22,7 @@ use chi10;
 select *
 from cfdlogfacturaxml lf
 where
-lf.sopnumbe ='61-00000148'	--<<<<<<<<<< Aquí ingresar el número de nota de crédito
+lf.sopnumbe ='61-00000183'	--<<<<<<<<<< Aquí ingresar el número de nota de crédito
 and lf.estadoActual= '00000010011100'
 and lf.estado = 'emitido'
 
