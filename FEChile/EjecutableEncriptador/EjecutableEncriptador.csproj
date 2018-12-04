@@ -147,6 +147,12 @@
     <Compile Include="BLL\vwCfdInformeMensualVentas.cs" />
     <Compile Include="ConexionDB.cs" />
     <Compile Include="BLL\vwCfdCartasReclamacionDeuda.cs" />
+    <Compile Include="Configuraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuraciones.Designer.cs">
+      <DependentUpon>Configuraciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="winformGeneraFE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Configuraciones.resx">
+      <DependentUpon>Configuraciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FacturaComprasReport.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
