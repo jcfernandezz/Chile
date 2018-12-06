@@ -158,3 +158,8 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\o
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\obj\Debug\EjecutableEncriptador.Configuraciones.resources
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\obj\Debug\EjecutableEncriptador.csproj.CoreCompileInputs.cache
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\obj\Debug\EjecutableEncriptador.csproj.CopyComplete
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Debug\cfdFolios.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Debug\EntityFramework.dll
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Debug\cfdFolios.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Debug\cfdFolios.dll.config
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\EjecutableEncriptador\bin\Debug\EntityFramework.xml

@@ -39,5 +39,5 @@ grant execute on proc_cfdLogFacturaCompraUpdate to rol_cfdigital;
 grant execute on proc_cfdLogFacturaCompraInsert to rol_cfdigital;
 grant execute on proc_cfdLogFacturaCompraDelete to rol_cfdigital;
 grant select on vwCfdLogFacturaCompra to rol_cfdigital;
-
-
+grant execute on dbo.SP_cfd_FOL00100 to rol_cfdigital;
+grant select on dbo.cfd_FOL00100 to rol_cfdigital;

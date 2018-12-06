@@ -30,10 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(winformGeneraFE));
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.cFDFacturaCompraCabBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cFDFacturaCompraCabBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.dgridTrxFacturas = new System.Windows.Forms.DataGridView();
             this.Mark = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.vwCfdTransaccionesDeVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -58,6 +56,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsMenuHerramientas = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.genFacturaElectrónicaV10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -177,8 +177,8 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.binSourceVwCfdLibroCVLog = new System.Windows.Forms.BindingSource(this.components);
             this.binSourceVwCfdLogFacCompra = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource1)).BeginInit();
+            this.cFDFacturaCompraCabBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cFDFacturaCompraCabBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgridTrxFacturas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwCfdTransaccionesDeVentaBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -217,15 +217,9 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.binSourceVwCfdLibroCVLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.binSourceVwCfdLogFacCompra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cFDFacturaCompraCabBindingSource
-            // 
-            this.cFDFacturaCompraCabBindingSource.DataSource = typeof(FEChile.CFDFacturaCompraCab);
-            // 
-            // cFDFacturaCompraCabBindingSource1
-            // 
-            this.cFDFacturaCompraCabBindingSource1.DataSource = typeof(FEChile.CFDFacturaCompraCab);
             // 
             // dgridTrxFacturas
             // 
@@ -440,12 +434,13 @@
             this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
+            this.tsMenuHerramientas,
             this.toolStripMenuItem3});
             this.menuStrip1.Location = new System.Drawing.Point(3, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(272, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(242, 24);
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -465,6 +460,21 @@
             this.salirToolStripMenuItem.Text = "Cerrar";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // tsMenuHerramientas
+            // 
+            this.tsMenuHerramientas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiConfiguracion});
+            this.tsMenuHerramientas.Name = "tsMenuHerramientas";
+            this.tsMenuHerramientas.Size = new System.Drawing.Size(90, 24);
+            this.tsMenuHerramientas.Text = "Herramientas";
+            // 
+            // tsmiConfiguracion
+            // 
+            this.tsmiConfiguracion.Name = "tsmiConfiguracion";
+            this.tsmiConfiguracion.Size = new System.Drawing.Size(150, 22);
+            this.tsmiConfiguracion.Text = "Configuración";
+            this.tsmiConfiguracion.Click += new System.EventHandler(this.tsmiConfiguracion_Click);
+            // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -477,7 +487,7 @@
             // 
             this.genFacturaElectrónicaV10ToolStripMenuItem.Name = "genFacturaElectrónicaV10ToolStripMenuItem";
             this.genFacturaElectrónicaV10ToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.genFacturaElectrónicaV10ToolStripMenuItem.Text = "Factura Electrónica Chile v. 1.4.6";
+            this.genFacturaElectrónicaV10ToolStripMenuItem.Text = "Factura Electrónica Chile v. 1.5.0";
             // 
             // toolStripMenuItem2
             // 
@@ -1721,12 +1731,12 @@
             this.reportVFacturaCompra.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.reportVFacturaCompra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportVFacturaCompra.DocumentMapWidth = 58;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.cFDFacturaCompraCabBindingSource;
-            reportDataSource2.Name = "DataSet2";
-            reportDataSource2.Value = this.cFDFacturaCompraCabBindingSource1;
-            this.reportVFacturaCompra.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportVFacturaCompra.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource3.Name = "DataSet1";
+            reportDataSource3.Value = this.cFDFacturaCompraCabBindingSource;
+            reportDataSource4.Name = "DataSet2";
+            reportDataSource4.Value = this.cFDFacturaCompraCabBindingSource1;
+            this.reportVFacturaCompra.LocalReport.DataSources.Add(reportDataSource3);
+            this.reportVFacturaCompra.LocalReport.DataSources.Add(reportDataSource4);
             this.reportVFacturaCompra.LocalReport.ReportEmbeddedResource = "EjecutableEncriptador.FacturaComprasReport.rdlc";
             this.reportVFacturaCompra.Location = new System.Drawing.Point(0, 0);
             this.reportVFacturaCompra.Name = "reportVFacturaCompra";
@@ -1781,6 +1791,14 @@
             this.panel7.Size = new System.Drawing.Size(1099, 490);
             this.panel7.TabIndex = 81;
             // 
+            // cFDFacturaCompraCabBindingSource
+            // 
+            this.cFDFacturaCompraCabBindingSource.DataSource = typeof(FEChile.CFDFacturaCompraCab);
+            // 
+            // cFDFacturaCompraCabBindingSource1
+            // 
+            this.cFDFacturaCompraCabBindingSource1.DataSource = typeof(FEChile.CFDFacturaCompraCab);
+            // 
             // winformGeneraFE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1796,8 +1814,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "GP Factura Electrónica";
             this.Load += new System.EventHandler(this.winformGeneraFE_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgridTrxFacturas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwCfdTransaccionesDeVentaBindingSource)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -1861,6 +1877,8 @@
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.binSourceVwCfdLibroCVLog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.binSourceVwCfdLogFacCompra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cFDFacturaCompraCabBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2013,6 +2031,8 @@
         private Microsoft.Reporting.WinForms.ReportViewer reportVFacturaCompra;
         private System.Windows.Forms.BindingSource cFDFacturaCompraCabBindingSource;
         private System.Windows.Forms.BindingSource cFDFacturaCompraCabBindingSource1;
+        private System.Windows.Forms.ToolStripMenuItem tsMenuHerramientas;
+        private System.Windows.Forms.ToolStripMenuItem tsmiConfiguracion;
     }
 }
 

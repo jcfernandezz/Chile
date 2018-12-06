@@ -196,6 +196,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\cfdFolios\cfdFolios.csproj">
+      <Project>{f23f3a74-696c-4269-b250-0a71823bb112}</Project>
+      <Name>cfdFolios</Name>
+    </ProjectReference>
     <ProjectReference Include="..\cfdLogFacturaXML\cfdLogFacturaXML.csproj">
       <Project>{6cb9257a-8125-41bd-a5cd-669c6c6e2cf4}</Project>
       <Name>cfdLogFacturaXML</Name>

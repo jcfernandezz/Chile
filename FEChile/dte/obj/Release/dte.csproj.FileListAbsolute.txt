@@ -6,3 +6,4 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\bin\Release\dte.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\bin\Release\dte.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\obj\Release\dte.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\obj\Release\dte.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\obj\Release\dte.csproj.CoreCompileInputs.cache

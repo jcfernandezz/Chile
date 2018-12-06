@@ -55,6 +55,9 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\bin\R
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\bin\Release\Encriptador.XmlSerializers.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\obj\Release\respuestaEnvioDTE.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\obj\Release\respuestaEnvioDTE.pdb
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\obj\Release\respuestaEnvioDTE.csprojResolveAssemblyReference.cache
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\bin\Release\envioDTE.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\bin\Release\envioDTE.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\bin\Release\Encriptador.dll.config
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\obj\Release\respuestaEnvioDTE.csprojAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\obj\Release\respuestaEnvioDTE.csproj.CoreCompileInputs.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\respuestaEnvioDTE\obj\Release\respuestaEnvioDTE.csproj.CopyComplete
