@@ -45,6 +45,14 @@ namespace Comun
                 return _ConnStrDyn = "User ID=" + _Usuario + ";Password=" + _Password + ";Initial Catalog=Dynamics;Data Source=" + _ServerAddress;
         }
 
+        public string ArmaConnStrEF()
+        {
+            if (_IntegratedSecurity)
+                return "provider connection string='data source=" + _ServerAddress + ";initial catalog=" + _Intercompany + ";integrated security = True; MultipleActiveResultSets=True; App=EntityFramework'";
+            else
+                return "provider connection string='data source=" + _ServerAddress + ";initial catalog=" + _Intercompany + ";user id=" + _Usuario + ";Password=" + _Password + ";integrated security=False; MultipleActiveResultSets=True;App=EntityFramework'";
+        }
+
         public string Compannia
         {
             get { return _Compannia; }

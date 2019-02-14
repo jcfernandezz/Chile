@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CHI10Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cfd_FOL00100">
+          <Key>
+            <PropertyRef Name="SOPTYPE" />
+            <PropertyRef Name="DOCID" />
+            <PropertyRef Name="num_folio_desde" />
+            <PropertyRef Name="num_folio_hasta" />
+          </Key>
+          <Property Name="SOPTYPE" Type="smallint" Nullable="false" />
+          <Property Name="DOCID" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="num_folio_desde" Type="int" Nullable="false" />
+          <Property Name="num_folio_hasta" Type="int" Nullable="false" />
+          <Property Name="ruta_codigo_autorizacion" Type="char" MaxLength="255" Nullable="false" />
+          <Property Name="DEX_ROW_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CHI10.dbo.vwCfdIdDocumentos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwCfdIdDocumentos">
+          <Key>
+            <PropertyRef Name="soptype" />
+            <PropertyRef Name="docid" />
+          </Key>
+          <Property Name="soptype" Type="smallint" Nullable="false" />
+          <Property Name="docid" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="SOPNUMBE" Type="char" MaxLength="21" Nullable="false" />
+          <Property Name="commntid" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="nombreTipoDoc" Type="varchar" MaxLength="38" Nullable="false" />
+          <Property Name="carpetaFolio" Type="nvarchar(max)" />
+        </EntityType>
+        <Function Name="SP_cfd_FOL00100" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SOPTYPE" Type="smallint" Mode="In" />
+          <Parameter Name="DOCID" Type="char" Mode="In" />
+          <Parameter Name="num_folio_desde" Type="int" Mode="In" />
+          <Parameter Name="num_folio_hasta" Type="int" Mode="In" />
+          <Parameter Name="ruta_codigo_autorizacion" Type="char" Mode="In" />
+        </Function>
+        <EntityContainer Name="CHI10ModelStoreContainer">
+          <EntitySet Name="cfd_FOL00100" EntityType="Self.cfd_FOL00100" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vwCfdIdDocumentos" EntityType="Self.vwCfdIdDocumentos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwCfdIdDocumentos].[soptype] AS [soptype], 
+    [vwCfdIdDocumentos].[docid] AS [docid], 
+    [vwCfdIdDocumentos].[SOPNUMBE] AS [SOPNUMBE], 
+    [vwCfdIdDocumentos].[commntid] AS [commntid], 
+    [vwCfdIdDocumentos].[nombreTipoDoc] AS [nombreTipoDoc], 
+    [vwCfdIdDocumentos].[carpetaFolio] AS [carpetaFolio]
+    FROM [dbo].[vwCfdIdDocumentos] AS [vwCfdIdDocumentos]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CHI10Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cfd_FOL00100">
+          <Key>
+            <PropertyRef Name="SOPTYPE" />
+            <PropertyRef Name="DOCID" />
+            <PropertyRef Name="num_folio_desde" />
+            <PropertyRef Name="num_folio_hasta" />
+          </Key>
+          <Property Name="SOPTYPE" Type="Int16" Nullable="false" />
+          <Property Name="DOCID" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="num_folio_desde" Type="Int32" Nullable="false" />
+          <Property Name="num_folio_hasta" Type="Int32" Nullable="false" />
+          <Property Name="ruta_codigo_autorizacion" Type="String" MaxLength="255" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DEX_ROW_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="CHI10Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cfd_FOL00100" EntityType="Self.cfd_FOL00100" />
+          <FunctionImport Name="SP_cfd_FOL00100">
+            <Parameter Name="SOPTYPE" Mode="In" Type="Int16" />
+            <Parameter Name="DOCID" Mode="In" Type="String" />
+            <Parameter Name="num_folio_desde" Mode="In" Type="Int32" />
+            <Parameter Name="num_folio_hasta" Mode="In" Type="Int32" />
+            <Parameter Name="ruta_codigo_autorizacion" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="vwCfdIdDocumentos" EntityType="CHI10Model.vwCfdIdDocumentos" />
+        </EntityContainer>
+        <EntityType Name="vwCfdIdDocumentos">
+          <Key>
+            <PropertyRef Name="soptype" />
+            <PropertyRef Name="docid" />
+          </Key>
+          <Property Name="soptype" Type="Int16" Nullable="false" />
+          <Property Name="docid" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="SOPNUMBE" Type="String" Nullable="false" MaxLength="21" FixedLength="true" Unicode="false" />
+          <Property Name="commntid" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="nombreTipoDoc" Type="String" Nullable="false" MaxLength="38" FixedLength="false" Unicode="false" />
+          <Property Name="carpetaFolio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CHI10ModelStoreContainer" CdmEntityContainer="CHI10Entities">
+          <EntitySetMapping Name="cfd_FOL00100">
+            <EntityTypeMapping TypeName="CHI10Model.cfd_FOL00100">
+              <MappingFragment StoreEntitySet="cfd_FOL00100">
+                <ScalarProperty Name="SOPTYPE" ColumnName="SOPTYPE" />
+                <ScalarProperty Name="DOCID" ColumnName="DOCID" />
+                <ScalarProperty Name="num_folio_desde" ColumnName="num_folio_desde" />
+                <ScalarProperty Name="num_folio_hasta" ColumnName="num_folio_hasta" />
+                <ScalarProperty Name="ruta_codigo_autorizacion" ColumnName="ruta_codigo_autorizacion" />
+                <ScalarProperty Name="DEX_ROW_ID" ColumnName="DEX_ROW_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_cfd_FOL00100" FunctionName="CHI10Model.Store.SP_cfd_FOL00100" />
+          <EntitySetMapping Name="vwCfdIdDocumentos">
+            <EntityTypeMapping TypeName="CHI10Model.vwCfdIdDocumentos">
+              <MappingFragment StoreEntitySet="vwCfdIdDocumentos">
+                <ScalarProperty Name="carpetaFolio" ColumnName="carpetaFolio" />
+                <ScalarProperty Name="nombreTipoDoc" ColumnName="nombreTipoDoc" />
+                <ScalarProperty Name="commntid" ColumnName="commntid" />
+                <ScalarProperty Name="SOPNUMBE" ColumnName="SOPNUMBE" />
+                <ScalarProperty Name="docid" ColumnName="docid" />
+                <ScalarProperty Name="soptype" ColumnName="soptype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

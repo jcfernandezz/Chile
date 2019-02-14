@@ -21,6 +21,8 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\MaquinaDeEstados.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\Comun.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\bin\Release\CLConfiguracion.pdb
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.csprojResolveAssemblyReference.cache
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.csprojAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.csproj.CoreCompileInputs.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaCompra\obj\Release\cfdLogFacturaCompra.csproj.CopyComplete

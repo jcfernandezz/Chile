@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <listaParametros>
-  <servidor>10.1.1.24</servidor>
+  <servidor>10.1.1.22</servidor>
   <seguridadIntegrada>0</seguridadIntegrada>
   <usuariosql>sa</usuariosql>
-  <passwordsql>imagenes24</passwordsql>
+  <passwordsql>sa22</passwordsql>
   <ingresoPredeterminado>CHI10</ingresoPredeterminado>
   <compannia bd="CHI10">
 	<encoding>ISO-8859-1</encoding>

@@ -8,4 +8,5 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdCertificados\bin\Rel
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdCertificados\bin\Release\MyGeneration.dOOdads_2005.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdCertificados\obj\Release\cfdCertificados.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdCertificados\obj\Release\cfdCertificados.pdb
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdCertificados\obj\Release\cfdCertificados.csprojResolveAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdCertificados\obj\Release\cfdCertificados.csproj.CoreCompileInputs.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdCertificados\obj\Release\cfdCertificados.csproj.CopyComplete

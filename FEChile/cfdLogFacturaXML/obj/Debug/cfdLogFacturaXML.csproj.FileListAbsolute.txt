@@ -21,6 +21,8 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaXML\bin\De
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaXML\bin\Debug\Comun.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaXML\bin\Debug\MaquinaDeEstados.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaXML\bin\Debug\CLConfiguracion.pdb
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaXML\obj\Debug\cfdLogFacturaXML.csprojResolveAssemblyReference.cache
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaXML\obj\Debug\cfdLogFacturaXML.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaXML\obj\Debug\cfdLogFacturaXML.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaXML\obj\Debug\cfdLogFacturaXML.csprojAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaXML\obj\Debug\cfdLogFacturaXML.csproj.CoreCompileInputs.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\cfdLogFacturaXML\obj\Debug\cfdLogFacturaXML.csproj.CopyComplete

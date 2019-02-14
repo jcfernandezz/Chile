@@ -19,6 +19,7 @@ as
 --30/6/14 JCF Agrega dirección fija: FELECTRONICA
 --28/7/14 jcf Agrega parámetro tipoLibro para emitir lv, lc especial de set de pruebas
 --27/1/15 jcf Agrega parámetro GIRO para indicar el giro de la empresa
+--05/12/18 jcf Modifica inet8
 --
 return
 ( 
@@ -38,7 +39,7 @@ select rtrim(ls.RutCia) idImpuesto,
 			rtrim(ci.ADDRESS1)+' '+rtrim(ci.ADDRESS2)+' '+RTRIM(ci.ZIPCODE)+' '+RTRIM(ci.COUNTY)+' '+RTRIM(ci.CITY)+' '+RTRIM(ci.[STATE])+' '+RTRIM(ci.CMPCNTRY)), 10), 250) LugarExpedicion,
 	'1.0' [version], 
 	dbo.fCfdReemplazaSecuenciaDeEspacios(dbo.fCfdReemplazaCaracteresNI(ISNULL(nt.INET7, '')), 10) rutaXml,
-	dbo.fCfdReemplazaSecuenciaDeEspacios(dbo.fCfdReemplazaCaracteresNI(ISNULL(nt.INET8, '')), 10) noUtilizado,
+	dbo.fCfdReemplazaSecuenciaDeEspacios(dbo.fCfdReemplazaCaracteresNI(ISNULL(nt.INET8, '')), 10) inet8,
 	case when charindex('IMPUESTOS=', nt.inetinfo) > 0 and charindex(char(13), nt.inetinfo) > 0 then
 		substring(nt.inetinfo, charindex('IMPUESTOS=', nt.inetinfo)+10, charindex(char(13), nt.inetinfo, charindex('IMPUESTOS=', nt.inetinfo)) - charindex('IMPUESTOS=', nt.inetinfo) -10) 
 	else 'no hay impuestos' end impuestos,

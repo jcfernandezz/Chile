@@ -2125,5 +2125,10 @@ namespace EjecutableEncriptador
             }
         }
 
-     }
+        private void tsmiConfiguracion_Click(object sender, EventArgs e)
+        {
+            Configuraciones configForm = new Configuraciones(DatosConexionDB.Elemento); 
+            configForm.ShowDialog();
+        }
+    }
 }

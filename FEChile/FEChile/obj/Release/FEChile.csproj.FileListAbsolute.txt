@@ -78,9 +78,13 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\bin\Release\Spi
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\bin\Release\EstructuraMensajeEMail.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\bin\Release\Encriptador.XmlSerializers.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\bin\Release\Reporteador.XmlSerializers.dll
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\obj\Release\FEChile.csprojResolveAssemblyReference.cache
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\obj\Release\FEChile.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\obj\Release\FEChile.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\obj\Release\FEChile.XmlSerializers.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\bin\Release\envioDTE.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\bin\Release\envioDTE.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\bin\Release\Encriptador.dll.config
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\bin\Release\Reporteador.dll.config
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\obj\Release\FEChile.csprojAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\obj\Release\FEChile.csproj.CoreCompileInputs.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\FEChile\obj\Release\FEChile.csproj.CopyComplete

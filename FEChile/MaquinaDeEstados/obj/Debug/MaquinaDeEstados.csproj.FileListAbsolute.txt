@@ -31,6 +31,8 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\De
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\Debug\Ionic.Zip.Reduced.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\Debug\Comun.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\bin\Debug\CLConfiguracion.pdb
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.csprojResolveAssemblyReference.cache
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.csprojAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.csproj.CoreCompileInputs.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\MaquinaDeEstados\obj\Debug\MaquinaDeEstados.csproj.CopyComplete

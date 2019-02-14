@@ -31,6 +31,9 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServici
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServicios\bin\Debug\Comun.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServicios\bin\Debug\CLConfiguracion.pdb
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServicios\bin\Debug\Encriptador.XmlSerializers.dll
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServicios\obj\Debug\ReciboMercaderiaServicios.csprojResolveAssemblyReference.cache
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServicios\obj\Debug\ReciboMercaderiaServicios.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServicios\obj\Debug\ReciboMercaderiaServicios.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServicios\bin\Debug\Encriptador.dll.config
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServicios\obj\Debug\ReciboMercaderiaServicios.csprojAssemblyReference.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServicios\obj\Debug\ReciboMercaderiaServicios.csproj.CoreCompileInputs.cache
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\ReciboMercaderiaServicios\obj\Debug\ReciboMercaderiaServicios.csproj.CopyComplete
