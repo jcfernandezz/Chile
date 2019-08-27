@@ -5,6 +5,6 @@ C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\dte\obj\Debu
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\E_Implementation\FEChile\dte\obj\Debug\dte.csprojResolveAssemblyReference.cache
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\bin\Debug\dte.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\bin\Debug\dte.pdb
+C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\obj\Debug\dte.csproj.CoreCompileInputs.cache
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\obj\Debug\dte.dll
 C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\obj\Debug\dte.pdb
-C:\jcTii\Desarrollo\CHI_FacturaElectronica\chiFe\FEChile\dte\obj\Debug\dte.csproj.CoreCompileInputs.cache
