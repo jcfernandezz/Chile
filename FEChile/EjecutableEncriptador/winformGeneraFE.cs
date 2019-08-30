@@ -2129,6 +2129,11 @@ namespace EjecutableEncriptador
         {
             Configuraciones configForm = new Configuraciones(DatosConexionDB.Elemento); 
             configForm.ShowDialog();
+
+            txtbxMensajes.Text = "";
+            LDocsNoSeleccionados = new List<SopDocument>();
+            AplicaFiltroYActualizaPantalla();
+
         }
     }
 }

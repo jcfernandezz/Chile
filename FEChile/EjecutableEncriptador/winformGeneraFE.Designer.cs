@@ -479,7 +479,7 @@
             // tsmiConfiguracion
             // 
             this.tsmiConfiguracion.Name = "tsmiConfiguracion";
-            this.tsmiConfiguracion.Size = new System.Drawing.Size(150, 22);
+            this.tsmiConfiguracion.Size = new System.Drawing.Size(180, 22);
             this.tsmiConfiguracion.Text = "Configuración";
             this.tsmiConfiguracion.Click += new System.EventHandler(this.tsmiConfiguracion_Click);
             // 
@@ -495,7 +495,7 @@
             // 
             this.genFacturaElectrónicaV10ToolStripMenuItem.Name = "genFacturaElectrónicaV10ToolStripMenuItem";
             this.genFacturaElectrónicaV10ToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.genFacturaElectrónicaV10ToolStripMenuItem.Text = "Factura Electrónica Chile v. 1.5.1";
+            this.genFacturaElectrónicaV10ToolStripMenuItem.Text = "Factura Electrónica Chile v. 1.5.2";
             // 
             // toolStripMenuItem2
             // 
